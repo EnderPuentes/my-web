@@ -9,6 +9,7 @@ export default function Footer({}: Props) {
     <footer className="flex flex-col justify-center items-center gap-5">
       <div className="flex justify-center items-center gap-4">
         <Link
+          aria-label="Linkedin"
           className="text-2xl"
           target="_blank"
           href="https://www.linkedin.com/in/enderpuents-dev/"
@@ -16,6 +17,7 @@ export default function Footer({}: Props) {
           <PiLinkedinLogo />
         </Link>
         <Link
+          aria-label="Twitter"
           className="text-2xl"
           target="_blank"
           href="https://twitter.com/EnderPuents"
@@ -23,6 +25,7 @@ export default function Footer({}: Props) {
           <PiTwitterLogo />
         </Link>
         <Link
+          aria-label="Github"
           className="text-2xl"
           target="_blank"
           href="https://github.com/EnderPuentes"
