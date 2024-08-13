@@ -1,3 +1,6 @@
+import Footer from '@/components/layout/footer';
+import Header from '@/components/layout/header';
+import ThemeProvider from '@/components/providers/theme';
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
@@ -16,7 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={jetBrainsMono.className}>{children}</body>
+      <body className={`${jetBrainsMono.className} flex flex-col min-h-screen`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
