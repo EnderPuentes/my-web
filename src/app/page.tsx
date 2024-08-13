@@ -3,7 +3,7 @@ export default function Home() {
     <>
       <section className="py-10">
         <div className="container flex flex-col justify-start items-start gap-5">
-          <h3 className="font-semibold text-xl">Sobre mí</h3>
+          <h1 className="font-semibold text-xl">Sobre mí</h1>
           <p className="text-base leading-7">
             Soy un desarrollador proactivo y apasionado con capacidad para
             abordar desafíos de manera creativa y eficiente. Destaco por mi
