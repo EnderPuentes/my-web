@@ -1,6 +1,7 @@
 import Logo from '@/components/layout/logo';
 import ThemeToggler from '@/components/layout/theme-toggler';
 import Link from 'next/link';
+import { PiGithubLogo, PiLinkedinLogo, PiTwitterLogo } from 'react-icons/pi';
 
 type Props = {};
 
@@ -12,7 +13,32 @@ export default function Header({}: Props) {
           <Logo />
           <p className="text-xs">Ender Puentes</p>
         </Link>
-        <ThemeToggler />
+        <div className="flex justify-between items-center gap-6">
+          <div className="flex justify-between items-center gap-3">
+            <Link
+              className="text-2xl"
+              target="_blank"
+              href="https://www.linkedin.com/in/enderpuents-dev/"
+            >
+              <PiLinkedinLogo />
+            </Link>
+            <Link
+              className="text-2xl"
+              target="_blank"
+              href="https://twitter.com/EnderPuents"
+            >
+              <PiTwitterLogo />
+            </Link>
+            <Link
+              className="text-2xl"
+              target="_blank"
+              href="https://github.com/EnderPuentes"
+            >
+              <PiGithubLogo />
+            </Link>
+            <ThemeToggler />
+          </div>
+        </div>
       </div>
     </header>
   );
