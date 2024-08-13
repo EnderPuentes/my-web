@@ -35,7 +35,7 @@ export default function Footer({}: Props) {
       </div>
       <div className="container p-2 flex justify-center items-center">
         <p className="text-xs">
-          Ender Puentes - Copyright {date.getFullYear()}
+          Ender Puentes - © Copyright {date.getFullYear()}
         </p>
       </div>
     </footer>
