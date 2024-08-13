@@ -16,6 +16,7 @@ export default function Header({}: Props) {
         <div className="flex justify-between items-center gap-6">
           <div className="flex justify-between items-center gap-3">
             <Link
+              aria-label="Linkedin"
               className="text-2xl"
               target="_blank"
               href="https://www.linkedin.com/in/enderpuents-dev/"
@@ -23,6 +24,7 @@ export default function Header({}: Props) {
               <PiLinkedinLogo />
             </Link>
             <Link
+              aria-label="Twitter"
               className="text-2xl"
               target="_blank"
               href="https://twitter.com/EnderPuents"
@@ -30,6 +32,7 @@ export default function Header({}: Props) {
               <PiTwitterLogo />
             </Link>
             <Link
+              aria-label="Github"
               className="text-2xl"
               target="_blank"
               href="https://github.com/EnderPuentes"
