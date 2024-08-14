@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PiGithubLogo, PiLinkedinLogo, PiTwitterLogo } from 'react-icons/pi';
+import { PiGithubLogo, PiLinkedinLogo } from 'react-icons/pi';
 
 type Props = {};
 
@@ -15,14 +15,6 @@ export default function Footer({}: Props) {
           href="https://www.linkedin.com/in/enderpuents-dev/"
         >
           <PiLinkedinLogo />
-        </Link>
-        <Link
-          aria-label="Twitter"
-          className="text-2xl"
-          target="_blank"
-          href="https://twitter.com/EnderPuents"
-        >
-          <PiTwitterLogo />
         </Link>
         <Link
           aria-label="Github"
