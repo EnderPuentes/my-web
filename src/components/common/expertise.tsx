@@ -94,7 +94,13 @@ export default function Expertise({}: Props) {
                   </div>
                   <div className="flex flex-col justify-start items-start gap-1 w-auto">
                     {it.website ? (
-                      <Link href={it.website} className="font-bold">
+                      <Link
+                        aria-label={it.title}
+                        href={it.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold"
+                      >
                         <h6>{it.title}</h6>
                       </Link>
                     ) : (
