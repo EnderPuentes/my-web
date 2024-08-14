@@ -32,9 +32,9 @@ export default function Logo({}: Props) {
   }, []);
 
   return (
-    <h1 className="text-2xl">
+    <h1 className="text-2xl font-light">
       {displayText.slice(0, 2)}
-      <span className="font-bold">
+      <span className="font-black">
         {displayText.slice(2, displayText.length)}
       </span>
       {showCursor && <span className="font-bold">_</span>}
