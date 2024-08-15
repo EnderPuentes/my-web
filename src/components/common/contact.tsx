@@ -60,9 +60,9 @@ export default function PageNewForm() {
               correo electrónico a{' '}
               <Link
                 className="text-gray-500"
-                href="mailto:hola@enderpuentes.com"
+                href="mailto:hello@enderpuentes.com"
               >
-                hola@enderpuentes.com{' '}
+                hello@enderpuentes.com{' '}
               </Link>
               o utilizar el formulario de contacto que encontrarás a
               continuación.
