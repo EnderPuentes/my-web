@@ -18,7 +18,7 @@ export default function About({}: Props) {
           </CardHeader>
           <CardContent className="grid gap-4">
             <p className="text-base leading-7">
-              Soy un desarrollador proactivo y apasionado con 7 años de carrera
+              Soy un desarrollador proactivo y apasionado con 8 años de carrera
               profesional en el campo del desarrollo de software. He trabajado
               con diversos lenguajes de programación, enfocado principalmente en
               el desarrollo de aplicaciones web. Mi experiencia incluye la
