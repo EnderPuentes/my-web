@@ -22,9 +22,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${jetBrainsMono.className} flex flex-col min-h-screen`}>
-        <ReCaptchaProvider
-          reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-        >
+        <ReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Header />
             <main className="flex-1">{children}</main>
