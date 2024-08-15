@@ -46,7 +46,7 @@ const jobs: Job[] = [
       name: 'Libre Opción',
       logo: '/images/expertises/libreopcion.webp',
       description:
-        'Es una plataforma de comercio electrónico (marketplace) respaldada por las principales marcas de tecnología y las mejores tiendas de Argentina, así como por un distribuidor con más de 20 años de experiencia en el mercado. Esta vidriera virtual, formada por pequeñas y medianas empresas argentinas, incluye más de 400 marcas de tecnología. ',
+        'Es una plataforma de comercio electrónico (marketplace) respaldada por las principales marcas de tecnología y las mejores tiendas de Argentina, incluyendos más de 400 marcas de tecnología. ',
       location: 'Buenos Aires',
       website: 'https://libreopcion.com',
     },
@@ -104,7 +104,7 @@ export default function Expertise({}: Props) {
                   key={i}
                   className="flex justify-start items-start gap-5 border-b pb-10 last:pb-0 last:border-b-0"
                 >
-                  <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full">
+                  <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full bg-white">
                     <Image
                       src={job.company.logo}
                       alt={job.company.name}
@@ -137,10 +137,10 @@ export default function Expertise({}: Props) {
                       <span className="text-xs">{job.company.location}</span>
                     </div>
                     <div className="flex flex-col justify-start items-start gap-5 mb-2">
-                      <p className="leading-7 text-base">
+                      <p className="leading-7 text-base dark:text-gray-300">
                         {job.company.description}
                       </p>
-                      <p className="leading-7 text-base">
+                      <p className="leading-7 text-base dark:text-gray-300">
                         <strong className="font-bold">Tecnologías: </strong>{' '}
                         {job.technologies}
                       </p>

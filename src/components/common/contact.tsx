@@ -18,33 +18,88 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useReCaptcha } from 'next-recaptcha-v3';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: 'El campo es requerido.',
+    message:
+      'Por favor, introduce tu nombre para que pueda dirigirme a ti correctamente.',
   }),
   email: z
     .string()
     .min(1, {
-      message: 'El campo es requerido.',
+      message: 'Necesito tu email para poder ponerme en contacto contigo.',
     })
     .email({ message: 'Debe ser un correo electrónico válido.' }),
+  message: z.string().min(1, {
+    message: 'Cuéntame cómo puedo ayudarte completando el campo de mensaje.',
+  }),
 });
 
+export type FormSchema = z.infer<typeof formSchema>;
+
 export default function PageNewForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const { toast } = useToast();
+  const { executeRecaptcha } = useReCaptcha();
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       email: '',
+      message: '',
     },
   });
 
-  function onSubmit(form: z.infer<typeof formSchema>) {}
+  async function sendMessage(formData: FormSchema) {
+    const token = await executeRecaptcha('form_submit');
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/form/send`,
+      {
+        method: 'POST',
+        body: JSON.stringify({ form: formData, token }),
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    );
+    const data = await response.json();
+    if (!response.ok) {
+      // data is { errors: [{ error: mesagge }] }
+      throw new Error(data.error);
+    }
+    return data;
+  }
+
+  function onSubmit(formData: FormSchema) {
+    setIsLoading(true);
+    sendMessage(formData)
+      .then(() => {
+        toast({
+          title: '¡Éxito!',
+          description:
+            'Tu mensaje ha sido enviado correctamente. Te responderé a la mayor brevedad posible..',
+        });
+        form.reset();
+        setIsLoading(false);
+      })
+      .catch((error: any) => {
+        toast({
+          variant: 'destructive',
+          title: '¡Ups!',
+          description: String(error?.message),
+        });
+        setIsLoading(false);
+      });
+  }
 
   return (
     <section className="mb-10">
@@ -54,7 +109,7 @@ export default function PageNewForm() {
             <CardTitle className="font-semibold text-xl">Charlemos</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <p className="text-base leading-7">
+            <p className="text-base dark:text-gray-300 leading-7">
               Si estás interesado en colaborar conmigo o tienes alguna propuesta
               de proyecto, por favor no dudes en contactarme. Puedes enviarme un
               correo electrónico a{' '}
@@ -77,11 +132,14 @@ export default function PageNewForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Nombre*</FormLabel>
+                      <FormLabel className="text-current">Nombre*</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input
+                          {...field}
+                          placeholder="Ingresa tu nombre aquí"
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-700" />
                     </FormItem>
                   )}
                 />
@@ -91,31 +149,39 @@ export default function PageNewForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Correo electrónico*</FormLabel>
+                      <FormLabel className="text-current">
+                        Correo electrónico*
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input {...field} placeholder="Ingresa tu email aquí" />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-700" />
                     </FormItem>
                   )}
                 />
 
                 <FormField
                   control={form.control}
-                  name="email"
+                  name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Mensaje*</FormLabel>
+                      <FormLabel className="text-current">Mensaje*</FormLabel>
                       <FormControl>
-                        <Textarea {...field} rows={5} />
+                        <Textarea
+                          {...field}
+                          rows={5}
+                          placeholder="¿En qué puedo ayudarte?"
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-700" />
                     </FormItem>
                   )}
                 />
 
                 <div className="flex justify-center items-center">
-                  <Button type="submit">Enviar Mensaje</Button>
+                  <Button type="submit" disabled={isLoading}>
+                    {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
+                  </Button>
                 </div>
               </form>
             </Form>
