@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
-export default function Hero() {
-  const text = `Ender Puentes 👾\n   Software Developer 💻`;
+type Props = {
+  text: string;
+};
 
+export default function Hero({ text }: Props) {
   const [index, setIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [showCursor, setShowCursor] = useState(true);

@@ -1,4 +1,4 @@
-import { FormSchema } from '@/components/common/contact';
+import { FormSchema } from '@/components/sections/contact';
 import { NextRequest, NextResponse } from 'next/server';
 import { createTransport } from 'nodemailer';
 

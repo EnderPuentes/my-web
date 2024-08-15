@@ -1,18 +1,12 @@
-import About from '@/components/common/about';
-import Contact from '@/components/common/contact';
-import Education from '@/components/common/education';
-import Expertise from '@/components/common/expertise';
-import Hero from '@/components/common/hero';
-import Skills from '@/components/common/skills';
+import About from '@/components/sections/about';
+import Contact from '@/components/sections/contact';
+import Hero from '@/components/sections/hero';
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Hero text={`Ender Puentes 👾\n   Software Developer 💻`} />
       <About />
-      <Skills />
-      <Expertise />
-      <Education />
       <Contact />
     </>
   );
