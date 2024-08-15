@@ -47,7 +47,7 @@ export default function PageNewForm() {
   function onSubmit(form: z.infer<typeof formSchema>) {}
 
   return (
-    <section className="py-10">
+    <section className="mb-10">
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card>
           <CardHeader>

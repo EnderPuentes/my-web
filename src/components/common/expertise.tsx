@@ -102,7 +102,7 @@ export default function Expertise({}: Props) {
               <>
                 <div
                   key={i}
-                  className="flex justify-start items-start gap-5 border-b pb-10 last:border-b-0"
+                  className="flex justify-start items-start gap-5 border-b pb-10 last:pb-0 last:border-b-0"
                 >
                   <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full">
                     <Image
