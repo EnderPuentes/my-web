@@ -12,12 +12,12 @@ export default function About({}: Props) {
   return (
     <section className="mb-10">
       <div className="container flex flex-col justify-start items-start gap-5">
-        <Card>
+        <Card className="w-full">
           <CardHeader>
             <CardTitle className="font-semibold text-xl">Sobre mí</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <p className="text-base leading-7">
+            <p className="text-base dark:text-gray-300 leading-7">
               Soy un desarrollador proactivo y apasionado con 8 años de carrera
               profesional en el campo del desarrollo de software. He trabajado
               con diversos lenguajes de programación, enfocado principalmente en
