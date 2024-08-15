@@ -22,8 +22,10 @@ import { useToast } from '@/components/ui/use-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { PiHeartFill } from 'react-icons/pi';
 import { z } from 'zod';
 
 const formSchema = z.object({
@@ -49,6 +51,8 @@ export default function PageNewForm() {
   const { executeRecaptcha } = useReCaptcha();
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -102,7 +106,14 @@ export default function PageNewForm() {
   }
 
   return (
-    <section className="mb-10">
+    <section id="contact" className="mb-10">
+      <Button
+        className="fixed right-5 bottom-5 flex justify-start items-center gap-3"
+        onClick={() => router.push('/#contact')}
+      >
+        {' '}
+        Charlemos <PiHeartFill className="text-xl" />
+      </Button>
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card>
           <CardHeader>
