@@ -15,7 +15,7 @@ export default function Header({}: Props) {
       <div className="container flex justify-between items-center">
         <Link href={'/'} className="flex justify-start items-start flex-col">
           <Logo />
-          <p className="text-xs">Ender Puentes</p>
+          {/* <p className="text-xs">Ender Puentes</p> */}
         </Link>
         <div className="flex justify-between items-center gap-8">
           <div className="flex justify-between items-center gap-3">

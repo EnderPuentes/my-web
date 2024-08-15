@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 export default function Hero() {
-  const text = `Hola Mundo`;
+  const text = `Ender Puentes\n   Software Developer`;
 
   const [index, setIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
