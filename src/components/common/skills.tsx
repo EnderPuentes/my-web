@@ -65,9 +65,9 @@ export default function Skills({}: Props) {
                   className="flex flex-col justify-start items-start gap-1"
                 >
                   <div className="flex flex-col justify-start items-start gap-1 mb-2">
-                    <h6 className="text-base dark:text-gray-300 font-bold">
+                    <p className="text-base dark:text-gray-300 font-bold">
                       {skill.title}
-                    </h6>
+                    </p>
                     <p className="leading-7 text-base dark:text-gray-300">
                       {skill.technologies}
                     </p>
