@@ -21,7 +21,7 @@ const skills: Skill[] = [
   {
     title: 'Desarrollo Web',
     technologies:
-      'React, Next.js, Vue, Nuxt.js, Sanity, Strapi, Laravel, Docker, CodeIgniter, Css, Sass, Tailwing, Chakra UI, Shadcn UI. StoryBook',
+      'React, Next.js, Vue, Nuxt.js, Sanity, Strapi, Laravel, Docker, CodeIgniter, CSS, SCSS, Styled Components, Tailwind CSS, Chakra UI, Shadcn UI. StoryBook',
   },
   {
     title: 'Servicios en la nube',

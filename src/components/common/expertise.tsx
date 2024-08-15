@@ -38,7 +38,7 @@ const jobs: Job[] = [
     startDate: 'Febrero 2022',
     endDate: 'Actualidad',
     technologies:
-      'Javascript, TypeScript, React.js, Next.js (Server Components), Node.js, Express, Rest API, GraphQL, MySQL, SOQL, Prisma, Docker, Dokku, Strapi, Sanity, Linux Server, Vercel, Salesforce, Styled Components, Tailwind UI, Chakra UI, Shadcn UI, Sass, Jest, Cypress, Cronjobs, Storybook, Electron.',
+      'Javascript, TypeScript, React.js, Next.js (Server Components), Node.js, Express, Rest API, GraphQL, MySQL, SOQL, Prisma, Docker, Dokku, Strapi, Sanity, Linux Server, Vercel, Salesforce, Styled Components, Tailwind CSS, Chakra UI, Shadcn UI, CSS, SCSS, Jest, Cypress, Cronjobs, Storybook, Electron.',
   },
   {
     title: 'Software Developer',
@@ -53,7 +53,7 @@ const jobs: Job[] = [
     startDate: 'Junio 2019',
     endDate: 'Febrero 2022',
     technologies:
-      'Javascript, Vuej.js, Nuxt.js, PHP, Restler, Slim4, Laravel, SQL Server, MySql, MariaDB, Python, Apache, Linux Server, Shell, Sass, BootStrap.',
+      'Javascript, Vuej.js, Nuxt.js, PHP, Restler, Slim4, Laravel, SQL Server, MySql, MariaDB, Python, Apache, Linux Server, Shell, CSS, SCSS, Bootstrap.',
   },
   {
     title: 'FullStack Developer',
@@ -68,7 +68,7 @@ const jobs: Job[] = [
     startDate: 'Noviembre 2017',
     endDate: 'Junio 2019',
     technologies:
-      'PHP, CodeIgniter, MySQL, Apache, JavaScript, Vue.js, Nuxt.js, Node.js, JQuery, BootStrap, Email Marketing',
+      'PHP, CodeIgniter, MySQL, Apache, JavaScript, Vue.js, Nuxt.js, Node.js, JQuery, Bootstrap, Email Marketing',
   },
   {
     title: 'Frontend Developer',
