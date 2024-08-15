@@ -33,8 +33,8 @@ const skills: Skill[] = [
     technologies: 'MSSQL, MySql, MariaDB, MongoDB, GraphQL, Prisma.',
   },
   {
-    title: 'Manejo de Pruebas',
-    technologies: 'Test Unitarios (Jest), Test de integración (Cypress)',
+    title: 'Gestión de Pruebas',
+    technologies: 'Pruebas unitarias (Jest), pruebas de integración (Cypress)',
   },
   {
     title: 'DevOps',
