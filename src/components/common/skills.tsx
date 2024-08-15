@@ -21,16 +21,20 @@ const skills: Skill[] = [
   {
     title: 'Desarrollo Web',
     technologies:
-      'React, Next.js, Vue, Nuxt.js, Sanity, Strapi, Laravel, CodeIgniter, Css, Sass, Tailwing, Chakra UI, Shadcn UI.',
+      'React, Next.js, Vue, Nuxt.js, Sanity, Strapi, Laravel, Docker, CodeIgniter, Css, Sass, Tailwing, Chakra UI, Shadcn UI. StoryBook',
   },
   {
     title: 'Servicios en la nube',
     technologies:
-      'Vercel, Google Cloud, CI (Gitlab, Github), S3, EC2 (AWS), Funciones Lambda.',
+      'Vercel, Google Cloud, Dokku, CI (Gitlab, Github), S3, EC2 (AWS), Funciones Lambda.',
   },
   {
     title: 'Administración de Base de Datos',
     technologies: 'MSSQL, MySql, MariaDB, MongoDB, GraphQL, Prisma.',
+  },
+  {
+    title: 'Manejo de Pruebas',
+    technologies: 'Test Unitarios (Jest), Test de integración (Cypress)',
   },
   {
     title: 'DevOps',
