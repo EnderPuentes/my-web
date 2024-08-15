@@ -16,7 +16,7 @@ export default function Footer({}: Props) {
             aria-label="Linkedin"
             className="text-4xl"
             target="_blank"
-            href="https://www.linkedin.com/in/enderpuents-dev/"
+            href="https://www.linkedin.com/in/enderpuentes/"
           >
             <PiLinkedinLogoBold />
           </Link>
