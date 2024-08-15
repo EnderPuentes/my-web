@@ -3,13 +3,11 @@
 import Logo from '@/components/layout/logo';
 import ThemeToggler from '@/components/layout/theme-toggler';
 import Link from 'next/link';
-import { useState } from 'react';
 import { PiGithubLogo, PiLinkedinLogo } from 'react-icons/pi';
 
 type Props = {};
 
 export default function Header({}: Props) {
-  const [openMenu, setOpenMenu] = useState(false);
   return (
     <header className="sticky top-0 border-b bg-background z-50 shadow-sm h-20 flex justify-center items-center">
       <div className="container flex justify-between items-center">
