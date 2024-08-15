@@ -100,7 +100,10 @@ export default function Expertise({}: Props) {
           <CardContent className="grid gap-10">
             {jobs.map((job, i) => (
               <>
-                <div key={i} className="flex justify-start items-start gap-5">
+                <div
+                  key={i}
+                  className="flex justify-start items-start gap-5 border-b pb-10 last:border-b-0"
+                >
                   <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full">
                     <Image
                       src={job.company.logo}
