@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 export default function Hero() {
-  const text = `Ender Puentes\n   Software Developer`;
+  const text = `Ender Puentes 👾\n   Software Developer 💻`;
 
   const [index, setIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
@@ -28,9 +28,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center bg-gray-900 py-5 mb-10">
+    <div className="flex justify-center items-center bg-gray-200 dark:bg-gray-900 py-5 mb-10">
       <div className="container">
-        <div className="bg-black rounded-lg shadow-lg overflow-hidden w-full h-[220px] md:h-[380px]">
+        <div className="bg-black rounded-lg shadow-lg overflow-hidden w-full h-[220px] md:h-[250px]">
           <div className="bg-gray-800 text-gray-300 p-3 flex items-center space-x-2 w-full">
             <span className="block w-3 h-3 rounded-full bg-red-500"></span>
             <span className="block w-3 h-3 rounded-full bg-yellow-500"></span>
