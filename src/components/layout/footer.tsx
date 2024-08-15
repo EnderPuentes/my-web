@@ -9,7 +9,7 @@ export default function Footer({}: Props) {
     <footer className="flex flex-col justify-center items-center gap-10">
       <div className="flex flex-col justify-center items-center gap-5 py-10">
         <p className="text-lg text-gray-600">
-          ¡Conéctemenos y mantengamos contacto!
+          ¡Conéctate conmigo y mantengamos el contacto!
         </p>
         <div className="flex justify-center items-center gap-4">
           <Link
