@@ -68,7 +68,7 @@ export default function Education({}: Props) {
                   </div>
                   <div className="flex flex-col justify-start items-start gap-1">
                     <div className="flex flex-col justify-start items-start gap-1 mb-2">
-                      <h6 className="text-lg font-bold">{edu.title}</h6>
+                      <p className="text-lg font-bold">{edu.title}</p>
                       {edu.school.website ? (
                         <Link
                           aria-label={edu.school.name}
@@ -80,7 +80,7 @@ export default function Education({}: Props) {
                           <span>{edu.school.name}</span>
                         </Link>
                       ) : (
-                        <h6 className="font-bold">{edu.school.name}</h6>
+                        <p className="font-bold">{edu.school.name}</p>
                       )}
 
                       <span className="text-xs">

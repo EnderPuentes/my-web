@@ -116,7 +116,7 @@ export default function Expertise({}: Props) {
                   </div>
                   <div className="flex flex-col justify-start items-start gap-1">
                     <div className="flex flex-col justify-start items-start gap-1 mb-2">
-                      <h6 className="text-lg font-bold">{job.title}</h6>
+                      <p className="text-lg font-bold">{job.title}</p>
                       {job.company.website ? (
                         <Link
                           aria-label={job.company.name}
@@ -125,10 +125,10 @@ export default function Expertise({}: Props) {
                           rel="noopener noreferrer"
                           className="font-bold underline  "
                         >
-                          <span>{job.company.name}</span>
+                          <p>{job.company.name}</p>
                         </Link>
                       ) : (
-                        <h6 className="font-bold">{job.company.name}</h6>
+                        <p className="font-bold">{job.company.name}</p>
                       )}
 
                       <span className="text-xs">
