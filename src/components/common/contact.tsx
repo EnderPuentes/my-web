@@ -125,7 +125,7 @@ export default function PageNewForm() {
               de proyecto, por favor no dudes en contactarme. Puedes enviarme un
               correo electrónico a{' '}
               <Link
-                className="text-gray-500"
+                className="text-gray-900 dark:text-gray-200 underline font-semibold"
                 href="mailto:hello@enderpuentes.com"
               >
                 hello@enderpuentes.com{' '}
