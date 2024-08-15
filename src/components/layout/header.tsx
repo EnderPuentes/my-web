@@ -17,7 +17,7 @@ export default function Header({}: Props) {
           <Logo />
           <p className="text-xs">Ender Puentes</p>
         </Link>
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="flex justify-between items-center gap-8">
           <div className="flex justify-between items-center gap-3">
             <Link
               aria-label="Linkedin"
