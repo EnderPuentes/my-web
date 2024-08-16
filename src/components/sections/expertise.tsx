@@ -255,15 +255,15 @@ export default function Expertise({}: Props) {
                 <>
                   <AccordionItem value={`job-${ji}`} key={`job-${ji}`}>
                     <AccordionTrigger className="hover:no-underline">
-                      <div className="flex justify-start items-start gap-7">
-                        <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full bg-white">
+                      <div className="flex justify-start items-start gap-5 sm:gap-7">
+                        <div className="min-w-[40px] sm:min-w-[60px] min-h-[40px] sm:min-h-[60px] flex justify-center items-center border rounded-full bg-white">
                           <Image
                             src={job.company.logo}
                             alt={job.company.name}
                             quality={100}
                             width={40}
                             height={40}
-                            className="rounded-full"
+                            className="rounded-full w-[40px] h-[40px]"
                           />
                         </div>
                         <div className="flex flex-col justify-start items-start gap-1">
@@ -295,8 +295,8 @@ export default function Expertise({}: Props) {
                         </div>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="pl-[60px]">
-                      <div className="flex flex-col justify-start items-start gap-5 mb-2 pl-7">
+                    <AccordionContent className="pl-[40px] smm:pl-[60px]">
+                      <div className="flex flex-col justify-start items-start gap-5 mb-2 pl-5 sm:pl-7">
                         <p className="leading-7 text-base dark:text-gray-300">
                           {job.company.description}
                         </p>
