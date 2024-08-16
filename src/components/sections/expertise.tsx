@@ -295,7 +295,7 @@ export default function Expertise({}: Props) {
                         </div>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="pl-[40px] smm:pl-[60px]">
+                    <AccordionContent className="pl-[40px] sm:pl-[60px]">
                       <div className="flex flex-col justify-start items-start gap-5 mb-2 pl-5 sm:pl-7">
                         <p className="leading-7 text-base dark:text-gray-300">
                           {job.company.description}
