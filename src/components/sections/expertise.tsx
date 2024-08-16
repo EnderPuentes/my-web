@@ -1,4 +1,10 @@
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import {
   Card,
   CardContent,
   CardFooter,
@@ -98,57 +104,66 @@ export default function Expertise({}: Props) {
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-10">
-            {jobs.map((job, i) => (
-              <>
-                <div
-                  key={i}
-                  className="flex justify-start items-start gap-5 border-b pb-10 last:pb-0 last:border-b-0"
-                >
-                  <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full bg-white">
-                    <Image
-                      src={job.company.logo}
-                      alt={job.company.name}
-                      quality={100}
-                      width={40}
-                      height={40}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-start items-start gap-1">
-                    <div className="flex flex-col justify-start items-start gap-1 mb-2">
-                      <p className="text-lg font-bold">{job.title}</p>
-                      {job.company.website ? (
-                        <Link
-                          aria-label={job.company.name}
-                          href={job.company.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-bold underline  "
-                        >
-                          <p>{job.company.name}</p>
-                        </Link>
-                      ) : (
-                        <p className="font-bold">{job.company.name}</p>
-                      )}
+            <Accordion type="single" collapsible>
+              {jobs.map((job, i) => (
+                <>
+                  <AccordionItem value={`job-${i}`} key={`job-${i}`}>
+                    <AccordionTrigger className="hover:no-underline">
+                      <div className="flex justify-start items-start gap-7">
+                        <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full bg-white">
+                          <Image
+                            src={job.company.logo}
+                            alt={job.company.name}
+                            quality={100}
+                            width={40}
+                            height={40}
+                            className="rounded-full"
+                          />
+                        </div>
+                        <div className="flex flex-col justify-start items-start gap-1">
+                          <div className="flex flex-col justify-start items-start gap-1 mb-2">
+                            <p className="text-lg font-bold">{job.title}</p>
+                            {job.company.website ? (
+                              <Link
+                                aria-label={job.company.name}
+                                href={job.company.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-bold underline  "
+                              >
+                                {job.company.name}
+                              </Link>
+                            ) : (
+                              <span className="font-bold">
+                                {job.company.name}
+                              </span>
+                            )}
 
-                      <span className="text-xs">
-                        {job.startDate} - {job.endDate}
-                      </span>
-                      <span className="text-xs">{job.company.location}</span>
-                    </div>
-                    <div className="flex flex-col justify-start items-start gap-5 mb-2">
-                      <p className="leading-7 text-base dark:text-gray-300">
-                        {job.company.description}
-                      </p>
-                      <p className="leading-7 text-base dark:text-gray-300">
-                        <strong className="font-bold">Tecnologías: </strong>{' '}
-                        {job.technologies}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </>
-            ))}
+                            <span className="text-xs">
+                              {job.startDate} - {job.endDate}
+                            </span>
+                            <span className="text-xs">
+                              {job.company.location}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pl-[60px]">
+                      <div className="flex flex-col justify-start items-start gap-5 mb-2 pl-7">
+                        <p className="leading-7 text-base dark:text-gray-300">
+                          {job.company.description}
+                        </p>
+                        <p className="leading-7 text-base dark:text-gray-300">
+                          <strong className="font-bold">Tecnologías: </strong>{' '}
+                          {job.technologies}
+                        </p>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </>
+              ))}
+            </Accordion>
           </CardContent>
           <CardFooter></CardFooter>
         </Card>
