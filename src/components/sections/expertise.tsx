@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Badge } from '../ui/badge';
 
 type Props = {};
 
@@ -27,6 +28,7 @@ type Job = {
   };
   startDate: string;
   endDate: string;
+  responsabilities: { description: string; labels: string[] }[];
   technologies: string;
 };
 
@@ -43,6 +45,51 @@ const jobs: Job[] = [
     },
     startDate: 'Febrero 2022',
     endDate: 'Actualidad',
+    responsabilities: [
+      {
+        description:
+          'Liderazgo técnico de proyectos con equipos internos y externos.',
+        labels: ['Gestión'],
+      },
+      {
+        description: 'Participación en descubrimientos técnicos.',
+        labels: ['Gestión'],
+      },
+      {
+        description: 'Resolución de problemas de alto impacto.',
+        labels: ['Gestión', 'Desarrollo'],
+      },
+      {
+        description: 'Planificación y estimación de tiempos de desarrollo.',
+        labels: ['Gestión'],
+      },
+      {
+        description:
+          'Comunicación estratégica con el cliente para la organización de requerimientos, priorización de tareas y definición de plazos.',
+        labels: ['Gestión'],
+      },
+
+      {
+        description:
+          'Creación de entornos de trabajo (Develop, Maintenance, Staging, Preview) para el equipo de desarrollo utilizando aplicaciones de Dokku e integrándolas con CI/CD dentro del repositorio.',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Gestión de lanzamientos (Releases), correcciones urgentes (Hotfixes) y reversión de cambios (Rollbacks).',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Documentación para la contribución al proyecto, ejecución de procesos dentro del mismo (Releases, Hotfixes, Rollbacks, manejo de plugins, plan de trabajo) y manejo de nuevas secciones/servicios.',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Desarrollo de nuevas funcionalidades (features), mejoras (improvements) y resolución de errores (bugs).',
+        labels: ['Desarrollo'],
+      },
+    ],
     technologies:
       'Javascript, TypeScript, React.js, Next.js (Server Components), Node.js, Express, Rest API, GraphQL, MySQL, SOQL, Prisma, Docker, Dokku, Strapi, Sanity, Linux Server, Vercel, Salesforce, Styled Components, Tailwind CSS, Chakra UI, Shadcn UI, CSS, SCSS, Jest, Cypress, Cronjobs, Storybook, Electron.',
   },
@@ -58,6 +105,42 @@ const jobs: Job[] = [
     },
     startDate: 'Junio 2019',
     endDate: 'Febrero 2022',
+    responsabilities: [
+      {
+        description: 'Diseño e implementación de microservicios.',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Creación y mantenimiento de servicios para la importación y procesamiento de datos.',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Desarrollo y mantenimiento de aplicaciones web tipo ecommerce y CMS.',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Integración de servicios externos para gestiones administrativas, mediante webhooks, bots y librerías.',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Desarrollo y mantenimiento de aplicaciones y servicios para el manejo, análisis y procesamiento de datos.',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Configuración y preparación de instancias en Linux para aplicaciones y servicios.',
+        labels: ['Devops'],
+      },
+      {
+        description:
+          'Identificación y solución de errores y fallos en aplicaciones y servicios.',
+        labels: ['Desarrollo'],
+      },
+    ],
     technologies:
       'Javascript, Vuej.js, Nuxt.js, PHP, Restler, Slim4, Laravel, SQL Server, MySql, MariaDB, Python, Apache, Linux Server, Shell, CSS, SCSS, Bootstrap.',
   },
@@ -73,8 +156,60 @@ const jobs: Job[] = [
     },
     startDate: 'Noviembre 2017',
     endDate: 'Junio 2019',
+    responsabilities: [
+      {
+        description:
+          'Mantenimiento de un sistema de gestión de contenido (CMS) personalizado.',
+        labels: ['Desarrollo'],
+      },
+
+      {
+        description:
+          'Configuración, adaptación e integración del CMS para satisfacer los requisitos específicos de cada cliente.',
+        labels: ['Desarrollo'],
+      },
+
+      {
+        description:
+          'Administración de cuentas de alojamiento web a través de WHM y cPanel.',
+        labels: ['Devops'],
+      },
+
+      {
+        description: 'Administración de cuentas de Google Workspace (G Suite).',
+        labels: ['Desarrollo', 'Devops'],
+      },
+
+      {
+        description:
+          'Gestión de proyectos y asignación de tareas utilizando metodologías ágiles como SCRUM.',
+        labels: ['Desarrollo', 'Gestión'],
+      },
+
+      {
+        description: 'Desarrollo de aplicaciones web y móviles (híbridas).',
+        labels: ['Desarrollo'],
+      },
+      {
+        description:
+          'Diseño y desarrollo de sitios web responsivos utilizando Bootstrap, jQuery, JavaScript, SCSS, Gulp y PHP.',
+        labels: ['Desarrollo'],
+      },
+
+      {
+        description:
+          'Creación de mailings responsivos compatibles con los principales gestores de correo.',
+        labels: ['Desarrollo'],
+      },
+
+      {
+        description:
+          'Implementación de estrategias de SEO para mejorar el posicionamiento en Internet.',
+        labels: ['Desarrollo', 'Marketing'],
+      },
+    ],
     technologies:
-      'PHP, CodeIgniter, MySQL, Apache, JavaScript, Vue.js, Nuxt.js, Node.js, JQuery, Bootstrap, Email Marketing',
+      'PHP, CodeIgniter, MySQL, Apache, JavaScript, Vue.js, Nuxt.js, Node.js, Cordova, JQuery, Bootstrap, Email Marketing, WHM y cPanel. GSuite',
   },
   {
     title: 'Frontend Developer',
@@ -88,6 +223,17 @@ const jobs: Job[] = [
     },
     startDate: 'Mayo 2016',
     endDate: 'Mayo 2017',
+    responsabilities: [
+      {
+        description:
+          'Desarrollo de sitios web responsivos utilizando HTML, Materialize, Bootstrap, jQuery y JavaScript.',
+        labels: ['Desarrollo'],
+      },
+      {
+        description: 'Creación de mailings responsivos.',
+        labels: ['Desarrollo'],
+      },
+    ],
     technologies:
       'Wordpress, HTML, Materialize, Bootstrap, jQuery y JavaScript.',
   },
@@ -105,9 +251,9 @@ export default function Expertise({}: Props) {
           </CardHeader>
           <CardContent className="grid gap-10">
             <Accordion type="single" collapsible>
-              {jobs.map((job, i) => (
+              {jobs.map((job, ji) => (
                 <>
-                  <AccordionItem value={`job-${i}`} key={`job-${i}`}>
+                  <AccordionItem value={`job-${ji}`} key={`job-${ji}`}>
                     <AccordionTrigger className="hover:no-underline">
                       <div className="flex justify-start items-start gap-7">
                         <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full bg-white">
@@ -155,7 +301,34 @@ export default function Expertise({}: Props) {
                           {job.company.description}
                         </p>
                         <p className="leading-7 text-base dark:text-gray-300">
+                          <strong className="font-bold">
+                            Responsabilidades:{' '}
+                          </strong>{' '}
+                        </p>
+                        <ul className="list-disc flex flex-col justify-start items-start gap-5 pl-5">
+                          {job.responsabilities.map((resposability, ri) => (
+                            <li
+                              className="leading-7 text-base"
+                              key={`job-${ji}-resposability-${ri}`}
+                            >
+                              {resposability.description}{' '}
+                              <span className="inline-flex justify-start items-center gap-3">
+                                {resposability.labels.map((label, li) => (
+                                  <Badge
+                                    className="bg-gray-700 text-xs"
+                                    key={`job-${ji}-resposability-${ri}-label-${li}`}
+                                  >
+                                    {label}
+                                  </Badge>
+                                ))}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="leading-7 text-base dark:text-gray-300">
                           <strong className="font-bold">Tecnologías: </strong>{' '}
+                        </p>
+                        <p className="leading-7 text-base dark:text-gray-300">
                           {job.technologies}
                         </p>
                       </div>
