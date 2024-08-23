@@ -19,7 +19,7 @@ export default function Hero({ text }: Props) {
       }, 50);
       return () => clearTimeout(timeoutId);
     }
-  }, [index]);
+  }, [index, text]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
