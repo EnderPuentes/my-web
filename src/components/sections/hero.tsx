@@ -30,7 +30,7 @@ export default function Hero({ text }: Props) {
   }, []);
 
   return (
-    <div className="flex justify-center items-center bg-gray-200 dark:bg-gray-900 py-5 mb-10">
+    <div className="flex justify-center items-center bg-slate-100 dark:bg-gray-950 py-5 mb-10">
       <div className="container">
         <div className="bg-black rounded-lg shadow-lg overflow-hidden w-full h-[220px] md:h-[250px]">
           <div className="bg-gray-800 text-gray-300 p-3 flex items-center space-x-2 w-full">
