@@ -18,7 +18,7 @@ export default function Logbook() {
   return (
     <>
       <Hero
-        text={`Obteniendo bitácora espacial...\n\nNombre: Ender Puentes 👾\nMisión: Software Developer 💻\nCentro de Operaciones: Aerolab 🛰️`}
+        text={`Obteniendo bitácora actual...\n\nNombre: Ender Puentes 👾\nMisión: Software Developer 💻\nCentro de Operaciones: Aerolab 🛰️\nUbicación: Buenos Aires 🇦🇷`}
       />
       <Skills />
       <Expertise />
