@@ -3,11 +3,6 @@
 import Logo from '@/components/layout/logo';
 import ThemeToggler from '@/components/layout/theme-toggler';
 import Link from 'next/link';
-import {
-  PiBookBold,
-  PiGithubLogoBold,
-  PiLinkedinLogoBold,
-} from 'react-icons/pi';
 
 type Props = {};
 
@@ -22,31 +17,11 @@ export default function Header({}: Props) {
           <div className="flex justify-between items-center gap-3">
             <Link
               aria-label="Bitácora"
-              className="text-2xl"
+              className="text-base"
               href="/logbook"
               title="Bitácora"
             >
-              <PiBookBold />
-            </Link>
-            <Link
-              rel="noopener noreferrer"
-              aria-label="Linkedin"
-              className="text-2xl"
-              target="_blank"
-              href="https://www.linkedin.com/in/enderpuentes/"
-              title="Linkedin"
-            >
-              <PiLinkedinLogoBold />
-            </Link>
-            <Link
-              rel="noopener noreferrer"
-              aria-label="Github"
-              className="text-2xl"
-              target="_blank"
-              href="https://github.com/EnderPuentes"
-              title="Github"
-            >
-              <PiGithubLogoBold />
+              Bitácora
             </Link>
           </div>
           <ThemeToggler />
