@@ -9,7 +9,7 @@ type Props = {};
 
 export default function Header({}: Props) {
   return (
-    <header className="sticky top-0 border-b bg-background dark:bg-gradient-to-r from-background via-gray-950 to-background z-50 shadow-sm h-20 flex justify-center items-center">
+    <header className="sticky top-0 border-b bg-background dark:bg-gradient-to-t from-background to-gray-950 z-50 shadow-sm h-20 flex justify-center items-center">
       <div className="container flex justify-between items-center">
         <Link href={'/'} className="flex justify-start items-start flex-col">
           <Logo />
