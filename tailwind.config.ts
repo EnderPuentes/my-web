@@ -14,7 +14,7 @@ const config = {
       center: true,
       padding: '1rem',
       screens: {
-        '2xl': '1080px',
+        '2xl': '900px',
       },
     },
     extend: {
