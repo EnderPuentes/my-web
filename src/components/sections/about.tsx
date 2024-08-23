@@ -37,14 +37,13 @@ export default function About({}: Props) {
               objetivos del proyecto.
               <br />
               <br />
-              Si deseas conocer más sobre mi trayectoria profesional y
-              académica, te invito a:
+              Si deseas conocer más sobre mi, te invito a ver:
             </p>
             <Link
               className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-w-40 mx-auto mt-5 sm:mt-10 text-xs sm:text-sm"
-              href="/cv"
+              href="/logbook"
             >
-              Ver curriculum
+              Mi Bitácora
             </Link>
           </CardContent>
           <CardFooter></CardFooter>

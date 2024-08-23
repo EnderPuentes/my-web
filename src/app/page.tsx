@@ -1,12 +1,19 @@
+import { sharedMetadata } from '@/app/shared-metadata';
 import About from '@/components/sections/about';
 import Contact from '@/components/sections/contact';
 import Hero from '@/components/sections/hero';
+import { Metadata } from 'next';
 
 type Props = {
   searchParams: {
     city: string;
     flag: string;
   };
+};
+
+export const metadata: Metadata = {
+  ...sharedMetadata,
+  title: `${sharedMetadata.title}`,
 };
 
 export default function Home({ searchParams }: Props) {

@@ -7,10 +7,8 @@ export default function Footer({}: Props) {
   const date = new Date();
   return (
     <footer className="flex flex-col justify-center items-center gap-10">
-      <div className="flex flex-col justify-center items-center gap-7 py-10 px-5">
-        <h1 className="text-xl text-center">
-          ¡Conéctate conmigo y mantengamos el contacto!
-        </h1>
+      <div className="flex flex-col justify-center items-center gap-10 py-10 px-5">
+        <h1 className="text-xl text-center">¡Sígueme por otros canales!</h1>
         <div className="flex justify-center items-center gap-4">
           <Link
             aria-label="Linkedin"
