@@ -1,14 +1,15 @@
-import { sharedMetadata } from '@/app/[lang]/shared-metadata';
 import About from '@/components/sections/about';
 import Contact from '@/components/sections/contact';
 import Hero from '@/components/sections/hero';
+import { Locale } from '@/types/locales';
+import { getLocale } from '@/utils/locales';
+import { sharedMetadata } from '@/utils/shared-metadata';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
 type Props = {
-  searchParams: {
-    city: string;
-    flag: string;
+  params: {
+    lang: string;
   };
 };
 
@@ -17,18 +18,23 @@ export const metadata: Metadata = {
   title: `${sharedMetadata.title}`,
 };
 
-export default function Home() {
+export default async function Home({ params }: Props) {
   const cookieStore = cookies();
 
   const city = cookieStore.get('city')?.value || 'Buenos Aires';
   const flag = cookieStore.get('flag')?.value || '🇦🇷';
 
+  const t: Locale = await getLocale(params.lang);
+
   return (
     <>
       <Hero
-        text={`Conectando con ${city} ${flag}...\n\nHola, Soy Ender 👾\nBienvenido a mi estación 🧑🏻‍🚀\n\nExplora mi trayectoria y acompáñame en la búsqueda de nuevos desafíos 🚀`}
+        text={t.home.hero.replace('${city}', city).replace('${flag}', flag)}
       />
-      <About />
+      <About
+        title={t.home.about.title}
+        description={t.home.about.description}
+      />
       <Contact />
     </>
   );
