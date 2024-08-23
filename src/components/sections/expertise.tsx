@@ -216,8 +216,8 @@ export default function Expertise({}: Props) {
       <div className="container flex flex-col justify-start items-start gap-5 ">
         <Card className="w-full">
           <CardHeader>
-            <CardTitle className="font-semibold text-xl mb-5">
-              Experiencia profesional
+            <CardTitle className="font-semibold text-lg sm:text-xl sm:mb-5">
+              Historial de Vuelo
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-10">
@@ -268,28 +268,28 @@ export default function Expertise({}: Props) {
                     </AccordionTrigger>
                     <AccordionContent className="pl-[40px] sm:pl-[60px]">
                       <div className="flex flex-col justify-start items-start gap-5 mb-2 pl-5 sm:pl-7">
-                        <p className="leading-7 text-base dark:text-gray-300">
+                        <p className="dark:text-gray-300 text-xs sm:text-base leading-5 sm:leading-7">
                           {job.company.description}
                         </p>
-                        <p className="leading-7 text-base dark:text-gray-300">
+                        <p className="text-xs sm:text-base leading-5 sm:leading-7">
                           <strong className="font-bold">
                             Responsabilidades:{' '}
                           </strong>{' '}
                         </p>
-                        <ul className="list-disc flex flex-col justify-start items-start gap-5 pl-5">
+                        <ul className="list-disc flex flex-col justify-start items-start gap-5 pl-3 sm:pl-5">
                           {job.responsabilities.map((resposability, ri) => (
                             <li
-                              className="leading-7 text-base"
+                              className="dark:text-gray-300 text-xs sm:text-base leading-5 sm:leading-7"
                               key={`job-${ji}-resposability-${ri}`}
                             >
                               {resposability.description}{' '}
                             </li>
                           ))}
                         </ul>
-                        <p className="leading-7 text-base dark:text-gray-300">
+                        <p className="text-xs sm:text-base leading-5 sm:leading-7">
                           <strong className="font-bold">Tecnologías: </strong>{' '}
                         </p>
-                        <p className="leading-7 text-base dark:text-gray-300">
+                        <p className="dark:text-gray-300 text-xs sm:text-base leading-5 sm:leading-7">
                           {job.technologies}
                         </p>
                       </div>

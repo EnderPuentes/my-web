@@ -45,8 +45,8 @@ export default function Education({}: Props) {
       <div className="container flex flex-col justify-start items-start gap-5 ">
         <Card className="w-full">
           <CardHeader>
-            <CardTitle className="font-semibold text-xl mb-5">
-              Formación Académica
+            <CardTitle className="font-semibold text-lg sm:text-xl mb-5">
+              Academia Espacial
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-10">
@@ -75,7 +75,7 @@ export default function Education({}: Props) {
                           href={edu.school.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-bold underline  "
+                          className="font-bold underline text-xs"
                         >
                           <span>{edu.school.name}</span>
                         </Link>
