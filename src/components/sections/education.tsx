@@ -46,7 +46,7 @@ export default function Education({}: Props) {
         <Card className="w-full">
           <CardHeader>
             <CardTitle className="font-semibold text-lg sm:text-xl mb-5">
-              Academia Espacial
+              Academia
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-10">
