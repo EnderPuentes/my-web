@@ -3,7 +3,11 @@
 import Logo from '@/components/layout/logo';
 import ThemeToggler from '@/components/layout/theme-toggler';
 import Link from 'next/link';
-import { PiBook, PiGithubLogoBold, PiLinkedinLogoBold } from 'react-icons/pi';
+import {
+  PiBookBold,
+  PiGithubLogoBold,
+  PiLinkedinLogoBold,
+} from 'react-icons/pi';
 
 type Props = {};
 
@@ -22,7 +26,7 @@ export default function Header({}: Props) {
               href="/logbook"
               title="Bitácora"
             >
-              <PiBook />
+              <PiBookBold />
             </Link>
             <Link
               rel="noopener noreferrer"
