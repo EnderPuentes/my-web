@@ -19,7 +19,6 @@ export default function Header({}: Props) {
             <Link
               aria-label="Bitácora"
               className="text-2xl"
-              target="_blank"
               href="/logbook"
               title="Bitácora"
             >
