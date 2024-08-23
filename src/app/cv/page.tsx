@@ -7,7 +7,7 @@ import Skills from '@/components/sections/skills';
 export default function CV() {
   return (
     <>
-      <Hero text={`Ender Puentes 👾\n   Curriculum 📃`} />
+      <Hero text={`Ender Puentes 👾\nCurriculum 📃`} />
       <Skills />
       <Expertise />
       <Education />
