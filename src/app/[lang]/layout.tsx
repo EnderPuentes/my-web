@@ -11,11 +11,13 @@ const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string };
 }>) {
   return (
-    <html lang="es">
+    <html lang={params.lang ?? 'en'}>
       <body className={`${jetBrainsMono.className} flex flex-col min-h-screen`}>
         <ReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

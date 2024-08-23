@@ -1,8 +1,9 @@
-import { sharedMetadata } from '@/app/shared-metadata';
+import { sharedMetadata } from '@/app/[lang]/shared-metadata';
 import About from '@/components/sections/about';
 import Contact from '@/components/sections/contact';
 import Hero from '@/components/sections/hero';
 import { Metadata } from 'next';
+import { cookies } from 'next/headers';
 
 type Props = {
   searchParams: {
@@ -16,8 +17,12 @@ export const metadata: Metadata = {
   title: `${sharedMetadata.title}`,
 };
 
-export default function Home({ searchParams }: Props) {
-  const { city, flag } = searchParams;
+export default function Home() {
+  const cookieStore = cookies();
+
+  const city = cookieStore.get('city')?.value || 'Buenos Airessssss';
+  const flag = cookieStore.get('flag')?.value || '🇦🇷';
+
   return (
     <>
       <Hero
