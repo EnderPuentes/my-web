@@ -121,7 +121,7 @@ export default function PageNewForm() {
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <p className="text-xs sm:text-base leading-5 sm:leading-7">
+            <p className="text-xs sm:text-base leading-5 sm:leading-7 dark:text-gray-300">
               Si tienes alguna propuesta de misión o simplemente quieres
               comunicarte desde tu estación espacial, estaré encantado de
               recibir tu mensaje. ¡Conectemos y hablemos pronto!
