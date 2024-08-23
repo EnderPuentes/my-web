@@ -1,4 +1,4 @@
-import { sharedMetadata } from '@/app/shared-metadata';
+import { sharedMetadata } from '@/app/[lang]/shared-metadata';
 import Contact from '@/components/sections/contact';
 import Education from '@/components/sections/education';
 import Expertise from '@/components/sections/expertise';
