@@ -14,7 +14,7 @@ export default function Home({ searchParams }: Props) {
   return (
     <>
       <Hero
-        text={`Bienvenido, terrícola aventurero 🌎\n   Qué alegría que hayas aterrizado en mi estación desde Buenos Aires 🇦🇷\n   Soy Ender Puentes, disfrutemos juntos del viaje. 👾`}
+        text={`Bienvenido, terrícola aventurero 🌎\nQué alegría que hayas aterrizado en mi estación desde Buenos Aires 🇦🇷\nSoy Ender Puentes, disfrutemos juntos del viaje. 👾`}
       />
       <About />
       <Contact />
