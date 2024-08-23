@@ -21,7 +21,7 @@ export default function About({}: Props) {
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <p className="text-xs sm:text-base leading-6 sm:leading-7">
+            <p className="text-xs sm:text-base leading-6 sm:leading-7 dark:text-gray-300">
               Soy un desarrollador proactivo y apasionado con 8 años de carrera
               profesional en el campo del desarrollo de software. He trabajado
               con diversos lenguajes de programación, enfocado principalmente en
