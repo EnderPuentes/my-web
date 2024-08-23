@@ -14,7 +14,7 @@ export default function Home({ searchParams }: Props) {
   return (
     <>
       <Hero
-        text={`Bienvenido terrícola 🌎\n   Nos alegra mucho que estés visitándonos desde ${city} ${flag}\n   Soy Ender Puentes, ¡exploremos juntos! 👾`}
+        text={`Bienvenido, terrícola aventurero 🌎\n   Qué alegría que hayas aterrizado en mi estación desde Buenos Aires 🇦🇷\n   Soy Ender Puentes, disfrutemos juntos del viaje. 👾`}
       />
       <About />
       <Contact />
