@@ -81,7 +81,7 @@ const jobs: Job[] = [
       },
     ],
     technologies:
-      'Javascript, TypeScript, React.js, Next.js (Server Components), Node.js, Express, Rest API, GraphQL, MySQL, SOQL, Prisma, Docker, Dokku, Strapi, Sanity, Linux Server, Vercel, Salesforce, Styled Components, Tailwind CSS, Chakra UI, Shadcn UI, CSS, SCSS, Jest, Cypress, Cronjobs, Storybook, Electron.',
+      'Javascript, TypeScript, Next.js, Node.js, GraphQL, MySQL, SOQL, Prisma, Docker, Dokku, Strapi, Sanity, Linux Server, Vercel, Styled Components, Tailwind UI, Chakra UI, Shadcn UI, Jest, Cypress, Cronjobs, Storybook, Electron.',
   },
   {
     title: 'Software Developer',
@@ -125,7 +125,7 @@ const jobs: Job[] = [
       },
     ],
     technologies:
-      'Javascript, Vuej.js, Nuxt.js, PHP, Slim4, Laravel, SQL Server, MySql, MariaDB, Apache, Linux Server, Shell,  Bootstrap.',
+      'Javascript, Nuxt.js, PHP, Slim4, Laravel, MSSQL, MySql, MariaDB, Apache, Linux Server, Bootstrap.',
   },
   {
     title: 'FullStack Developer',
@@ -183,7 +183,7 @@ const jobs: Job[] = [
       },
     ],
     technologies:
-      'PHP, CodeIgniter, MySQL, Apache, JavaScript, Vue.js, Nuxt.js, Node.js, Cordova, JQuery, Bootstrap, Email Marketing, WHM y cPanel. GSuite',
+      'PHP, CodeIgniter, MySQL, Apache, JavaScript, Nuxt.js, Node.js, JQuery, Bootstrap, Email Marketing, WHM y cPanel. GSuite',
   },
   {
     title: 'Frontend Developer',
@@ -206,8 +206,7 @@ const jobs: Job[] = [
         description: 'Creación de mailings responsivos.',
       },
     ],
-    technologies:
-      'Wordpress, HTML, Materialize, Bootstrap, jQuery y JavaScript.',
+    technologies: 'Wordpress, HTML, Bootstrap, jQuery y JavaScript.',
   },
 ];
 
