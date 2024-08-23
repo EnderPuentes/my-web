@@ -16,12 +16,12 @@ type Skill = {
 const skills: Skill[] = [
   {
     title: 'Lenguajes de Programación',
-    technologies: 'Javascript, Typescript, PHP',
+    technologies: 'Javascript, Typescript, PHP.',
   },
   {
     title: 'Desarrollo Web',
     technologies:
-      'React, Next.js, Vue, Nuxt.js, Sanity, Strapi, Laravel, Docker, Styled Components, Tailwind CSS, Chakra UI, Shadcn UI, StoryBook',
+      'Next.js, Nuxt.js, Sanity, Strapi, Laravel, Docker, Styled Components, Tailwind CSS, Chakra UI, Shadcn UI, StoryBook.',
   },
   {
     title: 'Servicios en la nube',
@@ -30,11 +30,11 @@ const skills: Skill[] = [
   },
   {
     title: 'Administración de Base de Datos',
-    technologies: 'MSSQL, MySql, MariaDB, MongoDB, GraphQL, Prisma.',
+    technologies: 'MSSQL, MySql, MariaDB, GraphQL, Prisma.',
   },
   {
     title: 'DevOps',
-    technologies: 'Apache, Nginx, CronJobs, Scripts Shells.',
+    technologies: 'Apache, Nginx, CronJobs.',
   },
   {
     title: 'Gestión de proyecto',
