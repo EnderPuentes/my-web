@@ -3,7 +3,7 @@
 import Logo from '@/components/layout/logo';
 import ThemeToggler from '@/components/layout/theme-toggler';
 import Link from 'next/link';
-import { PiGithubLogoBold, PiLinkedinLogoBold } from 'react-icons/pi';
+import { PiBook, PiGithubLogoBold, PiLinkedinLogoBold } from 'react-icons/pi';
 
 type Props = {};
 
@@ -17,12 +17,13 @@ export default function Header({}: Props) {
         <div className="flex justify-between items-center gap-6">
           <div className="flex justify-between items-center gap-3">
             <Link
-              aria-label="CV"
-              className="font-bold text-lg"
-              href="/cv"
-              title="Curriculum"
+              aria-label="Bitácora"
+              className="text-2xl"
+              target="_blank"
+              href="/logbook"
+              title="Bitácora"
             >
-              CV
+              <PiBook />
             </Link>
             <Link
               rel="noopener noreferrer"
