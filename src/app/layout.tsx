@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${jetBrainsMono.className} flex flex-col min-h-screen`}>
+      <body
+        className={`${jetBrainsMono.className} flex flex-col min-h-screen dark:bg-gradient-to-r from-background via-gray-950 to-background`}
+      >
         <ReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Header />
