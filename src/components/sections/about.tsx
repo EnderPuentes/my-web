@@ -6,6 +6,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import Link from 'next/link';
+import { PiBookBold } from 'react-icons/pi';
 
 type Props = {};
 
@@ -40,10 +41,10 @@ export default function About({}: Props) {
               Si deseas conocer más sobre mi, te invito a ver:
             </p>
             <Link
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-w-40 mx-auto mt-5 sm:mt-10 text-xs sm:text-sm"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-w-40 mx-auto mt-5 sm:mt-10 text-xs sm:text-sm gap-2"
               href="/logbook"
             >
-              Mi Bitácora
+              Mi Bitácora <PiBookBold />
             </Link>
           </CardContent>
           <CardFooter></CardFooter>
