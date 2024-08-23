@@ -125,7 +125,7 @@ const jobs: Job[] = [
       },
     ],
     technologies:
-      'Javascript, Vuej.js, Nuxt.js, PHP, Restler, Slim4, Laravel, SQL Server, MySql, MariaDB, Python, Apache, Linux Server, Shell, CSS, SCSS, Bootstrap.',
+      'Javascript, Vuej.js, Nuxt.js, PHP, Slim4, Laravel, SQL Server, MySql, MariaDB, Apache, Linux Server, Shell,  Bootstrap.',
   },
   {
     title: 'FullStack Developer',
