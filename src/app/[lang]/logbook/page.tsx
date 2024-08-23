@@ -1,9 +1,9 @@
-import { sharedMetadata } from '@/app/[lang]/shared-metadata';
 import Contact from '@/components/sections/contact';
 import Education from '@/components/sections/education';
 import Expertise from '@/components/sections/expertise';
 import Hero from '@/components/sections/hero';
 import Skills from '@/components/sections/skills';
+import { sharedMetadata } from '@/utils/shared-metadata';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
