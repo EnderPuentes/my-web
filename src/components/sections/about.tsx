@@ -15,10 +15,12 @@ export default function About({}: Props) {
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card className="w-full">
           <CardHeader>
-            <CardTitle className="font-semibold text-xl">Sobre mí</CardTitle>
+            <CardTitle className="font-semibold text-lg sm:text-xl">
+              Sobre mí
+            </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <p className="text-base dark:text-gray-300 leading-7">
+            <p className="text-xs sm:text-base leading-6 sm:leading-7">
               Soy un desarrollador proactivo y apasionado con 8 años de carrera
               profesional en el campo del desarrollo de software. He trabajado
               con diversos lenguajes de programación, enfocado principalmente en
@@ -39,7 +41,7 @@ export default function About({}: Props) {
               académica, te invito a:
             </p>
             <Link
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-w-40 mx-auto mt-10"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-w-40 mx-auto mt-5 sm:mt-10 text-xs sm:text-sm"
               href="/cv"
             >
               Ver curriculum

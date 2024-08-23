@@ -21,11 +21,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { PiHeartFill } from 'react-icons/pi';
+import { PiRocketLaunchBold } from 'react-icons/pi';
 import { z } from 'zod';
 
 const formSchema = z.object({
@@ -112,26 +111,20 @@ export default function PageNewForm() {
         onClick={() => router.push('/#contact')}
       >
         {' '}
-        Charlemos <PiHeartFill className="text-xl" />
+        Contacto <PiRocketLaunchBold className="text-xl" />
       </Button>
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card>
           <CardHeader>
-            <CardTitle className="font-semibold text-xl">Charlemos</CardTitle>
+            <CardTitle className="font-semibold text-lg sm:text-xl">
+              ¡Envíame un Mensaje!
+            </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <p className="text-base dark:text-gray-300 leading-7">
-              Si estás interesado en colaborar conmigo o tienes alguna propuesta
-              de proyecto, por favor no dudes en contactarme. Puedes enviarme un
-              correo electrónico a{' '}
-              <Link
-                className="text-gray-900 dark:text-gray-200 underline font-semibold"
-                href="mailto:hello@enderpuentes.com"
-              >
-                hello@enderpuentes.com{' '}
-              </Link>
-              o utilizar el formulario de contacto que encontrarás a
-              continuación.
+            <p className="text-xs sm:text-base leading-5 sm:leading-7">
+              Si tienes alguna propuesta de misión o simplemente quieres
+              comunicarte desde tu estación espacial, estaré encantado de
+              recibir tu mensaje. ¡Conectemos y hablemos pronto!
             </p>
             <Form {...form}>
               <form
@@ -143,11 +136,14 @@ export default function PageNewForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-current">Nombre*</FormLabel>
+                      <FormLabel className="text-current text-xs smm:text-base">
+                        Nombre*
+                      </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           placeholder="Ingresa tu nombre aquí"
+                          className="text-xs sm:text-base"
                         />
                       </FormControl>
                       <FormMessage className="text-red-700" />
@@ -160,11 +156,15 @@ export default function PageNewForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-current">
+                      <FormLabel className="text-current text-xs smm:text-base">
                         Correo electrónico*
                       </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Ingresa tu email aquí" />
+                        <Input
+                          {...field}
+                          placeholder="Ingresa tu email aquí"
+                          className="text-xs sm:text-base"
+                        />
                       </FormControl>
                       <FormMessage className="text-red-700" />
                     </FormItem>
@@ -176,12 +176,15 @@ export default function PageNewForm() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-current">Mensaje*</FormLabel>
+                      <FormLabel className="text-current text-xs sm:text-base">
+                        Mensaje*
+                      </FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
                           rows={5}
                           placeholder="¿En qué puedo ayudarte?"
+                          className="text-xs sm:text-base"
                         />
                       </FormControl>
                       <FormMessage className="text-red-700" />
@@ -190,7 +193,11 @@ export default function PageNewForm() {
                 />
 
                 <div className="flex justify-center items-center">
-                  <Button type="submit" disabled={isLoading}>
+                  <Button
+                    type="submit"
+                    disabled={isLoading}
+                    className="text-xs sm:text-base"
+                  >
                     {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
                   </Button>
                 </div>

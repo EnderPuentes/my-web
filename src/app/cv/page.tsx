@@ -4,10 +4,20 @@ import Expertise from '@/components/sections/expertise';
 import Hero from '@/components/sections/hero';
 import Skills from '@/components/sections/skills';
 
-export default function CV() {
+type Props = {
+  searchParams: {
+    city: string;
+    flag: string;
+  };
+};
+
+export default function CV({ searchParams }: Props) {
+  const { city, flag } = searchParams;
   return (
     <>
-      <Hero text={`Ender Puentes 👾\nCurriculum 📃`} />
+      <Hero
+        text={`Obteniendo bitácora espacial...\n\nNombre: Ender Puentes 👾\nMisión: Software Developer 💻\nCentro de Operaciones: Aerolab 🛰️`}
+      />
       <Skills />
       <Expertise />
       <Education />

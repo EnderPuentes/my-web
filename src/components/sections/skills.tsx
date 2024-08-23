@@ -49,8 +49,8 @@ export default function Skills({}: Props) {
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card className="w-full">
           <CardHeader>
-            <CardTitle className="font-semibold text-xl">
-              Habilidades técnicas
+            <CardTitle className="font-semibold text-lg sm:text-xl">
+              Arsenal Técnico
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-3">
@@ -61,10 +61,10 @@ export default function Skills({}: Props) {
                   className="flex flex-col justify-start items-start gap-1"
                 >
                   <div className="flex flex-col justify-start items-start gap-1 mb-2">
-                    <p className="text-base dark:text-gray-300 font-bold">
+                    <p className="font-bold text-xs sm:text-base">
                       {skill.title}
                     </p>
-                    <p className="leading-7 text-base dark:text-gray-300">
+                    <p className="dark:text-gray-300 text-xs sm:text-base leading-5 sm:leading-7">
                       {skill.technologies}
                     </p>
                   </div>
