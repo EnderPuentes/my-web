@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function Home() {
   const cookieStore = cookies();
 
-  const city = cookieStore.get('city')?.value || 'Buenos Airessssss';
+  const city = cookieStore.get('city')?.value || 'Buenos Aires';
   const flag = cookieStore.get('flag')?.value || '🇦🇷';
 
   return (
