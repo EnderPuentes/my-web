@@ -1,9 +1,4 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
-Host: https://enderpuentes.com
-
-# Sitemaps
 Sitemap: https://enderpuentes.com/sitemap.xml
