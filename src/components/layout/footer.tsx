@@ -1,14 +1,15 @@
+import { Locale } from '@/types/locales';
 import Link from 'next/link';
 import { PiGithubLogoBold, PiLinkedinLogoBold } from 'react-icons/pi';
 
-type Props = {};
+type Props = { t: Locale['layout']['footer'] };
 
-export default function Footer({}: Props) {
+export default function Footer({ t }: Props) {
   const date = new Date();
   return (
     <footer className="flex flex-col justify-center items-center gap-10">
       <div className="flex flex-col justify-center items-center gap-10 py-10 px-5">
-        <h1 className="text-xl text-center">¡Sígueme por otros canales!</h1>
+        <h1 className="text-xl text-center">{t.socialMedia.title}</h1>
         <div className="flex justify-center items-center gap-4">
           <Link
             aria-label="Linkedin"

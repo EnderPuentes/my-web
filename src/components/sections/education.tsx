@@ -5,52 +5,24 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Locale } from '@/types/locales';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type Props = {};
+type Props = { t: Locale['pages']['logbook']['education'] };
 
-type Education = {
-  title: string;
-  school: {
-    name: string;
-    logo: string;
-    description: string;
-    location: string;
-    website: string | undefined;
-  };
-  startDate: string;
-  endDate: string;
-};
-
-const education: Education[] = [
-  {
-    title: 'Ingeniería de Sistemas',
-    school: {
-      name: 'Universidad de los Andes',
-      logo: '/images/education/ula.webp',
-      description:
-        'Es una agencia de diseño de productos digitales que integra experiencia de usuario personalizada, diseño a medida y tecnología. Ofrecen soluciones adaptadas, desde aplicaciones móviles y web hasta branding, para ayudar a sus clientes, que van desde startups en etapa inicial hasta grandes corporaciones.',
-      location: 'Mérida - Venezuela',
-      website: 'http://www.ula.ve/',
-    },
-    startDate: 'Octubre 2013 / Marzo 2017',
-    endDate: 'Junio 2024 / Actualidad',
-  },
-];
-
-export default function Education({}: Props) {
+export default function Education({ t }: Props) {
   return (
     <section className="mb-10">
       <div className="container flex flex-col justify-start items-start gap-5 ">
         <Card className="w-full">
           <CardHeader>
             <CardTitle className="font-semibold text-lg sm:text-xl mb-5">
-              Academia
+              {t.title}
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-10">
-            {education.map((edu, i) => (
+            {t.items.map((edu, i) => (
               <>
                 <div
                   key={i}

@@ -2,11 +2,14 @@
 
 import Logo from '@/components/layout/logo';
 import ThemeToggler from '@/components/layout/theme-toggler';
+import { Locale } from '@/types/locales';
 import Link from 'next/link';
 
-type Props = {};
+type Props = {
+  t: Locale['layout']['header'];
+};
 
-export default function Header({}: Props) {
+export default function Header({ t }: Props) {
   return (
     <header className="sticky top-0 border-b bg-background dark:bg-background to-gray-950 z-50 shadow-sm h-20 flex justify-center items-center">
       <div className="container flex justify-between items-center">
@@ -16,12 +19,12 @@ export default function Header({}: Props) {
         <div className="flex justify-between items-center gap-6">
           <div className="flex justify-between items-center gap-3">
             <Link
-              aria-label="Bitácora"
+              aria-label={t.menu.logbook}
               className="text-base"
               href="/logbook"
-              title="Bitácora"
+              title={t.menu.logbook}
             >
-              Bitácora
+              {t.menu.logbook}
             </Link>
           </div>
           <ThemeToggler />
