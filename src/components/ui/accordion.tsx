@@ -4,7 +4,7 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import * as React from 'react';
 
-import { cn } from '@/utils/tailwing';
+import { cn } from '@/lib/utils';
 const Accordion = AccordionPrimitive.Root;
 
 const AccordionItem = React.forwardRef<

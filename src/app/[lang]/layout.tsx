@@ -26,7 +26,7 @@ export default async function RootLayout({
       <body className={`${jetBrainsMono.className} flex flex-col min-h-screen`}>
         <ReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Header t={t.layout.header} />
+            <Header t={t.layout.header} lang={params.lang ?? 'en'} />
             <main className="flex-1">
               {children}
               <Contact t={t.layout.contact} />
