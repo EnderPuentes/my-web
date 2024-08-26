@@ -1,4 +1,3 @@
-import { FormSchema } from '@/components/layout/contact';
 import { NextRequest, NextResponse } from 'next/server';
 import { createTransport } from 'nodemailer';
 
@@ -31,7 +30,7 @@ async function validateCaptcha(token: string) {
   }
 }
 
-async function sendEmail(form: FormSchema) {
+async function sendEmail(form: any) {
   try {
     const transporter = createTransport({
       // @ts-ignore
