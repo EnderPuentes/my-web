@@ -5,56 +5,22 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Locale } from '@/types/locales';
 
-type Props = {};
+type Props = { t: Locale['pages']['logbook']['skills'] };
 
-type Skill = {
-  title: string;
-  technologies: string;
-};
-
-const skills: Skill[] = [
-  {
-    title: 'Lenguajes de Programación',
-    technologies: 'Javascript, Typescript, PHP.',
-  },
-  {
-    title: 'Desarrollo Web',
-    technologies:
-      'Next.js, Nuxt.js, Sanity, Strapi, Laravel, Docker, Styled Components, Tailwind CSS, Chakra UI, Shadcn UI, StoryBook.',
-  },
-  {
-    title: 'Servicios en la nube',
-    technologies:
-      'Vercel, Google Cloud, Dokku, CI (Gitlab, Github), S3, EC2 (AWS), Funciones Lambda.',
-  },
-  {
-    title: 'Administración de Base de Datos',
-    technologies: 'MSSQL, MySql, MariaDB, GraphQL, Prisma.',
-  },
-  {
-    title: 'DevOps',
-    technologies: 'Apache, Nginx, CronJobs.',
-  },
-  {
-    title: 'Gestión de proyecto',
-    technologies:
-      'Organización y gestión de Sprints, Documentación, Estimación de Tareas, Planificación de Releases, Actualización del Backlog.',
-  },
-];
-
-export default function Skills({}: Props) {
+export default function Skills({ t }: Props) {
   return (
     <section className="mb-10">
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card className="w-full">
           <CardHeader>
             <CardTitle className="font-semibold text-lg sm:text-xl">
-              Arsenal Técnico
+              {t.title}
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-3">
-            {skills.map((skill, i) => (
+            {t.items.map((skill, i) => (
               <>
                 <div
                   key={i}

@@ -19,6 +19,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
+import { Locale } from '@/types/locales';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
 import { useRouter } from 'next/navigation';
@@ -27,31 +28,34 @@ import { useForm } from 'react-hook-form';
 import { PiRocketLaunchBold } from 'react-icons/pi';
 import { z } from 'zod';
 
-const formSchema = z.object({
-  name: z.string().min(1, {
-    message:
-      'Por favor, introduce tu nombre para que pueda dirigirme a ti correctamente.',
-  }),
-  email: z
-    .string()
-    .min(1, {
-      message: 'Necesito tu email para poder ponerme en contacto contigo.',
-    })
-    .email({ message: 'Debe ser un correo electrónico válido.' }),
-  message: z.string().min(1, {
-    message: 'Cuéntame cómo puedo ayudarte completando el campo de mensaje.',
-  }),
-});
+type Props = {
+  t: Locale['layout']['contact'];
+};
 
-export type FormSchema = z.infer<typeof formSchema>;
-
-export default function PageNewForm() {
+export default function Contact({ t }: Props) {
+  const router = useRouter();
   const { toast } = useToast();
   const { executeRecaptcha } = useReCaptcha();
-
   const [isLoading, setIsLoading] = useState(false);
 
-  const router = useRouter();
+  const formSchema = z.object({
+    name: z.string().min(1, {
+      message: t.inputs.name.errors.required,
+    }),
+    email: z
+      .string()
+      .min(1, {
+        message: t.inputs.email.errors.required,
+      })
+      .email({
+        message: t.inputs.email.errors.invalid,
+      }),
+    message: z.string().min(1, {
+      message: t.inputs.message.errors.required,
+    }),
+  });
+
+  type FormSchema = z.infer<typeof formSchema>;
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -87,18 +91,17 @@ export default function PageNewForm() {
     sendMessage(formData)
       .then(() => {
         toast({
-          title: '¡Éxito!',
-          description:
-            'Tu mensaje ha sido enviado correctamente. Te responderé a la mayor brevedad posible..',
+          title: t.status.success.title,
+          description: t.status.success.description,
         });
         form.reset();
         setIsLoading(false);
       })
-      .catch((error: any) => {
+      .catch(() => {
         toast({
           variant: 'destructive',
-          title: '¡Ups!',
-          description: String(error?.message),
+          title: t.status.error.title,
+          description: t.status.error.description,
         });
         setIsLoading(false);
       });
@@ -108,23 +111,21 @@ export default function PageNewForm() {
     <section id="contact" className="mb-10">
       <Button
         className="fixed right-5 bottom-5 flex justify-start items-center gap-3"
-        onClick={() => router.push('/#contact')}
+        onClick={() => router.push('#contact')}
       >
         {' '}
-        Contacto <PiRocketLaunchBold className="text-xl" />
+        {t.title} <PiRocketLaunchBold className="text-xl" />
       </Button>
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card>
           <CardHeader>
             <CardTitle className="font-semibold text-lg sm:text-xl">
-              ¡Envíame un Mensaje!
+              {t.title}
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
             <p className="text-xs sm:text-base leading-5 sm:leading-7 dark:text-gray-300">
-              Si tienes alguna propuesta de misión o simplemente quieres
-              comunicarte desde tu estación espacial, estaré encantado de
-              recibir tu mensaje. ¡Conectemos y hablemos pronto!
+              {t.description}
             </p>
             <Form {...form}>
               <form
@@ -136,13 +137,13 @@ export default function PageNewForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-current text-xs smm:text-base">
-                        Nombre*
+                      <FormLabel className="text-current text-xs sm:text-base">
+                        {t.inputs.name.label}*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
-                          placeholder="Ingresa tu nombre aquí"
+                          placeholder={t.inputs.name.placeholder}
                           className="text-xs sm:text-base"
                         />
                       </FormControl>
@@ -156,13 +157,13 @@ export default function PageNewForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-current text-xs smm:text-base">
-                        Correo electrónico*
+                      <FormLabel className="text-current text-xs sm:text-base">
+                        {t.inputs.email.label}*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
-                          placeholder="Ingresa tu email aquí"
+                          placeholder={t.inputs.email.placeholder}
                           className="text-xs sm:text-base"
                         />
                       </FormControl>
@@ -177,13 +178,13 @@ export default function PageNewForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-current text-xs sm:text-base">
-                        Mensaje*
+                        {t.inputs.message.label}*
                       </FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
                           rows={5}
-                          placeholder="¿En qué puedo ayudarte?"
+                          placeholder={t.inputs.message.placeholder}
                           className="text-xs sm:text-base"
                         />
                       </FormControl>
@@ -198,7 +199,7 @@ export default function PageNewForm() {
                     disabled={isLoading}
                     className="text-xs sm:text-base"
                   >
-                    {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
+                    {isLoading ? t.loading.on : t.loading.off}
                   </Button>
                 </div>
               </form>
