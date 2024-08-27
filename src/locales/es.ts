@@ -282,7 +282,7 @@ const es: Locale = {
       },
     },
     contact: {
-      title: '¡Envíame un Mensaje!',
+      title: '¡Escríbeme!',
       description:
         'Si tienes alguna propuesta de misión o simplemente quieres comunicarte desde tu estación espacial, estaré encantado de recibir tu mensaje. ¡Conectemos y hablemos pronto!',
       button: '¡Hola!',
