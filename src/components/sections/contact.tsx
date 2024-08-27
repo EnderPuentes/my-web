@@ -29,7 +29,7 @@ import { PiRocketLaunchBold } from 'react-icons/pi';
 import { z } from 'zod';
 
 type Props = {
-  t: Locale['layout']['contact'];
+  t: Locale['pages']['home']['contact'];
 };
 
 export default function Contact({ t }: Props) {
