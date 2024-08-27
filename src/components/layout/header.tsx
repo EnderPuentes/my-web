@@ -20,7 +20,7 @@ export default function Header({ t, lang }: Props) {
           <Link
             aria-label={t.menu.logbook}
             className="text-base"
-            href="/logbook"
+            href={`${lang}/logbook`}
             title={t.menu.logbook}
           >
             {t.menu.logbook}
