@@ -265,6 +265,11 @@ const es: Locale = {
         ],
       },
     },
+    notFound: {
+      title: 'Señal Perdida',
+      description: 'No pudimos localizar el recurso solicitado',
+      back: 'Regresar a la estación',
+    },
   },
   layout: {
     header: {

@@ -63,6 +63,11 @@ export type Locale = {
         }[];
       };
     };
+    notFound: {
+      title: string;
+      description: string;
+      back: string;
+    };
   };
   layout: {
     header: {
