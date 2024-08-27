@@ -12,6 +12,48 @@ export type Locale = {
         title: string;
         description: string;
       };
+      contact: {
+        title: string;
+        description: string;
+        inputs: {
+          name: {
+            label: string;
+            placeholder: string;
+            errors: {
+              required: string;
+            };
+          };
+          email: {
+            label: string;
+            placeholder: string;
+            errors: {
+              required: string;
+              invalid?: string;
+            };
+          };
+          message: {
+            label: string;
+            placeholder: string;
+            errors: {
+              required: string;
+            };
+          };
+        };
+        status: {
+          success: {
+            title: string;
+            description: string;
+          };
+          error: {
+            title: string;
+            description: string;
+          };
+        };
+        loading: {
+          on: string;
+          off: string;
+        };
+      };
     };
     logbook: {
       metadata: {
@@ -79,49 +121,7 @@ export type Locale = {
         logbook: string;
       };
     };
-    contact: {
-      title: string;
-      description: string;
-      button: string;
-      inputs: {
-        name: {
-          label: string;
-          placeholder: string;
-          errors: {
-            required: string;
-          };
-        };
-        email: {
-          label: string;
-          placeholder: string;
-          errors: {
-            required: string;
-            invalid?: string;
-          };
-        };
-        message: {
-          label: string;
-          placeholder: string;
-          errors: {
-            required: string;
-          };
-        };
-      };
-      status: {
-        success: {
-          title: string;
-          description: string;
-        };
-        error: {
-          title: string;
-          description: string;
-        };
-      };
-      loading: {
-        on: string;
-        off: string;
-      };
-    };
+
     footer: {
       socialMedia: {
         title: string;
