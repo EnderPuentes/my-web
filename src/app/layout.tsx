@@ -1,5 +1,4 @@
 import '@/app/globals.css';
-import Contact from '@/components/layout/contact';
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import ThemeProvider from '@/components/providers/theme';
@@ -32,10 +31,7 @@ export default async function RootLayout({
         <ReCaptchaProvider reCaptchaKey={process.env.RECAPTCHA_SITE_KEY}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Header t={t.layout.header} lang={params.lang ?? 'en'} />
-            <main className="flex-1">
-              {children}
-              <Contact t={t.layout.contact} />
-            </main>
+            <main className="flex-1">{children}</main>
             <Footer t={t.layout.footer} />
             <Toaster />
           </ThemeProvider>
