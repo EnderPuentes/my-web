@@ -256,6 +256,11 @@ const en: Locale = {
         ],
       },
     },
+    notFound: {
+      title: 'Signal Lost',
+      description: "We couldn't locate the requested resource",
+      back: 'Return to the station',
+    },
   },
   layout: {
     header: {
