@@ -7,8 +7,8 @@ export const sharedMetadata: Metadata = {
   openGraph: {
     type: 'website',
     url: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? ''),
-    title: 'Ender Puentes',
-    description: 'Software Developer',
+    title: 'Ender Puentes - Software Developer',
+    description: '',
     siteName: 'Ender Puentes',
     images: [
       {
