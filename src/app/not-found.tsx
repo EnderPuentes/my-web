@@ -4,32 +4,10 @@ import { sharedMetadata } from '@/utils/shared-metadata';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
-function Start() {
-  return (
-    <span
-      className="absolute bg-white rounded-full"
-      style={{
-        width: `${Math.random() * 3}px`,
-        height: `${Math.random() * 3}px`,
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        animation: `twinkle ${Math.random() * 3 + 2}s infinite ease-in-out`,
-        opacity: Math.random(),
-      }}
-    />
-  );
-}
-
-type Props = {
-  params: {
-    lang: string;
-  };
-};
-
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const lang = params.lang ?? 'en';
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = 'en';
   const t: Locale = await getLocale(lang);
   const metadata = t.pages.notFound.metadata;
 
@@ -46,8 +24,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function NotFound({ params }: Props) {
-  const lang = params.lang ?? 'en';
+function Start() {
+  return (
+    <span
+      className="absolute bg-white rounded-full"
+      style={{
+        width: `${Math.random() * 3}px`,
+        height: `${Math.random() * 3}px`,
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        animation: `twinkle ${Math.random() * 3 + 2}s infinite ease-in-out`,
+        opacity: Math.random(),
+      }}
+    />
+  );
+}
+
+export default async function NotFound() {
+  const lang = 'en';
   const t: Locale = await getLocale(lang);
 
   return (
