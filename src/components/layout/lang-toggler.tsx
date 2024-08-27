@@ -11,8 +11,7 @@ export default function LangToggler({ lang }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
-  function toggleLang() {
-    const newLang = lang === 'en' ? 'es' : 'en';
+  function setLang(newLang: 'en' | 'es') {
     router.replace(pathname.replace(`/${lang}`, `/${newLang}`));
   }
 
@@ -20,7 +19,7 @@ export default function LangToggler({ lang }: Props) {
     <div className="flex justify-between items-center gap-2">
       <Button
         variant="link"
-        onClick={toggleLang}
+        onClick={() => setLang('en')}
         className={`p-0 w-full ${
           lang == 'en' ? 'font-black' : 'font-light opacity-80'
         }`}
@@ -30,7 +29,7 @@ export default function LangToggler({ lang }: Props) {
       |
       <Button
         variant="link"
-        onClick={toggleLang}
+        onClick={() => setLang('es')}
         className={`p-0 w-full ${
           lang == 'es' ? 'font-black' : 'font-light opacity-80'
         }`}
