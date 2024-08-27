@@ -40,7 +40,7 @@ export default function Hero({ text }: Props) {
           </div>
           <div className="p-6">
             <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7 flex justify-start items-start gap-0">
-              <span className="text-green-500 w-8">{'~/ '}</span>
+              <span className="text-green-500 w-6">{'~/ '}</span>
               <span className="text-gray-300">
                 {currentText}
                 {showCursor && <span className="font-bold">_</span>}
