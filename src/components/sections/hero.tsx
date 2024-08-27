@@ -38,10 +38,10 @@ export default function Hero({ text }: Props) {
             <span className="block w-3 h-3 rounded-full bg-yellow-500"></span>
             <span className="block w-3 h-3 rounded-full bg-green-500"></span>
           </div>
-          <div className="p-5 sm:p-6">
-            <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7 flex justify-start items-start gap-0">
-              <span className="text-green-500 w-4 sm:w-6 ">{'~/ '}</span>
-              <span className="text-gray-300">
+          <div className="px-3 py-6 sm:px-6">
+            <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7 flex justify-start items-start gap-1">
+              <span className="text-green-500 block w-4 sm:w-6">{'~/ '}</span>
+              <span className="text-gray-300 flex-1">
                 {currentText}
                 {showCursor && <span className="font-bold">_</span>}
               </span>
