@@ -275,6 +275,7 @@ const es: Locale = {
       title: '¡Envíame un Mensaje!',
       description:
         'Si tienes alguna propuesta de misión o simplemente quieres comunicarte desde tu estación espacial, estaré encantado de recibir tu mensaje. ¡Conectemos y hablemos pronto!',
+      button: '¡Hola!',
       inputs: {
         name: {
           label: 'Nombre',

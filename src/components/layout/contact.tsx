@@ -114,7 +114,7 @@ export default function Contact({ t }: Props) {
         onClick={() => router.push('#contact')}
       >
         {' '}
-        {t.title} <PiRocketLaunchBold className="text-xl" />
+        {t.button} <PiRocketLaunchBold className="text-xl" />
       </Button>
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card>

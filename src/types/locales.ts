@@ -73,6 +73,7 @@ export type Locale = {
     contact: {
       title: string;
       description: string;
+      button: string;
       inputs: {
         name: {
           label: string;
