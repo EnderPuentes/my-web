@@ -1,5 +1,5 @@
-import Contact from '@/components/layout/contact';
 import About from '@/components/sections/about';
+import Contact from '@/components/sections/contact';
 import Hero from '@/components/sections/hero';
 import { Locale } from '@/types/locales';
 import { getLocale } from '@/utils/locales';
