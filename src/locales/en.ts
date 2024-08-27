@@ -21,7 +21,8 @@ const en: Locale = {
     logbook: {
       metadata: {
         title: 'My Logbook',
-        description: '',
+        description:
+          'I am Ender Puentes, a software developer at Aerolab, specializing in Next.js and TypeScript. I primarily work with technologies like Docker, Prisma, and Tailwind CSS, building scalable and efficient web solutions."',
       },
       hero: {
         title:

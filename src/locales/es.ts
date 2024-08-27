@@ -21,7 +21,7 @@ const es: Locale = {
       metadata: {
         title: 'Mi Bitácora',
         description:
-          'Soy un desarrollador proactivo y apasionado con 8 años de carrera profesional en el campo del desarrollo de software. He trabajado con diversos lenguajes de programación, enfocado principalmente en el desarrollo de aplicaciones web.',
+          'Soy Ender Puentes, desarrollador de software en Aerolab, especializado en Next.js y TypeScript. Trabajo principalmente con tecnologías como Docker, Prisma, y Tailwind CSS, desarrollando soluciones web escalables y eficientes.',
       },
       hero: {
         title:
