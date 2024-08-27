@@ -33,9 +33,9 @@ export default function Education({ t }: Props) {
                       src={edu.school.logo}
                       alt={edu.school.name}
                       quality={100}
-                      width={30}
-                      height={30}
-                      className="rounded-full"
+                      width={40}
+                      height={40}
+                      className="rounded-full w-[40px] h-[40px]"
                     />
                   </div>
                   <div className="flex flex-col justify-start items-start gap-1">
