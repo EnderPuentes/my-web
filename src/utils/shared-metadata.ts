@@ -20,4 +20,10 @@ export const sharedMetadata: Metadata = {
     ],
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? ''),
+  icons: {
+    icon: '/favicons/favicon.ico',
+    shortcut: '/favicons/favicon.ico',
+    apple: '/favicons/apple-touch-icon.png',
+  },
+  themeColor: '#8A2BE2',
 };
