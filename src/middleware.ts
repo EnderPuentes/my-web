@@ -1,4 +1,4 @@
-import countries from '@/utils/countries';
+loimport countries from '@/utils/countries';
 import { NextRequest, NextResponse } from 'next/server';
 
 const locales = ['en', 'es'];
@@ -41,6 +41,7 @@ export async function middleware(req: NextRequest) {
   return redirectRes;
 }
 
+
 export const config = {
-  matcher: ['/((?!_next).*)'],
+  matcher: ['/((?!_next|api|images|favicons).*)'],
 };
