@@ -15,8 +15,6 @@ export default function LangToggler({ lang }: Props) {
     router.push(pathname.replace(`/${lang}`, `/${newLang}`));
   }
 
-  console.log(lang);
-
   return (
     <div className="flex justify-between items-center gap-2">
       <Button
