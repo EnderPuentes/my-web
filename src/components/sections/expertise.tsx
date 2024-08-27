@@ -28,7 +28,7 @@ export default function Expertise({ t }: Props) {
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-10">
-            <Accordion type="single" collapsible>
+            <Accordion type="multiple">
               {t.jobs.map((job, ji) => (
                 <>
                   <AccordionItem value={`job-${ji}`} key={`job-${ji}`}>
