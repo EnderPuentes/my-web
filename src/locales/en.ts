@@ -4,7 +4,7 @@ const en: Locale = {
   pages: {
     home: {
       metadata: {
-        title: 'Ender Puentes - Sofware Developer',
+        title: '',
         description:
           'I am a proactive and passionate developer with 8 years of professional experience in the field of software development. I have worked with various programming languages, primarily focusing on web application development.',
       },
@@ -20,9 +20,8 @@ const en: Locale = {
     },
     logbook: {
       metadata: {
-        title: 'Ender Puentes - Sofware Developer',
-        description:
-          'I am a proactive and passionate developer with 8 years of professional experience in the field of software development. I have worked with various programming languages, primarily focusing on web application development.',
+        title: 'My Logbook',
+        description: '',
       },
       hero: {
         title:

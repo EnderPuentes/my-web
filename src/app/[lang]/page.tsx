@@ -12,10 +12,19 @@ type Props = {
   };
 };
 
-export const metadata: Metadata = {
-  ...sharedMetadata,
-  title: `${sharedMetadata.title}`,
-};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const lang = params.lang ?? 'en';
+  const t: Locale = await getLocale(lang);
+
+  return {
+    ...sharedMetadata,
+    title: `${t.pages.logbook.metadata.title} - ${sharedMetadata.title}`,
+    description: t.pages.logbook.metadata.description,
+    metadataBase: new URL(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}` ?? `/${lang}`
+    ),
+  };
+}
 
 export default async function Home({ params }: Props) {
   const cookieStore = cookies();

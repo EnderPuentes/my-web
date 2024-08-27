@@ -7,22 +7,30 @@ import { getLocale } from '@/utils/locales';
 import { sharedMetadata } from '@/utils/shared-metadata';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  ...sharedMetadata,
-  title: `Mi bitácora - ${sharedMetadata.title}`,
-  metadataBase: new URL(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/logbook` ?? '/logbook'
-  ),
-};
-
 type Props = {
   params: {
     lang: string;
   };
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const lang = params.lang ?? 'en';
+  const t: Locale = await getLocale(lang);
+
+  return {
+    ...sharedMetadata,
+    title: `${t.pages.logbook.metadata.title} - ${sharedMetadata.title}`,
+    description: t.pages.logbook.metadata.description,
+    metadataBase: new URL(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/logbook` ??
+        `/${lang}/logbook`
+    ),
+  };
+}
+
 export default async function Logbook({ params }: Props) {
   const t: Locale = await getLocale(params.lang ?? 'en');
+
   return (
     <>
       <Hero text={t.pages.logbook.hero.title} />
