@@ -17,6 +17,54 @@ const en: Locale = {
         description:
           'I am a proactive and passionate developer with 8 years of professional experience in the field of software development. I have worked with various programming languages, primarily focusing on web application development. My experience includes creating robust and scalable technical solutions, addressing challenges in a creative and efficient manner.\n\nI have developed a strong passion for digital products and strive to ensure that every feature I develop not only meets but exceeds expectations. I am known for my ability to collaborate in multidisciplinary teams and work under pressure, demonstrating empathy and a firm commitment to project goals.',
       },
+      contact: {
+        title: 'Write to me!',
+        description:
+          'If you have a mission proposal or simply want to reach out from your space station, I’ll be happy to receive your message. Let’s connect and talk soon!',
+        inputs: {
+          name: {
+            label: 'Name',
+            placeholder: 'Enter your name here',
+            errors: {
+              required:
+                'Please enter your name so I can address you correctly.',
+            },
+          },
+          email: {
+            label: 'Email',
+            placeholder: 'Enter your email here',
+            errors: {
+              required: 'I need your email to be able to contact you.',
+              invalid:
+                'Please tell me how I can assist you by filling out the message field.',
+            },
+          },
+          message: {
+            label: 'Message',
+            placeholder: 'How can I help you?',
+            errors: {
+              required:
+                'Please tell me how I can assist you by filling out the message field.',
+            },
+          },
+        },
+        status: {
+          success: {
+            title: 'Success!',
+            description:
+              'Your message has been sent successfully. I will get back to you as soon as possible.',
+          },
+          error: {
+            title: 'Success!',
+            description:
+              "We couldn't send your message. Please try again later or contact us at hello@enderpuentes.com.",
+          },
+        },
+        loading: {
+          on: 'Sending...',
+          off: 'Send Message',
+        },
+      },
     },
     logbook: {
       metadata: {
@@ -272,54 +320,7 @@ const en: Locale = {
         logbook: 'Logbook',
       },
     },
-    contact: {
-      title: 'Write to me!',
-      description:
-        'If you have a mission proposal or simply want to reach out from your space station, I’ll be happy to receive your message. Let’s connect and talk soon!',
-      button: 'Hi!',
-      inputs: {
-        name: {
-          label: 'Name',
-          placeholder: 'Enter your name here',
-          errors: {
-            required: 'Please enter your name so I can address you correctly.',
-          },
-        },
-        email: {
-          label: 'Email',
-          placeholder: 'Enter your email here',
-          errors: {
-            required: 'I need your email to be able to contact you.',
-            invalid:
-              'Please tell me how I can assist you by filling out the message field.',
-          },
-        },
-        message: {
-          label: 'Message',
-          placeholder: 'How can I help you?',
-          errors: {
-            required:
-              'Please tell me how I can assist you by filling out the message field.',
-          },
-        },
-      },
-      status: {
-        success: {
-          title: 'Success!',
-          description:
-            'Your message has been sent successfully. I will get back to you as soon as possible.',
-        },
-        error: {
-          title: 'Success!',
-          description:
-            "We couldn't send your message. Please try again later or contact us at hello@enderpuentes.com.",
-        },
-      },
-      loading: {
-        on: 'Sending...',
-        off: 'Send Message',
-      },
-    },
+
     footer: {
       socialMedia: {
         title: 'Follow me!',

@@ -1,3 +1,4 @@
+import Contact from '@/components/layout/contact';
 import About from '@/components/sections/about';
 import Hero from '@/components/sections/hero';
 import { Locale } from '@/types/locales';
@@ -46,6 +47,7 @@ export default async function Home({ params }: Props) {
           .replace('${flag}', flag)}
       />
       <About t={t.pages.home.about} />
+      <Contact t={t.pages.home.contact} />
     </>
   );
 }

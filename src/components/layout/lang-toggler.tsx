@@ -12,8 +12,10 @@ export default function LangToggler({ lang }: Props) {
   const pathname = usePathname();
 
   function setLang(newLang: 'en' | 'es') {
-    router.replace(pathname.replace(`/${lang}`, `/${newLang}`));
+    router.push(pathname.replace(`/${lang}`, `/${newLang}`));
   }
+
+  console.log(lang);
 
   return (
     <div className="flex justify-between items-center gap-2">
