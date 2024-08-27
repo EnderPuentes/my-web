@@ -273,7 +273,7 @@ const en: Locale = {
       },
     },
     contact: {
-      title: 'Send me a message!',
+      title: 'Write to me!',
       description:
         'If you have a mission proposal or simply want to reach out from your space station, I’ll be happy to receive your message. Let’s connect and talk soon!',
       button: 'Hi!',

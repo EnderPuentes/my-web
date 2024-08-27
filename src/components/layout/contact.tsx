@@ -110,11 +110,15 @@ export default function Contact({ t }: Props) {
   return (
     <section id="contact" className="mb-10">
       <Button
-        className="fixed right-5 bottom-5 flex justify-start items-center gap-3"
+        className="group fixed right-5 bottom-5 flex items-center justify-center h-14 w-14 rounded-full transform transition-all duration-500 hover:w-[170px]"
         onClick={() => router.push('#contact')}
       >
-        {' '}
-        {t.button} <PiRocketLaunchBold className="text-xl" />
+        <span>
+          <PiRocketLaunchBold className="text-2xl" />
+        </span>
+        <span className="whitespace-nowrap transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 max-w-0 group-hover:max-w-full group-hover:ml-3">
+          {t.title}
+        </span>
       </Button>
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card>
