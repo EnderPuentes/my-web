@@ -257,6 +257,10 @@ const en: Locale = {
       },
     },
     notFound: {
+      metadata: {
+        title: 'Signal Lost',
+        description: "We couldn't locate the requested resource",
+      },
       title: 'Signal Lost',
       description: "We couldn't locate the requested resource",
       back: 'Return to the station',

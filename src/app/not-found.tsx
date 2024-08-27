@@ -1,5 +1,7 @@
 import { Locale } from '@/types/locales';
 import { getLocale } from '@/utils/locales';
+import { sharedMetadata } from '@/utils/shared-metadata';
+import { Metadata } from 'next';
 import Link from 'next/link';
 
 function Start() {
@@ -24,6 +26,26 @@ type Props = {
   };
 };
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const lang = params.lang ?? 'en';
+  const t: Locale = await getLocale(lang);
+  const metadata = t.pages.notFound.metadata;
+
+  return {
+    ...sharedMetadata,
+    title: `${metadata.title} - ${sharedMetadata.title}`,
+    description: t.pages.home.metadata.description,
+    openGraph: {
+      ...sharedMetadata.openGraph,
+      title: `${metadata.title} - ${sharedMetadata.title}`,
+      description: metadata.description,
+    },
+    metadataBase: new URL(`${BASE_URL}/${lang}`),
+  };
+}
+
 export default async function NotFound({ params }: Props) {
   const lang = params.lang ?? 'en';
   const t: Locale = await getLocale(lang);
@@ -36,7 +58,7 @@ export default async function NotFound({ params }: Props) {
 
         <Link
           className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-w-80 mx-auto mt-5 sm:mt-10 text-xs sm:text-sm"
-          href="/logbook"
+          href={`/${lang}/logbook`}
         >
           {t.pages.notFound.back}
         </Link>

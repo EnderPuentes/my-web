@@ -64,6 +64,10 @@ export type Locale = {
       };
     };
     notFound: {
+      metadata: {
+        title: string;
+        description: string;
+      };
       title: string;
       description: string;
       back: string;
