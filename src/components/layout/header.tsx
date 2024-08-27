@@ -13,7 +13,10 @@ export default function Header({ t, lang }: Props) {
   return (
     <header className="sticky top-0 border-b bg-background dark:bg-background to-gray-950 z-50 shadow-sm h-20 flex justify-center items-center">
       <div className="container flex justify-between items-center">
-        <Link href={'/'} className="flex justify-start items-start flex-col">
+        <Link
+          href={`${lang}/`}
+          className="flex justify-start items-start flex-col"
+        >
           <Logo />
         </Link>
         <div className="flex justify-between items-center gap-6">
