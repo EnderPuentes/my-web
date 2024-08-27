@@ -26,9 +26,9 @@ export default function Education({ t }: Props) {
               <>
                 <div
                   key={i}
-                  className="flex justify-start items-start gap-5 border-b pb-10 last:pb-0 last:border-b-0"
+                  className="flex justify-start items-start gap-5 sm:gap-7 border-b pb-10 last:pb-0 last:border-b-0"
                 >
-                  <div className="min-w-[60px] min-h-[60px] flex justify-center items-center border rounded-full bg-white">
+                  <div className="min-w-[40px] sm:min-w-[60px] min-h-[40px] sm:min-h-[60px] flex justify-center items-center border rounded-full bg-white">
                     <Image
                       src={edu.school.logo}
                       alt={edu.school.name}
