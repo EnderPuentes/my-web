@@ -12,16 +12,21 @@ type Props = {
   };
 };
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const lang = params.lang ?? 'en';
   const t: Locale = await getLocale(lang);
+  const metadata = t.pages.logbook.metadata;
 
   return {
     ...sharedMetadata,
     description: t.pages.home.metadata.description,
-    metadataBase: new URL(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}` ?? `/${lang}`
-    ),
+    openGraph: {
+      ...sharedMetadata.openGraph,
+      description: metadata.description,
+    },
+    metadataBase: new URL(`${BASE_URL}/${lang}`),
   };
 }
 
