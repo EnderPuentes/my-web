@@ -62,7 +62,7 @@ const en: Locale = {
         },
         loading: {
           on: 'Sending...',
-          off: 'Send Message',
+          off: 'Send message',
         },
       },
     },
