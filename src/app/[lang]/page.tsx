@@ -18,7 +18,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     ...sharedMetadata,
-    title: `${t.pages.home.metadata.title} - ${sharedMetadata.title}`,
     description: t.pages.home.metadata.description,
     metadataBase: new URL(
       `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}` ?? `/${lang}`
