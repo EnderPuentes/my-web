@@ -197,8 +197,9 @@ export default function Contact({ t }: Props) {
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="text-xs sm:text-base"
+                    className="text-xs sm:text-base flex justify-center items-center gap-2"
                   >
+                    <PiRocketLaunchBold className="text-xl" />
                     {isLoading ? t.loading.on : t.loading.off}
                   </Button>
                 </div>
