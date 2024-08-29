@@ -45,6 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       shortcut: '/favicons/favicon.ico',
       apple: '/favicons/apple-touch-icon.png',
     },
+    keywords: data?.meta.keywords?.join(', ') || '',
   };
 }
 
