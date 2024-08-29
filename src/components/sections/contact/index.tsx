@@ -27,6 +27,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { PiRocketLaunchBold } from 'react-icons/pi';
 import { z } from 'zod';
+import { sendContactForm } from './actions';
 
 type Props = {
   t: Locale['pages']['home']['contact'];
@@ -66,45 +67,27 @@ export default function Contact({ t }: Props) {
     },
   });
 
-  async function sendMessage(formData: FormSchema) {
-    const token = await executeRecaptcha('form_submit');
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/form/send`,
-      {
-        method: 'POST',
-        body: JSON.stringify({ form: formData, token }),
-        headers: {
-          'content-type': 'application/json',
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      // data is { errors: [{ error: mesagge }] }
-      throw new Error(data.error);
-    }
-    return data;
-  }
-
-  function onSubmit(formData: FormSchema) {
+  async function onSubmit(formData: FormSchema) {
     setIsLoading(true);
-    sendMessage(formData)
-      .then(() => {
-        toast({
-          title: t.status.success.title,
-          description: t.status.success.description,
-        });
-        form.reset();
-        setIsLoading(false);
-      })
-      .catch(() => {
-        toast({
-          variant: 'destructive',
-          title: t.status.error.title,
-          description: t.status.error.description,
-        });
-        setIsLoading(false);
+    try {
+      const token = await executeRecaptcha('form_submit');
+      await sendContactForm({ ...formData, token });
+
+      toast({
+        title: t.status.success.title,
+        description: t.status.success.description,
       });
+
+      form.reset();
+    } catch (error: any) {
+      toast({
+        variant: 'destructive',
+        title: t.status.error.title,
+        description: error.message || t.status.error.description,
+      });
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
