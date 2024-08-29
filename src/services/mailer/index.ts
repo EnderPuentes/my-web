@@ -19,7 +19,7 @@ export async function sendEmail(form: any) {
     const mailOptions = {
       from: 'hello@enderpuentes.com',
       to: 'hello@enderpuentes.com',
-      subject: `Tienes un mensaje de ${form.name} a través de enderpuentes.com`,
+      subject: `Here's a message from ${form.name} via enderpuentes.com.`,
       text: form.message,
       replyTo: form.email,
     };
@@ -27,7 +27,7 @@ export async function sendEmail(form: any) {
     const info = await transporter.sendMail(mailOptions);
     return { success: true, messageId: info.messageId };
   } catch (error: any) {
-    console.error(`Error al enviar el mensaje: ${error?.message}`);
+    console.error(`Failed to send the message: ${error?.message}`);
     return { success: false, message: `Error: ${error?.message}` };
   }
 }

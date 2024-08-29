@@ -1,4 +1,5 @@
 'use server';
+
 export async function validateReCaptcha(token: string) {
   try {
     const response = await fetch(
@@ -18,12 +19,11 @@ export async function validateReCaptcha(token: string) {
     const data = await response.json();
 
     if (!data.success || data.score < 0.5) {
-      return { valid: false, message: 'Captcha inválido' };
+      return { valid: false, message: 'Captcha invalid' };
     }
 
     return { valid: true };
   } catch (error: any) {
-    console.error(`Error en la validación del CAPTCHA: ${error?.message}`);
-    return { valid: false, message: 'Error al verificar el CAPTCHA' };
+    return { valid: false, message: 'Failed to verify the CAPTCHA' };
   }
 }
