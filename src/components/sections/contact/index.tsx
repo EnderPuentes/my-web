@@ -19,7 +19,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
-import { Locale } from '@/types/locales';
+import { ContactSchema } from '@/services/sanity/parser';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
 import { useRouter } from 'next/navigation';
@@ -30,10 +30,10 @@ import { z } from 'zod';
 import { sendContactForm } from './actions';
 
 type Props = {
-  t: Locale['pages']['home']['contact'];
+  data: ContactSchema;
 };
 
-export default function Contact({ t }: Props) {
+export default function Contact({ data }: Props) {
   const router = useRouter();
   const { toast } = useToast();
   const { executeRecaptcha } = useReCaptcha();
@@ -41,18 +41,18 @@ export default function Contact({ t }: Props) {
 
   const formSchema = z.object({
     name: z.string().min(1, {
-      message: t.inputs.name.errors.required,
+      message: data.inputs.name.errors.required,
     }),
     email: z
       .string()
       .min(1, {
-        message: t.inputs.email.errors.required,
+        message: data.inputs.email.errors.required,
       })
       .email({
-        message: t.inputs.email.errors.invalid,
+        message: data.inputs.email.errors.invalid,
       }),
     message: z.string().min(1, {
-      message: t.inputs.message.errors.required,
+      message: data.inputs.message.errors.required,
     }),
   });
 
@@ -74,16 +74,16 @@ export default function Contact({ t }: Props) {
       await sendContactForm({ ...formData, token });
 
       toast({
-        title: t.status.success.title,
-        description: t.status.success.description,
+        title: data.status.success.title,
+        description: data.status.success.description,
       });
 
       form.reset();
     } catch (error: any) {
       toast({
         variant: 'destructive',
-        title: t.status.error.title,
-        description: error.message || t.status.error.description,
+        title: data.status.error.title,
+        description: data.status.error.description || error.message,
       });
     } finally {
       setIsLoading(false);
@@ -100,19 +100,19 @@ export default function Contact({ t }: Props) {
           <PiRocketLaunchBold className="text-2xl" />
         </span>
         <span className="whitespace-nowrap transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 max-w-0 group-hover:max-w-full group-hover:ml-3">
-          {t.title}
+          {data.title}
         </span>
       </Button>
       <div className="container flex flex-col justify-start items-start gap-5">
         <Card>
           <CardHeader>
             <CardTitle className="font-semibold text-lg sm:text-xl">
-              {t.title}
+              {data.title}
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-4">
             <p className="text-xs sm:text-base leading-5 sm:leading-7 dark:text-gray-300">
-              {t.description}
+              {data.description}
             </p>
             <Form {...form}>
               <form
@@ -125,12 +125,12 @@ export default function Contact({ t }: Props) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-current text-xs sm:text-base">
-                        {t.inputs.name.label}*
+                        {data.inputs.name.label}*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
-                          placeholder={t.inputs.name.placeholder}
+                          placeholder={data.inputs.name.placeholder}
                           className="text-xs sm:text-base"
                         />
                       </FormControl>
@@ -145,12 +145,12 @@ export default function Contact({ t }: Props) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-current text-xs sm:text-base">
-                        {t.inputs.email.label}*
+                        {data.inputs.email.label}*
                       </FormLabel>
                       <FormControl>
                         <Input
                           {...field}
-                          placeholder={t.inputs.email.placeholder}
+                          placeholder={data.inputs.email.placeholder}
                           className="text-xs sm:text-base"
                         />
                       </FormControl>
@@ -165,13 +165,13 @@ export default function Contact({ t }: Props) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-current text-xs sm:text-base">
-                        {t.inputs.message.label}*
+                        {data.inputs.message.label}*
                       </FormLabel>
                       <FormControl>
                         <Textarea
                           {...field}
                           rows={5}
-                          placeholder={t.inputs.message.placeholder}
+                          placeholder={data.inputs.message.placeholder}
                           className="text-xs sm:text-base"
                         />
                       </FormControl>
@@ -187,7 +187,7 @@ export default function Contact({ t }: Props) {
                     className="text-xs sm:text-base flex justify-center items-center gap-2 rounded-full"
                   >
                     <PiRocketLaunchBold className="text-xl" />
-                    {isLoading ? t.loading.on : t.loading.off}
+                    {isLoading ? data.loading.on : data.loading.off}
                   </Button>
                 </div>
               </form>

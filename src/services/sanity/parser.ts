@@ -53,12 +53,59 @@ export const aboutSchema = z.object({
 
 export type AboutSchema = z.infer<typeof aboutSchema>;
 
+export const contactSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('contact'),
+  title: z.string().max(120),
+  description: z.string().max(360),
+  inputs: z.object({
+    name: z.object({
+      label: z.string(),
+      placeholder: z.string(),
+      errors: z.object({
+        required: z.string(),
+      }),
+    }),
+    email: z.object({
+      label: z.string(),
+      placeholder: z.string(),
+      errors: z.object({
+        required: z.string(),
+        invalid: z.string(),
+      }),
+    }),
+    message: z.object({
+      label: z.string(),
+      placeholder: z.string(),
+      errors: z.object({
+        required: z.string(),
+      }),
+    }),
+  }),
+  status: z.object({
+    success: z.object({
+      title: z.string(),
+      description: z.string(),
+    }),
+    error: z.object({
+      title: z.string(),
+      description: z.string(),
+    }),
+  }),
+  loading: z.object({
+    on: z.string(),
+    off: z.string(),
+  }),
+});
+
+export type ContactSchema = z.infer<typeof contactSchema>;
+
 // Pages
 
 export const homeSchema = z.object({
   meta: metaSchema,
   sections: z
-    .union([heroSchema, aboutSchema])
+    .union([heroSchema, aboutSchema, contactSchema])
     .and(z.object({ _key: z.string() }))
     .array(),
 });

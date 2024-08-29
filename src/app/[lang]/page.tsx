@@ -1,4 +1,5 @@
 import About from '@/components/sections/about';
+import Contact from '@/components/sections/contact';
 import Hero from '@/components/sections/hero';
 import { getHomePage } from '@/services/sanity/request';
 import { Metadata } from 'next';
@@ -42,6 +43,7 @@ export default async function Home({ params }: Props) {
           case 'hero':
             return (
               <Hero
+                key={section._key}
                 data={{
                   ...section,
                   content: section.content
@@ -51,13 +53,13 @@ export default async function Home({ params }: Props) {
               />
             );
           case 'about': {
-            return <About data={section} />;
+            return <About key={section._key} data={section} />;
+          }
+          case 'contact': {
+            return <Contact key={section._key} data={section} />;
           }
         }
       })}
-
-      {/* 
-      <Contact t={t.pages.home.contact} /> */}
     </>
   );
 }

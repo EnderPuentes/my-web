@@ -5,6 +5,7 @@ import { headerComponentType } from './components/headerType';
 import { metaComponentType } from './components/metaType';
 // Sections
 import { aboutSectionType } from './sections/aboutType';
+import { contactSectionType } from './sections/contactType';
 import { heroSectionType } from './sections/heroType';
 // Pages
 import { homePageType } from './pages/homeType';
@@ -20,6 +21,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     metaComponentType,
     // Sections
     aboutSectionType,
+    contactSectionType,
     heroSectionType,
     // Pages
     homePageType,

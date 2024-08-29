@@ -1,53 +1,5 @@
 export type Locale = {
   pages: {
-    home: {
-      about: {
-        title: string;
-        description: string;
-      };
-      contact: {
-        title: string;
-        description: string;
-        inputs: {
-          name: {
-            label: string;
-            placeholder: string;
-            errors: {
-              required: string;
-            };
-          };
-          email: {
-            label: string;
-            placeholder: string;
-            errors: {
-              required: string;
-              invalid?: string;
-            };
-          };
-          message: {
-            label: string;
-            placeholder: string;
-            errors: {
-              required: string;
-            };
-          };
-        };
-        status: {
-          success: {
-            title: string;
-            description: string;
-          };
-          error: {
-            title: string;
-            description: string;
-          };
-        };
-        loading: {
-          on: string;
-          off: string;
-        };
-      };
-    };
     logbook: {
       skills: {
         title: string;
