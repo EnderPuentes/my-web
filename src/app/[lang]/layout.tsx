@@ -22,7 +22,9 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data: LayoutSchema | null | undefined = await getLayout(params.lang);
+  const data: LayoutSchema | null | undefined = await getLayout(
+    params.lang ?? 'en'
+  );
 
   return {
     applicationName: 'Endev',
@@ -53,7 +55,10 @@ export default async function RootLayout({
   children,
   params,
 }: Readonly<Props>) {
-  const data: LayoutSchema | null | undefined = await getLayout(params.lang);
+  const data: LayoutSchema | null | undefined = await getLayout(
+    params.lang ?? 'en'
+  );
+
   return (
     <html lang={params.lang ?? 'en'}>
       <body className={`${jetBrainsMono.className} flex flex-col min-h-screen`}>

@@ -1,8 +1,5 @@
 import Hero from '@/components/sections/hero';
 import { getLogbookPage } from '@/services/sanity/request';
-import { Locale } from '@/types/locales';
-import { getLocale } from '@/utils/locales';
-import { sharedMetadata } from '@/utils/shared-metadata';
 import { Metadata } from 'next';
 
 type Props = {
@@ -14,20 +11,17 @@ type Props = {
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const lang = params.lang ?? 'en';
-  const t: Locale = await getLocale(lang);
-  const metadata = t.pages.logbook.metadata;
+  const data = await getLogbookPage(params.lang);
 
   return {
-    ...sharedMetadata,
-    title: `${metadata.title} - ${sharedMetadata.title}`,
-    description: metadata.description,
+    title: data?.meta.title,
+    description: data?.meta.description,
     openGraph: {
-      ...sharedMetadata.openGraph,
-      title: `${metadata.title} - ${sharedMetadata.title}`,
-      description: metadata.description,
+      title: data?.meta.title,
+      description: data?.meta.description,
     },
-    metadataBase: new URL(`${BASE_URL}/${lang}/logbook`),
+    metadataBase: new URL(`${BASE_URL}/${params.lang}/logbook`),
+    keywords: data?.meta.keywords?.join(', ') || '',
   };
 }
 
