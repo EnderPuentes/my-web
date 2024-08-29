@@ -3,15 +3,6 @@ import { Locale } from '@/types/locales';
 const en: Locale = {
   pages: {
     home: {
-      metadata: {
-        title: '',
-        description:
-          'I am a proactive and passionate developer with 8 years of professional experience in the field of software development. I have worked with various programming languages, primarily focusing on web application development.',
-      },
-      hero: {
-        title:
-          'Connecting with ${city} ${flag}...\n\nHello, I’m Ender 👾\nWelcome to my station 🧑🏻‍🚀\n\nExplore my journey and join me in the quest for new challenges 🚀',
-      },
       about: {
         title: 'About me',
         description:
@@ -67,15 +58,6 @@ const en: Locale = {
       },
     },
     logbook: {
-      metadata: {
-        title: 'My Logbook',
-        description:
-          'I am Ender Puentes, a software developer at Aerolab, specializing in Next.js and TypeScript. I primarily work with technologies like Docker, Prisma, and Tailwind CSS, building scalable and efficient web solutions."',
-      },
-      hero: {
-        title:
-          'Fetching current logbook...\n\nName: Ender Puentes 👾\nPosition: Software Developer 💻\nOperations Center: Aerolab 🛰️\nLocation: Buenos Aires 🇦🇷',
-      },
       skills: {
         title: 'Technical Arsenal',
         items: [
@@ -312,19 +294,6 @@ const en: Locale = {
       title: 'Signal Lost',
       description: "We couldn't locate the requested resource",
       back: 'Return to the station',
-    },
-  },
-  layout: {
-    header: {
-      menu: {
-        logbook: 'Logbook',
-      },
-    },
-
-    footer: {
-      socialMedia: {
-        title: 'Follow me!',
-      },
     },
   },
 };

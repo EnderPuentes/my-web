@@ -1,13 +1,6 @@
 export type Locale = {
   pages: {
     home: {
-      metadata: {
-        title: string;
-        description: string;
-      };
-      hero: {
-        title: string;
-      };
       about: {
         title: string;
         description: string;
@@ -56,13 +49,6 @@ export type Locale = {
       };
     };
     logbook: {
-      metadata: {
-        title: string;
-        description: string;
-      };
-      hero: {
-        title: string;
-      };
       skills: {
         title: string;
         items: {
@@ -113,19 +99,6 @@ export type Locale = {
       title: string;
       description: string;
       back: string;
-    };
-  };
-  layout: {
-    header: {
-      menu: {
-        logbook: string;
-      };
-    };
-
-    footer: {
-      socialMedia: {
-        title: string;
-      };
     };
   };
 };

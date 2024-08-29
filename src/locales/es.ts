@@ -3,15 +3,6 @@ import { Locale } from '@/types/locales';
 const es: Locale = {
   pages: {
     home: {
-      metadata: {
-        title: 'Ender Puentes - Sofware Developer',
-        description:
-          'Soy un desarrollador proactivo y apasionado con 8 años de carrera profesional en el campo del desarrollo de software. He trabajado con diversos lenguajes de programación, enfocado principalmente en el desarrollo de aplicaciones web.',
-      },
-      hero: {
-        title:
-          'Conectando con ${city} ${flag}...\n\nHola, Soy Ender 👾\nBienvenido a mi estación 🧑🏻‍🚀\n\nExplora mi trayectoria y acompáñame en la búsqueda de nuevos desafíos 🚀',
-      },
       about: {
         title: 'Sobre mí',
         description:
@@ -68,15 +59,6 @@ const es: Locale = {
       },
     },
     logbook: {
-      metadata: {
-        title: 'Mi Bitácora',
-        description:
-          'Soy Ender Puentes, desarrollador de software en Aerolab, especializado en Next.js y TypeScript. Trabajo principalmente con tecnologías como Docker, Prisma, y Tailwind CSS, desarrollando soluciones web escalables y eficientes.',
-      },
-      hero: {
-        title:
-          'Obteniendo bitácora actual...\n\nNombre: Ender Puentes 👾\nPuesto: Software Developer 💻\nCentro de Operaciones: Aerolab 🛰️\nUbicación: Buenos Aires 🇦🇷',
-      },
       skills: {
         title: 'Arsenal Técnico',
         items: [
@@ -322,19 +304,6 @@ const es: Locale = {
       title: 'Señal Perdida',
       description: 'No pudimos localizar el recurso solicitado',
       back: 'Regresar a la estación',
-    },
-  },
-  layout: {
-    header: {
-      menu: {
-        logbook: 'Bitácora',
-      },
-    },
-
-    footer: {
-      socialMedia: {
-        title: '¡Sígueme por otros canales!',
-      },
     },
   },
 };

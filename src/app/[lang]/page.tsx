@@ -1,5 +1,6 @@
 import Hero from '@/components/sections/hero';
 import { getHomePage } from '@/services/sanity/request';
+import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
 type Props = {
@@ -9,6 +10,21 @@ type Props = {
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const data = await getHomePage(params.lang);
+
+  return {
+    title: data?.meta.title,
+    description: data?.meta.description,
+    openGraph: {
+      title: data?.meta.title,
+      description: data?.meta.description,
+    },
+    metadataBase: new URL(`${BASE_URL}/${params.lang}`),
+    keywords: data?.meta.keywords?.join(', ') || '',
+  };
+}
 
 export default async function Home({ params }: Props) {
   const cookieStore = cookies();
