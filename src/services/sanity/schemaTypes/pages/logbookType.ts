@@ -16,6 +16,11 @@ export const logbookPageType = defineType({
       title: 'Metadata',
       type: 'meta',
     }),
+    defineField({
+      name: 'hero',
+      title: 'Hero',
+      type: 'hero',
+    }),
   ],
   preview: {
     select: {
