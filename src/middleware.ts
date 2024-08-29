@@ -1,4 +1,4 @@
-import countries from '@/utils/countries';
+import countries from '@/lib/countries';
 import { NextRequest, NextResponse } from 'next/server';
 
 const locales = ['en', 'es'];
