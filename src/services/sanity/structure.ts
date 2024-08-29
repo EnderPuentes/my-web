@@ -1,4 +1,4 @@
-import { PiBook, PiDatabase, PiHouse } from 'react-icons/pi';
+import { PiBook, PiDatabase, PiHouse, PiLayout } from 'react-icons/pi';
 import type { StructureResolver } from 'sanity/structure';
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
@@ -6,6 +6,15 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Admin') // Cambia el título si lo deseas
     .items([
+      S.listItem()
+        .title('Layout')
+        .icon(PiLayout)
+        .child(
+          S.documentWithInitialValueTemplate('layout', {
+            _id: 'layout',
+            _type: 'layout',
+          })
+        ),
       S.listItem()
         .title('Pages')
         .icon(PiDatabase)

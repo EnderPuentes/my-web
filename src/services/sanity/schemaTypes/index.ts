@@ -6,6 +6,8 @@ import { heroSectionType } from './sections/heroType';
 // Pages
 import { homePageType } from './pages/homeType';
 import { logbookPageType } from './pages/logbookType';
+// layouts
+import { layoutType } from './layout';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -16,5 +18,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Pages
     homePageType,
     logbookPageType,
+    // Layout
+    layoutType,
   ],
 };
