@@ -10,6 +10,32 @@ export const metaSchema = z.object({
   noFollow: z.boolean().default(false),
 });
 
+export const headerSchema = z.object({
+  navbar: z.object({
+    items: z
+      .object({
+        title: z.string(),
+        path: z.string(),
+      })
+      .array(),
+  }),
+});
+
+export type HeaderSchema = z.infer<typeof headerSchema>;
+
+export const footerSchema = z.object({
+  socialMedia: z.object({
+    title: z.string(),
+    linkedin: z.string().optional(),
+    github: z.string().optional(),
+    telegram: z.string().optional(),
+    x: z.string().optional(),
+  }),
+  copyright: z.string(),
+});
+
+export type FooterSchema = z.infer<typeof footerSchema>;
+
 // Sections
 
 export const heroSchema = z.object({
@@ -49,3 +75,13 @@ export const logbookSchema = z.object({
   //   heroSchema.and(z.object({ _key: z.string() })) // Solo permite `heroSchema`
   // ),
 });
+
+// Layout
+
+export const layoutSchema = z.object({
+  meta: metaSchema,
+  header: headerSchema,
+  footer: footerSchema,
+});
+
+export type LayoutSchema = z.infer<typeof layoutSchema>;
