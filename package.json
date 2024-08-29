@@ -19,6 +19,7 @@
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
+    "@sanity/document-internationalization": "^3.0.1",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
     "@theme-toggles/react": "^4.1.0",

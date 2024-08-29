@@ -4,7 +4,9 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `/app/services/sanity/[[...tool]]/page.tsx` route
  */
 
+import { documentInternationalization } from '@sanity/document-internationalization';
 import { visionTool } from '@sanity/vision';
+
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 
@@ -27,6 +29,13 @@ export default defineConfig({
     visionTool({
       defaultApiVersion:
         process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-08-29',
+    }),
+    documentInternationalization({
+      supportedLanguages: [
+        { id: 'en', title: 'English' },
+        { id: 'es', title: 'Spanish' },
+      ],
+      schemaTypes: ['home', 'logbook'],
     }),
   ],
 });
