@@ -33,7 +33,7 @@ export default async function Logbook({ params }: Props) {
       {data?.sections.map((section) => {
         switch (section._type) {
           case 'hero':
-            return <Hero content={section.content} />;
+            return <Hero data={section} />;
         }
       })}
 

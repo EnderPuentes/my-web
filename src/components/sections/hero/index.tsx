@@ -1,25 +1,24 @@
 'use client';
 
+import { HeroSchema } from '@/services/sanity/parser';
 import { useEffect, useState } from 'react';
 
-type Props = {
-  content: string;
-};
+type Props = { data: HeroSchema };
 
-export default function Hero({ content }: Props) {
+export default function Hero({ data }: Props) {
   const [index, setIndex] = useState(0);
   const [currentContent, setCurrentContent] = useState('');
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    if (index < content.length) {
+    if (index < data.content.length) {
       const timeoutId = setTimeout(() => {
-        setCurrentContent((prev) => prev + content.charAt(index));
+        setCurrentContent((prev) => prev + data.content.charAt(index));
         setIndex(index + 1);
       }, 50);
       return () => clearTimeout(timeoutId);
     }
-  }, [index, content]);
+  }, [index, data.content]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {

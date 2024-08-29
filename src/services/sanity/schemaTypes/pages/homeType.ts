@@ -26,6 +26,11 @@ export const homePageType = defineType({
           title: 'Hero',
           type: 'hero',
         }),
+        defineField({
+          name: 'about',
+          title: 'About',
+          type: 'about',
+        }),
       ],
     }),
   ],

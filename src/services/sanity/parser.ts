@@ -42,24 +42,25 @@ export const heroSchema = z.object({
   content: z.string(),
 });
 
+export type HeroSchema = z.infer<typeof heroSchema>;
+
 export const aboutSchema = z.object({
   _key: z.string(),
   _type: z.literal('about'),
   title: z.string(),
+  content: z.string(),
 });
+
+export type AboutSchema = z.infer<typeof aboutSchema>;
 
 // Pages
 
 export const homeSchema = z.object({
   meta: metaSchema,
-  sections: z.array(heroSchema),
-  // sections: z
-  //   .union([heroSchema, aboutSchema])
-  //   .and(z.object({ _key: z.string() }))
-  //   .array(),
-  // sections: z.array(
-  //   heroSchema.and(z.object({ _key: z.string() })) // Solo permite `heroSchema`
-  // ),
+  sections: z
+    .union([heroSchema, aboutSchema])
+    .and(z.object({ _key: z.string() }))
+    .array(),
 });
 
 export const logbookSchema = z.object({
