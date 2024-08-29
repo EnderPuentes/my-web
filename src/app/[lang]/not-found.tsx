@@ -1,27 +1,10 @@
 import { Locale } from '@/types/locales';
 import { getLocale } from '@/utils/locales';
-import { sharedMetadata } from '@/utils/shared-metadata';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-
 export async function generateMetadata(): Promise<Metadata> {
-  const lang = 'en';
-  const t: Locale = await getLocale(lang);
-  const metadata = t.pages.notFound.metadata;
-
-  return {
-    ...sharedMetadata,
-    title: `${metadata.title} - ${sharedMetadata.title}`,
-    description: t.pages.home.metadata.description,
-    openGraph: {
-      ...sharedMetadata.openGraph,
-      title: `${metadata.title} - ${sharedMetadata.title}`,
-      description: metadata.description,
-    },
-    metadataBase: new URL(`${BASE_URL}/${lang}`),
-  };
+  return {};
 }
 
 function Start() {
