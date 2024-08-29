@@ -24,17 +24,5 @@ export const metaComponentType = defineType({
       title: 'Keywords',
       of: [{ type: 'string' }],
     }),
-    defineField({
-      name: 'noIndex',
-      type: 'boolean',
-      title: 'No Index',
-      initialValue: false,
-    }),
-    defineField({
-      name: 'noFollow',
-      type: 'boolean',
-      title: 'No Follow',
-      initialValue: false,
-    }),
   ],
 });

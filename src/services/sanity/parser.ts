@@ -6,8 +6,6 @@ export const metaSchema = z.object({
   title: z.string(),
   description: z.string(),
   keywords: z.string().array().optional(),
-  noIndex: z.boolean().default(false),
-  noFollow: z.boolean().default(false),
 });
 
 export const headerSchema = z.object({
