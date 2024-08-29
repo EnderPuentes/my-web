@@ -2,62 +2,6 @@ import { Locale } from '@/types/locales';
 
 const es: Locale = {
   pages: {
-    home: {
-      about: {
-        title: 'Sobre mí',
-        description:
-          'Soy un desarrollador proactivo y apasionado con 8 años de carrera profesional en el campo del desarrollo de software. He trabajado con diversos lenguajes de programación, enfocado principalmente en el desarrollo de aplicaciones web. Mi experiencia incluye la creación de soluciones técnicas sólidas y escalables, abordando desafíos de manera creativa y eficiente. He descubierto una gran pasión por los productos digitales, y me esfuerzo por garantizar que cada característica que desarrollo no solo cumpla, sino que supere las expectativas. Destaco por mi habilidad para colaborar en equipos multidisciplinarios y trabajar bajo presión, mostrando empatía y un firme compromiso con los objetivos del proyecto.',
-      },
-      contact: {
-        title: '¡Escríbeme!',
-        description:
-          'Si tienes alguna propuesta de misión o simplemente quieres comunicarte desde tu estación espacial, estaré encantado de recibir tu mensaje. ¡Conectemos y hablemos pronto!',
-        inputs: {
-          name: {
-            label: 'Nombre',
-            placeholder: 'Ingresa tu nombre aquí',
-            errors: {
-              required:
-                'Por favor, introduce tu nombre para que pueda dirigirme a ti correctamente.',
-            },
-          },
-          email: {
-            label: 'Correo electrónico',
-            placeholder: 'Ingresa tu email aquí',
-            errors: {
-              required:
-                'Necesito tu email para poder ponerme en contacto contigo.',
-              invalid:
-                'Cuéntame cómo puedo ayudarte completando el campo de mensaje.',
-            },
-          },
-          message: {
-            label: 'Mensaje',
-            placeholder: '¿En qué puedo ayudarte?',
-            errors: {
-              required:
-                'Cuéntame cómo puedo ayudarte completando el campo de mensaje.',
-            },
-          },
-        },
-        status: {
-          success: {
-            title: '¡Éxito!',
-            description:
-              'Tu mensaje ha sido enviado correctamente. Te responderé a la mayor brevedad posible.',
-          },
-          error: {
-            title: '¡Éxito!',
-            description:
-              'No pudimos enviar tu mensaje. Intenta más tarde o comunicate a hello@enderpuentes.com',
-          },
-        },
-        loading: {
-          on: 'Enviando...',
-          off: 'Enviar mensaje',
-        },
-      },
-    },
     logbook: {
       skills: {
         title: 'Arsenal Técnico',

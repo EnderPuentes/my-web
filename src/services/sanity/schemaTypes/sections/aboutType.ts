@@ -22,11 +22,12 @@ export const aboutSectionType = defineType({
   ],
   preview: {
     select: {
+      title: 'title',
       content: 'content',
     },
-    prepare({ content }) {
+    prepare({ title, content }) {
       return {
-        title: 'About',
+        title: title,
         subtitle: content,
       };
     },

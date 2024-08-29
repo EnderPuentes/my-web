@@ -31,6 +31,11 @@ export const homePageType = defineType({
           title: 'About',
           type: 'about',
         }),
+        defineField({
+          name: 'contact',
+          title: 'Contact',
+          type: 'contact',
+        }),
       ],
     }),
   ],
