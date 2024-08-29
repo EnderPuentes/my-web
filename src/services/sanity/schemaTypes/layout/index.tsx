@@ -9,6 +9,14 @@ export const layoutType = defineType({
       name: 'meta',
       title: 'Metadata',
     },
+    {
+      name: 'header',
+      title: 'Header',
+    },
+    {
+      name: 'footer',
+      title: 'Footer',
+    },
   ],
   fields: [
     defineField({
@@ -19,9 +27,21 @@ export const layoutType = defineType({
     }),
     defineField({
       name: 'meta',
-      title: 'Metadata Global',
+      title: 'Metadata',
       type: 'meta',
       group: 'meta',
+    }),
+    defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'header',
+      group: 'header',
+    }),
+    defineField({
+      name: 'footer',
+      title: 'Footer',
+      type: 'footer',
+      group: 'footer',
     }),
   ],
 

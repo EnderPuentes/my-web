@@ -1,5 +1,7 @@
 import { type SchemaTypeDefinition } from 'sanity';
 // Componentes
+import { footerComponentType } from './components/footerType';
+import { headerComponentType } from './components/headerType';
 import { metaComponentType } from './components/metaType';
 // Sections
 import { heroSectionType } from './sections/heroType';
@@ -12,6 +14,8 @@ import { layoutType } from './layout';
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // Components
+    headerComponentType,
+    footerComponentType,
     metaComponentType,
     // Sections
     heroSectionType,

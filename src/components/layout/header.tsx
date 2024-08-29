@@ -1,15 +1,12 @@
 import Logo from '@/components/layout/logo';
 import ThemeToggler from '@/components/layout/theme-toggler';
-import { Locale } from '@/types/locales';
+import { HeaderSchema } from '@/services/sanity/parser';
 import Link from 'next/link';
 import LangToggler from './lang-toggler';
 
-type Props = {
-  t: Locale['layout']['header'];
-  lang: string;
-};
+type Props = { data: HeaderSchema | null | undefined; lang: 'en' | 'es' };
 
-export default function Header({ t, lang }: Props) {
+export default function Header({ data, lang }: Props) {
   return (
     <header className="sticky top-0 border-b bg-background dark:bg-background to-gray-950 z-50 shadow-sm h-20 flex justify-center items-center">
       <div className="container flex justify-between items-center">
@@ -20,14 +17,16 @@ export default function Header({ t, lang }: Props) {
           <Logo />
         </Link>
         <div className="flex justify-between items-center gap-6">
-          <Link
-            aria-label={t.menu.logbook}
-            className="text-base"
-            href={`/${lang}/logbook`}
-            title={t.menu.logbook}
-          >
-            {t.menu.logbook}
-          </Link>
+          {data?.navbar.items.map((it) => (
+            <Link
+              aria-label={it.title}
+              className="text-base"
+              href={`/${lang}${it.path}`}
+              title={it.title}
+            >
+              {it.title}
+            </Link>
+          ))}
           <div className="flex items-center gap-1">
             <LangToggler lang={lang} />
             <ThemeToggler />
