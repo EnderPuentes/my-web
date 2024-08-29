@@ -17,8 +17,9 @@ export default function Header({ data, lang }: Props) {
           <Logo />
         </Link>
         <div className="flex justify-between items-center gap-6">
-          {data?.navbar.items.map((it) => (
+          {data?.navbar.items.map((it, i) => (
             <Link
+              key={i}
               aria-label={it.title}
               className="text-base"
               href={`/${lang}${it.path}`}
