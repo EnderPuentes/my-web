@@ -1,11 +1,10 @@
+import { sharedMetadata } from '@/utils/shared-metadata';
 import { Viewport } from 'next';
-import { JetBrains_Mono } from 'next/font/google';
 
 export const metadata = {
-  title: 'Endev - Admin',
+  ...sharedMetadata,
+  title: `Admin - ${sharedMetadata.title}`,
 };
-
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export const viewport: Viewport = {
   themeColor: '#8A2BE2',

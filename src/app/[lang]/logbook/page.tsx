@@ -1,7 +1,5 @@
-import Education from '@/components/sections/education';
-import Expertise from '@/components/sections/expertise';
 import Hero from '@/components/sections/hero';
-import Skills from '@/components/sections/skills';
+import { getLogbookPage } from '@/services/sanity/request';
 import { Locale } from '@/types/locales';
 import { getLocale } from '@/utils/locales';
 import { sharedMetadata } from '@/utils/shared-metadata';
@@ -9,7 +7,7 @@ import { Metadata } from 'next';
 
 type Props = {
   params: {
-    lang: string;
+    lang: 'en' | 'es';
   };
 };
 
@@ -34,14 +32,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Logbook({ params }: Props) {
-  const t: Locale = await getLocale(params.lang ?? 'en');
+  const data = await getLogbookPage(params.lang);
 
   return (
     <>
-      <Hero text={t.pages.logbook.hero.title} />
-      <Skills t={t.pages.logbook.skills} />
-      <Expertise t={t.pages.logbook.expertise} />
-      <Education t={t.pages.logbook.education} />
+      {data?.sections.map((section) => {
+        switch (section._type) {
+          case 'hero':
+            return <Hero content={section.content} />;
+        }
+      })}
+
+      {/* 
+      <About t={t.pages.home.about} />
+      <Contact t={t.pages.home.contact} /> */}
     </>
   );
 }

@@ -3,23 +3,23 @@
 import { useEffect, useState } from 'react';
 
 type Props = {
-  text: string;
+  content: string;
 };
 
-export default function Hero({ text }: Props) {
+export default function Hero({ content }: Props) {
   const [index, setIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
+  const [currentContent, setCurrentContent] = useState('');
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    if (index < text.length) {
+    if (index < content.length) {
       const timeoutId = setTimeout(() => {
-        setCurrentText((prev) => prev + text.charAt(index));
+        setCurrentContent((prev) => prev + content.charAt(index));
         setIndex(index + 1);
       }, 50);
       return () => clearTimeout(timeoutId);
     }
-  }, [index, text]);
+  }, [index, content]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
@@ -42,7 +42,11 @@ export default function Hero({ text }: Props) {
             <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7 flex justify-start items-start gap-1">
               <span className="text-green-500 block w-4 sm:w-6">{'~/ '}</span>
               <span className="text-gray-300 flex-1">
-                {currentText}
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: currentContent,
+                  }}
+                />
                 {showCursor && <span className="font-bold">_</span>}
               </span>
             </pre>
