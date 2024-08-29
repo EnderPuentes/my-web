@@ -1,3 +1,4 @@
+import About from '@/components/sections/about';
 import Hero from '@/components/sections/hero';
 import { getHomePage } from '@/services/sanity/request';
 import { Metadata } from 'next';
@@ -41,16 +42,21 @@ export default async function Home({ params }: Props) {
           case 'hero':
             return (
               <Hero
-                content={section.content
-                  .replace('${city}', city)
-                  .replace('${flag}', flag)}
+                data={{
+                  ...section,
+                  content: section.content
+                    .replace('${city}', city)
+                    .replace('${flag}', flag),
+                }}
               />
             );
+          case 'about': {
+            return <About data={section} />;
+          }
         }
       })}
 
       {/* 
-      <About t={t.pages.home.about} />
       <Contact t={t.pages.home.contact} /> */}
     </>
   );
