@@ -11,4 +11,15 @@ export const homePageType = defineType({
       type: 'meta',
     }),
   ],
+  preview: {
+    select: {
+      title: 'meta.title',
+    },
+    prepare({ title }) {
+      return {
+        title: title || 'Home',
+        subtitle: '/[lang]/',
+      };
+    },
+  },
 });

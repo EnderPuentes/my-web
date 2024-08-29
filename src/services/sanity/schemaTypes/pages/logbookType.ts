@@ -11,4 +11,15 @@ export const logbookPageType = defineType({
       type: 'meta',
     }),
   ],
+  preview: {
+    select: {
+      title: 'meta.title',
+    },
+    prepare({ title }) {
+      return {
+        title: title || 'Logbook',
+        subtitle: '/[lang]/logbook',
+      };
+    },
+  },
 });
