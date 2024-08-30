@@ -29,8 +29,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Logbook({ params }: Props) {
   const data = await getLogbookPage(params.lang);
 
-  console.log({ data });
-
   return (
     <>
       {data?.sections.map((section) => {
