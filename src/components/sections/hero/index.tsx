@@ -8,7 +8,6 @@ type Props = { data: HeroSchema };
 export default function Hero({ data }: Props) {
   const [index, setIndex] = useState(0);
   const [currentContent, setCurrentContent] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     if (index < data.content.length) {
@@ -19,14 +18,6 @@ export default function Hero({ data }: Props) {
       return () => clearTimeout(timeoutId);
     }
   }, [index, data.content]);
-
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-
-    return () => clearInterval(cursorInterval);
-  }, []);
 
   return (
     <div className="flex justify-center items-center bg-slate-100 dark:bg-gray-950 py-5 mb-5 sm:mb-10">
@@ -46,7 +37,7 @@ export default function Hero({ data }: Props) {
                     __html: currentContent,
                   }}
                 />
-                {showCursor && <span className="font-bold">_</span>}
+                <span className="font-bold animate-blink">_</span>
               </span>
             </pre>
           </div>
