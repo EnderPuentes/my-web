@@ -1,4 +1,5 @@
 import '@/app/globals.css';
+import CursorGradient from '@/components/layout/cursor';
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import ThemeProvider from '@/components/providers/theme';
@@ -67,6 +68,7 @@ export default async function RootLayout({
             <Header data={data?.header} lang={params.lang ?? 'en'} />
             <main className="flex-1">{children}</main>
             <Footer data={data?.footer} />
+            <CursorGradient />
             <Toaster />
           </ThemeProvider>
         </ReCaptchaProvider>
