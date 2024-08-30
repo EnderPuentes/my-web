@@ -8,7 +8,7 @@ type Props = { data: HeaderSchema | null | undefined; lang: 'en' | 'es' };
 
 export default function Header({ data, lang }: Props) {
   return (
-    <header className="sticky top-0 border-b bg-background dark:bg-background to-gray-950 z-50 shadow-sm h-20 flex justify-center items-center">
+    <header className="sticky top-0 bg-transparent backdrop-blur-lg z-50 shadow-sm h-20 flex justify-center items-center">
       <div className="container flex justify-between items-center">
         <Link
           href={`/${lang}/`}
