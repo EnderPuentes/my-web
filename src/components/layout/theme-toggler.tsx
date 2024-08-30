@@ -26,7 +26,7 @@ export default function ThemeToggler({}: Props) {
   return (
     // @ts-ignore
     <Classic
-      className="h-10 w-10 text-2xl flex justify-center items-center"
+      className="h-10 w-10 text-xl flex justify-center items-center"
       duration={1000}
       toggled={resolvedTheme === 'dark'}
       toggle={() => toggleTheme()}
