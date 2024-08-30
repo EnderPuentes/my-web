@@ -104,7 +104,7 @@ export default function Contact({ data }: Props) {
         </span>
       </Button>
       <div className="container flex flex-col justify-start items-start gap-5">
-        <Card>
+        <Card className="backdrop-blur-lg">
           <CardHeader>
             <CardTitle className="font-semibold text-lg sm:text-xl">
               {data.title}
