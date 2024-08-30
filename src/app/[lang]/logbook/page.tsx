@@ -1,4 +1,5 @@
 import Hero from '@/components/sections/hero';
+import Skills from '@/components/sections/skills';
 import { getLogbookPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 
@@ -28,12 +29,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Logbook({ params }: Props) {
   const data = await getLogbookPage(params.lang);
 
+  console.log({ data });
+
   return (
     <>
       {data?.sections.map((section) => {
         switch (section._type) {
           case 'hero':
-            return <Hero data={section} />;
+            return <Hero key={section._key} data={section} />;
+          case 'skills':
+            return <Skills key={section._key} data={section} />;
         }
       })}
 

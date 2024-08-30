@@ -1,5 +1,44 @@
 import { z } from 'zod';
 
+// Common
+
+export const imageSchema = z
+  .union([
+    z.string(),
+
+    z.object({
+      _type: z.literal('image'),
+      asset: z.object({
+        _ref: z.string(),
+        _type: z.literal('reference'),
+      }),
+      crop: z
+        .object({
+          _type: z.literal('sanity.imageCrop'),
+          top: z.number(),
+          bottom: z.number(),
+          left: z.number(),
+          right: z.number(),
+        })
+        .optional(),
+      hotspot: z
+        .object({
+          _type: z.literal('sanity.imageHotspot'),
+          x: z.number(),
+          y: z.number(),
+          height: z.number(),
+          width: z.number(),
+        })
+        .optional(),
+    }),
+
+    z.object({
+      _type: z.literal('reference'),
+      _ref: z.string(),
+    }),
+  ])
+  .optional();
+
 // Components
 
 export const metaSchema = z.object({
@@ -100,6 +139,24 @@ export const contactSchema = z.object({
 
 export type ContactSchema = z.infer<typeof contactSchema>;
 
+export const skillsSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('skills'),
+  title: z.string().max(120),
+  categories: z.array(
+    z.object({
+      title: z.string().max(120),
+      technologies: z.array(
+        z.object({
+          title: z.string().max(120),
+        })
+      ),
+    })
+  ),
+});
+
+export type SkillsSchema = z.infer<typeof skillsSchema>;
+
 // Pages
 
 export const homeSchema = z.object({
@@ -112,14 +169,10 @@ export const homeSchema = z.object({
 
 export const logbookSchema = z.object({
   meta: metaSchema,
-  sections: z.array(heroSchema),
-  // sections: z
-  //   .union([heroSchema, aboutSchema])
-  //   .and(z.object({ _key: z.string() }))
-  //   .array(),
-  // sections: z.array(
-  //   heroSchema.and(z.object({ _key: z.string() })) // Solo permite `heroSchema`
-  // ),
+  sections: z
+    .union([heroSchema, skillsSchema])
+    .and(z.object({ _key: z.string() }))
+    .array(),
 });
 
 // Layout
