@@ -1,45 +1,34 @@
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Locale } from '@/types/locales';
+import { Badge } from '@/components/ui/badge';
+import { SkillsSchema } from '@/services/sanity/parser';
 
-type Props = { t: Locale['pages']['logbook']['skills'] };
+type Props = { data: SkillsSchema };
 
-export default function Skills({ t }: Props) {
+export default function Skills({ data }: Props) {
   return (
     <section className="mb-10">
       <div className="container flex flex-col justify-start items-start gap-5">
-        <Card className="w-full">
-          <CardHeader>
-            <CardTitle className="font-semibold text-lg sm:text-xl">
-              {t.title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-3">
-            {t.items.map((skill, i) => (
-              <>
-                <div
-                  key={i}
-                  className="flex flex-col justify-start items-start gap-1"
-                >
-                  <div className="flex flex-col justify-start items-start gap-1 mb-2">
-                    <p className="font-bold text-xs sm:text-base">
-                      {skill.title}
-                    </p>
-                    <p className="dark:text-gray-300 text-xs sm:text-base leading-5 sm:leading-7">
-                      {skill.technologies}
-                    </p>
-                  </div>
-                </div>
-              </>
-            ))}
-          </CardContent>
-          <CardFooter></CardFooter>
-        </Card>
+        <h2 className="font-semibold text-lg sm:text-2xl sm:mb-5">
+          {data.title}
+        </h2>
+        <div>
+          {data.categories.map((category, iCategory) => (
+            <div key={`category-${iCategory}`}>
+              <p className="font-bold text-xs sm:text-base my:5">
+                {category.title}
+              </p>
+              <div className="flex flex-wrap justify-start items-center gap-2 sm:gap-3  my-5">
+                {category.technologies.map((technology, iTechnology) => (
+                  <Badge
+                    key={`category-${iCategory}-tecnology-${iTechnology}`}
+                    className="px-3 py-1 bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-white hover:bg-gray-300 rounded-full text-xs sm:text-sm font-medium transform transition-all hover:scale-105"
+                  >
+                    {technology.title}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
