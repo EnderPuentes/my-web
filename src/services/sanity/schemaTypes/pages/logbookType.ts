@@ -22,11 +22,6 @@ export const logbookPageType = defineType({
       type: 'array',
       of: [
         defineField({
-          name: 'hero',
-          title: 'Hero',
-          type: 'hero',
-        }),
-        defineField({
           name: 'skills',
           title: 'Skills',
           type: 'skills',

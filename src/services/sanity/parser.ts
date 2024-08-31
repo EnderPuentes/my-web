@@ -78,7 +78,11 @@ export type FooterSchema = z.infer<typeof footerSchema>;
 export const heroSchema = z.object({
   _key: z.string(),
   _type: z.literal('hero'),
-  content: z.string(),
+  intro: z.string(),
+  commands: z.object({
+    help: z.string(),
+    notFound: z.string(),
+  }),
 });
 
 export type HeroSchema = z.infer<typeof heroSchema>;
@@ -169,10 +173,11 @@ export const homeSchema = z.object({
 
 export const logbookSchema = z.object({
   meta: metaSchema,
-  sections: z
-    .union([heroSchema, skillsSchema])
-    .and(z.object({ _key: z.string() }))
-    .array(),
+  // sections: z
+  //   .union([z.null(), skillsSchema])
+  //   .and(z.object({ _key: z.string() }))
+  //   .array(),
+  sections: skillsSchema.array(),
 });
 
 // Layout
