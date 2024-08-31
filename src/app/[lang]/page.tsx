@@ -50,6 +50,7 @@ export default async function Home({ params }: Props) {
                     .replace('${city}', city)
                     .replace('${flag}', flag),
                 }}
+                lang={params.lang}
               />
             );
           case 'about': {
