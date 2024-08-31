@@ -46,7 +46,7 @@ export default async function Home({ params }: Props) {
                 key={section._key}
                 data={{
                   ...section,
-                  content: section.content
+                  intro: section.intro
                     .replace('${city}', city)
                     .replace('${flag}', flag),
                 }}

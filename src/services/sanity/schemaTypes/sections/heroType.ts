@@ -8,20 +8,39 @@ export const heroSectionType = defineType({
   icon: PiTerminal,
   fields: [
     defineField({
-      name: 'content',
-      title: 'Content',
+      name: 'intro',
+      title: 'Intro',
       type: 'text',
       validation: (Rule) => Rule.max(360).required(),
+    }),
+    defineField({
+      name: 'commands',
+      title: 'commands',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'help',
+          title: 'Help',
+          type: 'text',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'notFound',
+          title: 'Not Found',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
     }),
   ],
   preview: {
     select: {
-      content: 'content',
+      intro: 'intro',
     },
-    prepare({ content }) {
+    prepare({ intro }) {
       return {
         title: 'Hero',
-        subtitle: content,
+        subtitle: intro,
       };
     },
   },

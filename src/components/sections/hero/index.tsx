@@ -2,7 +2,23 @@
 
 import { HeroSchema } from '@/services/sanity/parser';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+function Prompt() {
+  return <span className="text-green-500 block w-4 sm:w-6">{'~/ '}</span>;
+}
+
+function Command({ command }: { command: string }) {
+  return (
+    <span className="text-gray-300 flex-1">
+      <span
+        dangerouslySetInnerHTML={{
+          __html: command,
+        }}
+      />
+    </span>
+  );
+}
 
 type Props = { data: HeroSchema; lang: 'en' | 'es' };
 
@@ -10,108 +26,116 @@ export default function Hero({ data, lang }: Props) {
   const [introMessage, setIntroMessage] = useState('');
   const [indexIntroMessage, setIndexIntroMessage] = useState(0);
 
-  const [onTerminalIntro, setOnTerminalIntro] = useState(true);
-  const [onTerminalActions, setOnTerminalActions] = useState(false);
-  const [historyTerminal, setHistoryTerminal] = useState<string[]>([]);
-  const [inputTerminal, setInputTerminal] = useState('');
+  const [onIntro, setOnIntro] = useState(true);
+  const [onActions, setOnActions] = useState(false);
+  const [history, setHistory] = useState<string[]>([]);
+  const [input, setInput] = useState('');
 
   const router = useRouter();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  function handleClickContainer() {
+    inputRef.current?.focus();
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Enter') {
+      setHistory((prev) => [...prev, input]);
+
+      switch (input.trim().toLowerCase()) {
+        case '--logbook':
+        case '--bitacora':
+        case '--bitácora':
+          router.push(`${lang}/logbook`);
+          break;
+        case '--contact':
+        case '--contacto':
+          router.push(`${lang}/#contact`);
+          break;
+        case '--clear':
+        case '--borrar':
+          setHistory([]);
+          setOnIntro(false);
+          break;
+        case '--help':
+        case '--ayuda':
+          setHistory((prev) => [...prev, data.commands.help]);
+          break;
+        default:
+          setHistory((prev) => [...prev, data.commands.notFound]);
+          break;
+      }
+
+      setInput('');
+    }
+  }
 
   useEffect(() => {
-    if (indexIntroMessage < data.content.length) {
+    if (indexIntroMessage < data.intro.length) {
       const timeoutId = setTimeout(() => {
-        setIntroMessage(
-          (prev) => prev + data.content.charAt(indexIntroMessage)
-        );
+        setIntroMessage((prev) => prev + data.intro.charAt(indexIntroMessage));
         setIndexIntroMessage(indexIntroMessage + 1);
       }, 50);
       return () => clearTimeout(timeoutId);
     } else {
-      setOnTerminalActions(true);
+      setOnActions(true);
     }
-  }, [indexIntroMessage, data.content]);
+  }, [indexIntroMessage, data.intro]);
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      setHistoryTerminal((prev) => [...prev, inputTerminal]);
-
-      switch (inputTerminal.trim().toLowerCase()) {
-        case 'help':
-          setHistoryTerminal((prev) => [
-            ...prev,
-            'Available commands: help, view logbook, send message, clear',
-          ]);
-          break;
-        case 'view logbook':
-          router.push(`${lang}/logbook`);
-          break;
-        case 'send message':
-          router.push(`${lang}/#contact`);
-          break;
-        case 'clear':
-          setHistoryTerminal([]);
-          setOnTerminalIntro(false);
-          break;
-        default:
-          setHistoryTerminal((prev) => [...prev, 'Command not found']);
-          break;
-      }
-
-      setInputTerminal('');
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
-  };
+  }, [history]);
 
   return (
     <div className="flex justify-center items-center bg-slate-100 dark:bg-gray-950 py-5">
       <div className="container">
-        <div className="bg-gray-800 dark:bg-black rounded-lg shadow-lg overflow-hidden w-full h-[240px] md:h-[480px]">
+        <div className="bg-gray-800 dark:bg-black rounded-lg shadow-lg overflow-hidden w-full">
           <div className="bg-gray-600 dark:bg-gray-800 text-gray-300 p-3 flex items-center space-x-2 w-full">
             <span className="block w-3 h-3 rounded-full bg-red-500"></span>
             <span className="block w-3 h-3 rounded-full bg-yellow-500"></span>
             <span className="block w-3 h-3 rounded-full bg-green-500"></span>
           </div>
-          <div className="px-3 py-6 sm:px-6">
-            {onTerminalIntro ? (
+          <div
+            ref={containerRef}
+            onClick={handleClickContainer}
+            className="px-3 py-6 sm:px-6 h-[340px] md:h-[480px] overflow-auto scroll-smooth focus:scroll-auto"
+          >
+            {onIntro ? (
               <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7 flex justify-start items-start gap-1">
-                <span className="text-green-500 block w-4 sm:w-6">{'~/ '}</span>
-                <span className="text-gray-300 flex-1">
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: introMessage,
-                    }}
-                  />
-                  {/* <span className="font-bold animate-blink">_</span> */}
-                </span>
+                <Prompt />
+                <Command command={introMessage} />
               </pre>
             ) : null}
-            {onTerminalActions ? (
+            {onActions ? (
               <>
-                <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7 mt-5">
-                  {historyTerminal.map((command, indexIntroMessage) => (
+                <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7">
+                  {history.map((command, indexIntroMessage) => (
                     <div
                       className="flex justify-start items-start gap-1"
                       key={indexIntroMessage}
                     >
-                      <span className="text-green-500 block w-4 sm:w-6">
-                        {'~/ '}
-                      </span>
-                      <span className="text-gray-300 flex-1">{command}</span>
+                      <Prompt />
+                      <Command command={command} />
                     </div>
                   ))}
                 </pre>
-                <div className="flex justify-start items-start gap-1">
-                  <span className="text-green-500 block w-4 sm:w-6">
-                    {'~/ '}
-                  </span>
-                  <input
-                    type="text"
-                    className="bg-transparent text-gray-300 outline-none flex-1"
-                    value={inputTerminal}
-                    onChange={(e) => setInputTerminal(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    autoFocus
-                  />
-                </div>
+                <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7">
+                  <div className="flex justify-start items-start gap-1">
+                    <Prompt />
+                    <input
+                      type="text"
+                      value={input}
+                      ref={inputRef}
+                      className="bg-transparent text-gray-300 outline-none flex-1"
+                      onChange={(e) => setInput(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      autoFocus
+                    />
+                  </div>
+                </pre>
               </>
             ) : null}
           </div>
