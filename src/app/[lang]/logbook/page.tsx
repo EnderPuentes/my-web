@@ -1,3 +1,4 @@
+import Expertise from '@/components/sections/expertise';
 import Hero from '@/components/sections/hero';
 import Skills from '@/components/sections/skills';
 import { getLogbookPage } from '@/services/sanity/request';
@@ -34,15 +35,16 @@ export default async function Logbook({ params }: Props) {
       {data?.sections.map((section) => {
         switch (section._type) {
           case 'hero':
-            return <Hero key={section._key} data={section} />;
+            return (
+              <>
+                <Hero key={section._key} data={section} />;
+              </>
+            );
           case 'skills':
             return <Skills key={section._key} data={section} />;
         }
       })}
-
-      {/* 
-      <About t={t.pages.home.about} />
-      <Contact t={t.pages.home.contact} /> */}
+      <Expertise />
     </>
   );
 }
