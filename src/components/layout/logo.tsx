@@ -23,12 +23,15 @@ export default function Logo({}: Props) {
   }, [text]);
 
   return (
-    <h1 className="text-2xl font-light">
-      {displayText.slice(0, 2)}
-      <span className="font-black">
-        {displayText.slice(2, displayText.length)}
-      </span>
-      <span className="font-bold animate-blink">_</span>
-    </h1>
+    <>
+      <h1 className="text-2xl font-light">
+        {displayText.slice(0, 2)}
+        <span className="font-black">
+          {displayText.slice(2, displayText.length)}
+        </span>
+        <span className="font-bold animate-blink">_</span>
+      </h1>
+      <span className="text-xs">Ender Puentes</span>
+    </>
   );
 }

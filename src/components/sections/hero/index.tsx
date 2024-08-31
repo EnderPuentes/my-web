@@ -20,7 +20,7 @@ export default function Hero({ data }: Props) {
   }, [index, data.content]);
 
   return (
-    <div className="flex justify-center items-center bg-slate-100 dark:bg-gray-950 py-5 mb-5 sm:mb-10">
+    <div className="flex justify-center items-center bg-slate-100 dark:bg-gray-950 py-5">
       <div className="container">
         <div className="bg-gray-800 dark:bg-black rounded-lg shadow-lg overflow-hidden w-full h-[240px] md:h-[280px]">
           <div className="bg-gray-600 dark:bg-gray-800 text-gray-300 p-3 flex items-center space-x-2 w-full">
