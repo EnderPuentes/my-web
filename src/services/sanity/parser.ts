@@ -2,42 +2,40 @@ import { z } from 'zod';
 
 // Common
 
-export const imageSchema = z
-  .union([
-    z.string(),
+export const imageSchema = z.union([
+  z.string(),
 
-    z.object({
-      _type: z.literal('image'),
-      asset: z.object({
-        _ref: z.string(),
-        _type: z.literal('reference'),
-      }),
-      crop: z
-        .object({
-          _type: z.literal('sanity.imageCrop'),
-          top: z.number(),
-          bottom: z.number(),
-          left: z.number(),
-          right: z.number(),
-        })
-        .optional(),
-      hotspot: z
-        .object({
-          _type: z.literal('sanity.imageHotspot'),
-          x: z.number(),
-          y: z.number(),
-          height: z.number(),
-          width: z.number(),
-        })
-        .optional(),
-    }),
-
-    z.object({
-      _type: z.literal('reference'),
+  z.object({
+    _type: z.literal('image'),
+    asset: z.object({
       _ref: z.string(),
+      _type: z.literal('reference'),
     }),
-  ])
-  .optional();
+    crop: z
+      .object({
+        _type: z.literal('sanity.imageCrop'),
+        top: z.number(),
+        bottom: z.number(),
+        left: z.number(),
+        right: z.number(),
+      })
+      .optional(),
+    hotspot: z
+      .object({
+        _type: z.literal('sanity.imageHotspot'),
+        x: z.number(),
+        y: z.number(),
+        height: z.number(),
+        width: z.number(),
+      })
+      .optional(),
+  }),
+
+  z.object({
+    _type: z.literal('reference'),
+    _ref: z.string(),
+  }),
+]);
 
 // Components
 
@@ -161,6 +159,19 @@ export const skillsSchema = z.object({
 
 export type SkillsSchema = z.infer<typeof skillsSchema>;
 
+const identitySchema = z.object({
+  _key: z.string(),
+  _type: z.literal('identity'),
+  name: z.string(),
+  role: z.string(),
+  location: z.string(),
+  actions: z.object({
+    share: z.string(),
+  }),
+});
+
+export type IdentitySchema = z.infer<typeof identitySchema>;
+
 // Pages
 
 export const homeSchema = z.object({
@@ -173,11 +184,10 @@ export const homeSchema = z.object({
 
 export const logbookSchema = z.object({
   meta: metaSchema,
-  // sections: z
-  //   .union([z.null(), skillsSchema])
-  //   .and(z.object({ _key: z.string() }))
-  //   .array(),
-  sections: skillsSchema.array(),
+  sections: z
+    .union([identitySchema, skillsSchema])
+    .and(z.object({ _key: z.string() }))
+    .array(),
 });
 
 // Layout

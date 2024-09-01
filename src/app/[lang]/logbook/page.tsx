@@ -1,4 +1,5 @@
 import Expertise from '@/components/sections/expertise';
+import Identity from '@/components/sections/identity';
 import Skills from '@/components/sections/skills';
 import { getLogbookPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
@@ -33,6 +34,12 @@ export default async function Logbook({ params }: Props) {
     <>
       {data?.sections.map((section) => {
         switch (section._type) {
+          case 'identity':
+            return (
+              <>
+                <Identity key={section._key} data={section} />
+              </>
+            );
           case 'skills':
             return <Skills key={section._key} data={section} />;
         }
