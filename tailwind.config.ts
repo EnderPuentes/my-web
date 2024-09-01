@@ -79,8 +79,7 @@ const config = {
         blink: 'blink 1s step-start infinite',
       },
       backgroundImage: {
-        'galaxy-gradient':
-          'linear-gradient(to top right, #000000 0%, #000000 70%, #1e1f26 70%, #1e1f26 80%, #4b3f72 80%, #4b3f72 85%, #5c6bc0 85%, #7e57c2 90%, #66bb6a 90%, #009688 95%, #004d40 95%, #004d40 100%)',
+        'galaxy-gradient': 'linear-gradient(145deg, #0A0A0A, #0d2b46, #25172b)',
       },
     },
   },
