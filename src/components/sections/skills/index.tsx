@@ -5,15 +5,15 @@ type Props = { data: SkillsSchema };
 
 export default function Skills({ data }: Props) {
   return (
-    <section className="py-20">
+    <section className="mt-10 sm:mt-20">
       <div className="container flex flex-col justify-start items-start gap-5">
         <h2 className="font-semibold text-lg sm:text-2xl sm:mb-5">
           {data.title}
         </h2>
-        <div>
+        <div className="flex flex-col justify-start items-start gap-4">
           {data.categories.map((category, iCategory) => (
             <div key={`category-${iCategory}`}>
-              <p className="font-bold text-xs sm:text-base my:5">
+              <p className="font-bold text-xs sm:text-lg my:5">
                 {category.title}
               </p>
               <div className="flex flex-wrap justify-start items-center gap-2 sm:gap-3  my-5">
