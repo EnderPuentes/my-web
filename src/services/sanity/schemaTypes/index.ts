@@ -6,6 +6,7 @@ import { metaComponentType } from './components/metaType';
 // Sections
 import { aboutSectionType } from './sections/aboutType';
 import { contactSectionType } from './sections/contactType';
+import { expertiseSectiontype } from './sections/expertiseType';
 import { heroSectionType } from './sections/heroType';
 import { identitySectionType } from './sections/identityType';
 import { skillsSectionType } from './sections/skillsType';
@@ -24,6 +25,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Sections
     aboutSectionType,
     contactSectionType,
+    expertiseSectiontype,
     heroSectionType,
     identitySectionType,
     skillsSectionType,
