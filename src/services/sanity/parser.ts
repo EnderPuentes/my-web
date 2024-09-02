@@ -172,6 +172,32 @@ const identitySchema = z.object({
 
 export type IdentitySchema = z.infer<typeof identitySchema>;
 
+export const expertiseSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('expertise'),
+  title: z.string(),
+  labels: z.object({
+    responsabilities: z.string(),
+    technologies: z.string(),
+  }),
+  jobs: z.array(
+    z.object({
+      position: z.string(),
+      startDate: z.string(),
+      endDate: z.string(),
+      company: z.object({
+        name: z.string(),
+        description: z.string(),
+        website: z.string().url().optional(),
+      }),
+      responsabilities: z.array(z.string()),
+      technologies: z.string(),
+    })
+  ),
+});
+
+export type ExpertiseSchema = z.infer<typeof expertiseSchema>;
+
 // Pages
 
 export const homeSchema = z.object({
@@ -185,7 +211,7 @@ export const homeSchema = z.object({
 export const logbookSchema = z.object({
   meta: metaSchema,
   sections: z
-    .union([identitySchema, skillsSchema])
+    .union([identitySchema, expertiseSchema, skillsSchema])
     .and(z.object({ _key: z.string() }))
     .array(),
 });

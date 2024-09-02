@@ -27,6 +27,11 @@ export const logbookPageType = defineType({
           type: 'identity',
         }),
         defineField({
+          name: 'expertise',
+          title: 'Expertise',
+          type: 'expertise',
+        }),
+        defineField({
           name: 'skills',
           title: 'Skills',
           type: 'skills',

@@ -38,7 +38,12 @@ export default async function Logbook({ params }: Props) {
             return (
               <>
                 <Identity key={section._key} data={section} />
-                <Expertise />
+              </>
+            );
+          case 'expertise':
+            return (
+              <>
+                <Expertise key={section._key} data={section} />
               </>
             );
           case 'skills':
