@@ -90,6 +90,7 @@ export const aboutSchema = z.object({
   _type: z.literal('about'),
   title: z.string(),
   content: z.string(),
+  image: imageSchema,
 });
 
 export type AboutSchema = z.infer<typeof aboutSchema>;

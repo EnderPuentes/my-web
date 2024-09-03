@@ -10,14 +10,14 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       images: [
         {
-          url: '/favicons/favicon.webp',
+          url: '/static/favicons/favicon.webp',
         },
       ],
     },
     icons: {
-      icon: '/favicons/favicon.ico',
-      shortcut: '/favicons/favicon.ico',
-      apple: '/favicons/apple-touch-icon.png',
+      icon: '/static/favicons/favicon.ico',
+      shortcut: '/static/favicons/favicon.ico',
+      apple: '/static/favicons/apple-touch-icon.png',
     },
   };
 }

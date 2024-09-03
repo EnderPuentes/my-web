@@ -19,6 +19,15 @@ export const aboutSectionType = defineType({
       type: 'text',
       validation: (Rule) => Rule.max(2000).required(),
     }),
+    defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {
