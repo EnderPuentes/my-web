@@ -7,7 +7,6 @@ export default function Logo({}: Props) {
   const text = 'Endev';
 
   const [displayText, setDisplayText] = useState('');
-  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     let i = 1;
@@ -23,21 +22,16 @@ export default function Logo({}: Props) {
     return () => clearInterval(typeInterval);
   }, [text]);
 
-  useEffect(() => {
-    const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-
-    return () => clearInterval(cursorInterval);
-  }, []);
-
   return (
-    <h1 className="text-2xl font-light">
-      {displayText.slice(0, 2)}
-      <span className="font-black">
-        {displayText.slice(2, displayText.length)}
-      </span>
-      {showCursor && <span className="font-bold">_</span>}
-    </h1>
+    <>
+      <h1 className="text-2xl font-light">
+        {displayText.slice(0, 2)}
+        <span className="font-black">
+          {displayText.slice(2, displayText.length)}
+        </span>
+        <span className="font-bold animate-blink">_</span>
+      </h1>
+      {/* <span className="text-xs">Ender Puentes</span> */}
+    </>
   );
 }

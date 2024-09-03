@@ -1,33 +1,30 @@
 import About from '@/components/sections/about';
 import Contact from '@/components/sections/contact';
 import Hero from '@/components/sections/hero';
-import { Locale } from '@/types/locales';
-import { getLocale } from '@/utils/locales';
-import { sharedMetadata } from '@/utils/shared-metadata';
+import { getHomePage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
 type Props = {
   params: {
-    lang: string;
+    lang: 'en' | 'es';
   };
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const lang = params.lang ?? 'en';
-  const t: Locale = await getLocale(lang);
-  const metadata = t.pages.logbook.metadata;
+  const data = await getHomePage(params.lang);
 
   return {
-    ...sharedMetadata,
-    description: t.pages.home.metadata.description,
+    title: data?.meta.title,
+    description: data?.meta.description,
     openGraph: {
-      ...sharedMetadata.openGraph,
-      description: metadata.description,
+      title: data?.meta.title,
+      description: data?.meta.description,
     },
-    metadataBase: new URL(`${BASE_URL}/${lang}`),
+    metadataBase: new URL(`${BASE_URL}/${params.lang}`),
+    keywords: data?.meta.keywords?.join(', ') || '',
   };
 }
 
@@ -37,17 +34,33 @@ export default async function Home({ params }: Props) {
   const city = cookieStore.get('city')?.value ?? 'Buenos Aires';
   const flag = cookieStore.get('flag')?.value ?? '🇦🇷';
 
-  const t: Locale = await getLocale(params.lang ?? 'en');
+  const data = await getHomePage(params.lang);
 
   return (
     <>
-      <Hero
-        text={t.pages.home.hero.title
-          .replace('${city}', city)
-          .replace('${flag}', flag)}
-      />
-      <About t={t.pages.home.about} />
-      <Contact t={t.pages.home.contact} />
+      {data?.sections.map((section) => {
+        switch (section._type) {
+          case 'hero':
+            return (
+              <Hero
+                key={section._key}
+                data={{
+                  ...section,
+                  intro: section.intro
+                    .replace('${city}', city)
+                    .replace('${flag}', flag),
+                }}
+                lang={params.lang}
+              />
+            );
+          case 'about': {
+            return <About key={section._key} data={section} />;
+          }
+          case 'contact': {
+            return <Contact key={section._key} data={section} />;
+          }
+        }
+      })}
     </>
   );
 }

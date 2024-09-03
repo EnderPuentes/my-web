@@ -1,4 +1,4 @@
-import countries from '@/utils/countries';
+import countries from '@/lib/countries';
 import { NextRequest, NextResponse } from 'next/server';
 
 const locales = ['en', 'es'];
@@ -42,7 +42,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/((?!_next|api|images|favicons|sitemap.xml|robots.txt|favicon.ico).*)',
-  ],
+  matcher: ['/((?!_next|admin|static|sitemap.xml|robots.txt|favicon.ico).*)'],
 };

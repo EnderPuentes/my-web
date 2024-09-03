@@ -1,47 +1,50 @@
 import Education from '@/components/sections/education';
 import Expertise from '@/components/sections/expertise';
-import Hero from '@/components/sections/hero';
+import Identity from '@/components/sections/identity';
 import Skills from '@/components/sections/skills';
-import { Locale } from '@/types/locales';
-import { getLocale } from '@/utils/locales';
-import { sharedMetadata } from '@/utils/shared-metadata';
+import { getLogbookPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 
 type Props = {
   params: {
-    lang: string;
+    lang: 'en' | 'es';
   };
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const lang = params.lang ?? 'en';
-  const t: Locale = await getLocale(lang);
-  const metadata = t.pages.logbook.metadata;
+  const data = await getLogbookPage(params.lang);
 
   return {
-    ...sharedMetadata,
-    title: `${metadata.title} - ${sharedMetadata.title}`,
-    description: metadata.description,
+    title: data?.meta.title,
+    description: data?.meta.description,
     openGraph: {
-      ...sharedMetadata.openGraph,
-      title: `${metadata.title} - ${sharedMetadata.title}`,
-      description: metadata.description,
+      title: data?.meta.title,
+      description: data?.meta.description,
     },
-    metadataBase: new URL(`${BASE_URL}/${lang}/logbook`),
+    metadataBase: new URL(`${BASE_URL}/${params.lang}/logbook`),
+    keywords: data?.meta.keywords?.join(', ') || '',
   };
 }
 
 export default async function Logbook({ params }: Props) {
-  const t: Locale = await getLocale(params.lang ?? 'en');
-
+  const data = await getLogbookPage(params.lang);
+  console.log(data?.sections.length, 'aquiii');
   return (
     <>
-      <Hero text={t.pages.logbook.hero.title} />
-      <Skills t={t.pages.logbook.skills} />
-      <Expertise t={t.pages.logbook.expertise} />
-      <Education t={t.pages.logbook.education} />
+      {data?.sections.map((section) => {
+        switch (section._type) {
+          case 'identity':
+            return <Identity key={section._key} data={section} />;
+          case 'expertise':
+            return <Expertise key={section._key} data={section} />;
+          case 'skills':
+            return <Skills key={section._key} data={section} />;
+          case 'education':
+            return <Education key={section._key} data={section} />;
+        }
+      })}
     </>
   );
 }

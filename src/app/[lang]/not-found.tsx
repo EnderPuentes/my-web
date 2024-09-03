@@ -1,27 +1,7 @@
-import { Locale } from '@/types/locales';
-import { getLocale } from '@/utils/locales';
-import { sharedMetadata } from '@/utils/shared-metadata';
 import { Metadata } from 'next';
-import Link from 'next/link';
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const lang = 'en';
-  const t: Locale = await getLocale(lang);
-  const metadata = t.pages.notFound.metadata;
-
-  return {
-    ...sharedMetadata,
-    title: `${metadata.title} - ${sharedMetadata.title}`,
-    description: t.pages.home.metadata.description,
-    openGraph: {
-      ...sharedMetadata.openGraph,
-      title: `${metadata.title} - ${sharedMetadata.title}`,
-      description: metadata.description,
-    },
-    metadataBase: new URL(`${BASE_URL}/${lang}`),
-  };
+  return {};
 }
 
 function Start() {
@@ -41,29 +21,30 @@ function Start() {
 }
 
 export default async function NotFound() {
-  const lang = 'en';
-  const t: Locale = await getLocale(lang);
+  return <></>;
+  // const lang = 'en';
+  // const t: Locale = await getLocale(lang);
 
-  return (
-    <section className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center text-center -mt-20">
-      <div className="text">
-        <h2 className="text-xl font-bold mb-5">{t.pages.notFound.title}</h2>
-        <p className="text-xs sm:text-base">{t.pages.notFound.description}</p>
+  // return (
+  //   <section className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center text-center -mt-20">
+  //     <div className="text">
+  //       <h2 className="text-xl font-bold mb-5">{t.pages.notFound.title}</h2>
+  //       <p className="text-xs sm:text-base">{t.pages.notFound.description}</p>
 
-        <Link
-          className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-w-80 mx-auto mt-5 sm:mt-10 text-xs sm:text-sm"
-          href={`/${lang}/logbook`}
-        >
-          {t.pages.notFound.back}
-        </Link>
-      </div>
-      <div className="absolute top-0 left-0 w-full h-full">
-        {[...Array(200)].map((_, i) => (
-          <Start key={i} />
-        ))}
-      </div>
+  //       <Link
+  //         className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 max-w-80 mx-auto mt-5 sm:mt-10 text-xs sm:text-sm"
+  //         href={`/${lang}/logbook`}
+  //       >
+  //         {t.pages.notFound.back}
+  //       </Link>
+  //     </div>
+  //     <div className="absolute top-0 left-0 w-full h-full">
+  //       {[...Array(200)].map((_, i) => (
+  //         <Start key={i} />
+  //       ))}
+  //     </div>
 
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900 via-indigo-700 to-black opacity-70 mix-blend-overlay"></div>
-    </section>
-  );
+  //     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900 via-indigo-700 to-black opacity-70 mix-blend-overlay"></div>
+  //   </section>
+  // );
 }

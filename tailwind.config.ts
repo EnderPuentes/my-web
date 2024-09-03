@@ -14,7 +14,7 @@ const config = {
       center: true,
       padding: '1rem',
       screens: {
-        '2xl': '900px',
+        '2xl': '950px',
       },
     },
     extend: {
@@ -67,14 +67,22 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        blink: {
+          '0%': { opacity: '1' },
+          '50%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        blink: 'blink 1s step-start infinite',
       },
       backgroundImage: {
-        'galaxy-gradient':
-          'linear-gradient(to top right, #000000 0%, #000000 70%, #1e1f26 70%, #1e1f26 80%, #4b3f72 80%, #4b3f72 85%, #5c6bc0 85%, #7e57c2 90%, #66bb6a 90%, #009688 95%, #004d40 95%, #004d40 100%)',
+        'galaxy-gradient-dark':
+          'linear-gradient(145deg, #0A0A0A, #0d2b46, #25172b)',
+        'galaxy-gradient-light':
+          'linear-gradient(145deg, #f0f0f0, #b0c5d6, #d1b0d3)',
       },
     },
   },
