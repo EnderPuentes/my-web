@@ -1,10 +1,10 @@
 import { FooterSchema } from '@/services/sanity/parser';
 import Link from 'next/link';
 import {
-  PiGithubLogoBold,
-  PiLinkedinLogoBold,
-  PiTelegramLogoBold,
-  PiXLogoBold,
+  PiGithubLogo,
+  PiLinkedinLogo,
+  PiTelegramLogo,
+  PiXLogo,
 } from 'react-icons/pi';
 
 type Props = { data: FooterSchema | null | undefined };
@@ -12,8 +12,8 @@ type Props = { data: FooterSchema | null | undefined };
 export default function Footer({ data }: Props) {
   const date = new Date();
   return (
-    <footer className="flex flex-col justify-center items-center gap-10">
-      <div className="flex flex-col justify-center items-center gap-10 py-10 px-5">
+    <footer className="mt-16 sm:mt-28 bg-slate-100 dark:bg-slate-950">
+      <div className="flex flex-col justify-center items-center gap-10 py-16 sm:py-28 px-5">
         <h1 className="text-lg sm:text-xl text-center">
           {data?.socialMedia.title}
         </h1>
@@ -23,9 +23,9 @@ export default function Footer({ data }: Props) {
               aria-label="Linkedin"
               className="text-3xl sm:text-4xl"
               target="_blank"
-              href="https://www.linkedin.com/in/enderpuentes/"
+              href={data?.socialMedia?.linkedin}
             >
-              <PiLinkedinLogoBold />
+              <PiLinkedinLogo />
             </Link>
           )}
           {data?.socialMedia.github && (
@@ -33,9 +33,9 @@ export default function Footer({ data }: Props) {
               aria-label="Github"
               className="text-3xl sm:text-4xl"
               target="_blank"
-              href="https://github.com/enderpuentes"
+              href={data?.socialMedia.github}
             >
-              <PiGithubLogoBold />
+              <PiGithubLogo />
             </Link>
           )}
           {data?.socialMedia.telegram && (
@@ -43,9 +43,9 @@ export default function Footer({ data }: Props) {
               aria-label="Telegram"
               className="text-3xl sm:text-4xl"
               target="_blank"
-              href="https://t.me/enderpuentes"
+              href={data?.socialMedia.telegram}
             >
-              <PiTelegramLogoBold />
+              <PiTelegramLogo />
             </Link>
           )}
           {data?.socialMedia.x && (
@@ -53,9 +53,9 @@ export default function Footer({ data }: Props) {
               aria-label="X"
               className="text-3xl sm:text-4xl"
               target="_blank"
-              href="https://x.com/enderpuents"
+              href={data?.socialMedia.x}
             >
-              <PiXLogoBold />
+              <PiXLogo />
             </Link>
           )}
         </div>
