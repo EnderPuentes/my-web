@@ -198,6 +198,25 @@ export const expertiseSchema = z.object({
 
 export type ExpertiseSchema = z.infer<typeof expertiseSchema>;
 
+export const educationSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('education'),
+  title: z.string(),
+  degrees: z.array(
+    z.object({
+      title: z.string(),
+      startDate: z.string(),
+      endDate: z.string(),
+      school: z.object({
+        name: z.string(),
+        website: z.string().url().optional(),
+      }),
+    })
+  ),
+});
+
+export type EducationSchema = z.infer<typeof educationSchema>;
+
 // Pages
 
 export const homeSchema = z.object({
@@ -211,7 +230,7 @@ export const homeSchema = z.object({
 export const logbookSchema = z.object({
   meta: metaSchema,
   sections: z
-    .union([identitySchema, expertiseSchema, skillsSchema])
+    .union([identitySchema, expertiseSchema, skillsSchema, educationSchema])
     .and(z.object({ _key: z.string() }))
     .array(),
 });
