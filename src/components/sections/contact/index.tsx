@@ -18,7 +18,7 @@ import { useReCaptcha } from 'next-recaptcha-v3';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { PiRocketLaunchBold } from 'react-icons/pi';
+import { PiRocketLaunch } from 'react-icons/pi';
 import { z } from 'zod';
 import { sendContactForm } from './actions';
 
@@ -86,11 +86,11 @@ export default function Contact({ data }: Props) {
   return (
     <section id="contact" className="mt-16 sm:mt-28">
       <Button
-        className="group fixed right-5 bottom-5 flex items-center justify-center h-14 w-14 rounded-full transform transition-all duration-500 hover:w-[170px]"
+        className="group fixed right-5 bottom-5 flex items-center justify-center h-14 w-14 rounded-full transform transition-all duration-500 hover:w-[170px] dark:bg-slate-800  dark:text-white"
         onClick={() => router.push('#contact')}
       >
         <span>
-          <PiRocketLaunchBold className="text-2xl" />
+          <PiRocketLaunch className="text-2xl" />
         </span>
         <span className="whitespace-nowrap transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 max-w-0 group-hover:max-w-full group-hover:ml-3">
           {data.title}
@@ -171,9 +171,9 @@ export default function Contact({ data }: Props) {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="text-xs sm:text-base flex justify-center items-center gap-2 rounded-full"
+                  className="text-xs sm:text-base flex justify-center items-center gap-2 rounded-full font-light py-6 dark:bg-slate-800 dark:text-white"
                 >
-                  <PiRocketLaunchBold className="text-xl" />
+                  <PiRocketLaunch className="text-xl" />
                   {isLoading ? data.loading.on : data.loading.off}
                 </Button>
               </div>
