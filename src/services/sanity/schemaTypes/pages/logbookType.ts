@@ -36,6 +36,11 @@ export const logbookPageType = defineType({
           title: 'Skills',
           type: 'skills',
         }),
+        defineField({
+          name: 'education',
+          title: 'Education',
+          type: 'education',
+        }),
       ],
     }),
   ],

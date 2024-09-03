@@ -1,3 +1,4 @@
+import Education from '@/components/sections/education';
 import Expertise from '@/components/sections/expertise';
 import Identity from '@/components/sections/identity';
 import Skills from '@/components/sections/skills';
@@ -29,25 +30,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Logbook({ params }: Props) {
   const data = await getLogbookPage(params.lang);
-
+  console.log(data?.sections.length, 'aquiii');
   return (
     <>
       {data?.sections.map((section) => {
         switch (section._type) {
           case 'identity':
-            return (
-              <>
-                <Identity key={section._key} data={section} />
-              </>
-            );
+            return <Identity key={section._key} data={section} />;
           case 'expertise':
-            return (
-              <>
-                <Expertise key={section._key} data={section} />
-              </>
-            );
+            return <Expertise key={section._key} data={section} />;
           case 'skills':
             return <Skills key={section._key} data={section} />;
+          case 'education':
+            return <Education key={section._key} data={section} />;
         }
       })}
     </>
