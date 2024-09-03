@@ -2,13 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import {
   Form,
   FormControl,
   FormField,
@@ -91,7 +84,7 @@ export default function Contact({ data }: Props) {
   }
 
   return (
-    <section id="contact" className="mb-10">
+    <section id="contact" className="mt-16 sm:mt-28">
       <Button
         className="group fixed right-5 bottom-5 flex items-center justify-center h-14 w-14 rounded-full transform transition-all duration-500 hover:w-[170px]"
         onClick={() => router.push('#contact')}
@@ -104,97 +97,89 @@ export default function Contact({ data }: Props) {
         </span>
       </Button>
       <div className="container flex flex-col justify-start items-start gap-5">
-        <Card className="backdrop-blur-lg">
-          <CardHeader>
-            <CardTitle className="font-semibold text-lg sm:text-xl">
-              {data.title}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-4">
-            <p className="text-xs sm:text-base leading-5 sm:leading-7 dark:text-gray-300">
-              {data.description}
-            </p>
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-8"
-              >
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-current text-xs sm:text-base">
-                        {data.inputs.name.label}*
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder={data.inputs.name.placeholder}
-                          className="text-xs sm:text-base"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-700" />
-                    </FormItem>
-                  )}
-                />
+        <h2 className="font-semibold text-lg sm:text-2xl sm:mb-5">
+          {data.title}
+        </h2>
+        <div>
+          <p className="text-xs sm:text-base leading-5 sm:leading-7 dark:text-gray-300 mb-5 sm:mb-10">
+            {data.description}
+          </p>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-current text-xs sm:text-base">
+                      {data.inputs.name.label}*
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder={data.inputs.name.placeholder}
+                        className="text-xs sm:text-base"
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-700" />
+                  </FormItem>
+                )}
+              />
 
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-current text-xs sm:text-base">
-                        {data.inputs.email.label}*
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder={data.inputs.email.placeholder}
-                          className="text-xs sm:text-base"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-700" />
-                    </FormItem>
-                  )}
-                />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-current text-xs sm:text-base">
+                      {data.inputs.email.label}*
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder={data.inputs.email.placeholder}
+                        className="text-xs sm:text-base"
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-700" />
+                  </FormItem>
+                )}
+              />
 
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-current text-xs sm:text-base">
-                        {data.inputs.message.label}*
-                      </FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          rows={5}
-                          placeholder={data.inputs.message.placeholder}
-                          className="text-xs sm:text-base"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-700" />
-                    </FormItem>
-                  )}
-                />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-current text-xs sm:text-base">
+                      {data.inputs.message.label}*
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        {...field}
+                        rows={5}
+                        placeholder={data.inputs.message.placeholder}
+                        className="text-xs sm:text-base"
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-700" />
+                  </FormItem>
+                )}
+              />
 
-                <div className="flex justify-center items-center">
-                  <Button
-                    type="submit"
-                    disabled={isLoading}
-                    className="text-xs sm:text-base flex justify-center items-center gap-2 rounded-full"
-                  >
-                    <PiRocketLaunchBold className="text-xl" />
-                    {isLoading ? data.loading.on : data.loading.off}
-                  </Button>
-                </div>
-              </form>
-            </Form>
-          </CardContent>
-          <CardFooter></CardFooter>
-        </Card>
+              <div className="flex justify-center items-center">
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="text-xs sm:text-base flex justify-center items-center gap-2 rounded-full"
+                >
+                  <PiRocketLaunchBold className="text-xl" />
+                  {isLoading ? data.loading.on : data.loading.off}
+                </Button>
+              </div>
+            </form>
+          </Form>
+        </div>
       </div>
     </section>
   );
