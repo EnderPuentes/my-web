@@ -39,14 +39,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'Endev',
       images: [
         {
-          url: '/static/favicons/favicon.webp',
+          url: '/static/favicon.webp',
         },
       ],
     },
     icons: {
-      icon: '/static/favicons/favicon.ico',
-      shortcut: '/static/favicons/favicon.ico',
-      apple: '/static/favicons/apple-touch-icon.png',
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
     },
     keywords: data?.meta.keywords?.join(', ') || '',
   };
