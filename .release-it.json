@@ -15,7 +15,7 @@
     "tagAnnotation": "Release ${version}",
     "push": true
   },
-  "gitlab": {
+  "github": {
     "release": true,
     "releaseName": "${version}",
     "tokenRef": "RELEASE_GIT"
