@@ -12,7 +12,7 @@ type Props = { data: FooterSchema | null | undefined };
 export default function Footer({ data }: Props) {
   const date = new Date();
   return (
-    <footer className="pt-16 sm:pt-28 bg-slate-100 dark:bg-slate-950">
+    <footer className=" bg-slate-100 dark:bg-slate-950">
       <div className="flex flex-col justify-center items-center gap-10 py-16 sm:py-28 px-5">
         <h1 className="text-lg sm:text-xl text-center">
           {data?.socialMedia.title}

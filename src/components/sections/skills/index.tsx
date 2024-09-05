@@ -5,7 +5,7 @@ type Props = { data: SkillsSchema };
 
 export default function Skills({ data }: Props) {
   return (
-    <section className="mt-10 sm:mt-20">
+    <section className="my-16 sm:my-28">
       <div className="container flex flex-col justify-start items-start gap-5">
         <h2 className="font-semibold text-lg sm:text-2xl sm:mb-5">
           {data.title}
