@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({
+export default async function LangLayout({
   children,
   params,
 }: Readonly<Props>) {

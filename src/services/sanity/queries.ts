@@ -17,3 +17,9 @@ export const getLogbookQuery = groq`
         ...
     }
 `;
+
+export const getNotFoundQuery = groq`
+    *[_type == "notFound" && language == $lang][0]{
+        ...
+    }
+`;

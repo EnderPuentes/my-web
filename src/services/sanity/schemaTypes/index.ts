@@ -14,6 +14,7 @@ import { skillsSectionType } from './sections/skillsType';
 // Pages
 import { homePageType } from './pages/homeType';
 import { logbookPageType } from './pages/logbookType';
+import { notFoundPageType } from './pages/notFoundType';
 // layouts
 import { layoutType } from './layout';
 
@@ -34,6 +35,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Pages
     homePageType,
     logbookPageType,
+    notFoundPageType,
     // Layout
     layoutType,
   ],

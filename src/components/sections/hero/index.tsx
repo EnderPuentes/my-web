@@ -90,7 +90,7 @@ export default function Hero({ data, lang }: Props) {
   }, [history]);
 
   return (
-    <div className="flex justify-center items-center bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark py-5">
+    <div className="flex justify-center items-center bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark -mt-20 pt-28 pb-5">
       <div className="container">
         <div className="bg-gray-800 dark:bg-black rounded-lg shadow-lg overflow-hidden w-full">
           <div className="bg-gray-600 dark:bg-gray-800 text-gray-300 p-3 flex items-center space-x-2 w-full">

@@ -32,6 +32,12 @@ export const structure: StructureResolver = (S) =>
                 .child(
                   S.document().schemaType('logbook').documentId('logbook')
                 ),
+              S.listItem()
+                .title('NotFound')
+                .icon(PiBook)
+                .child(
+                  S.document().schemaType('notFound').documentId('notFound')
+                ),
             ])
         ),
     ]);

@@ -236,6 +236,13 @@ export const logbookSchema = z.object({
     .array(),
 });
 
+export const notFoundSchema = z.object({
+  meta: metaSchema,
+  title: z.string(),
+  description: z.string(),
+  cta: z.string(),
+});
+
 // Layout
 
 export const layoutSchema = z.object({
