@@ -9,27 +9,23 @@ import Link from 'next/link';
 
 function JobResume({ job }: { job: ExpertiseSchema['jobs'][0] }) {
   return (
-    <div className="flex justify-start items-start gap-5 sm:gap-7">
-      <div className="flex flex-col justify-start items-start gap-1">
-        <div className="flex flex-col justify-start items-start gap-1 mb-2">
-          {job.company.website ? (
-            <Link
-              aria-label={job.company.name}
-              href={job.company.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-base sm:text-lg"
-            >
-              {job.company.name}
-            </Link>
-          ) : (
-            <span className="text-base sm:text-lg">{job.company.name}</span>
-          )}
-          <p className="text-xs sm:text-base font-light dark:text-gray-300">
-            {job.position}, {job.startDate} - {job.endDate}
-          </p>
-        </div>
-      </div>
+    <div className="flex flex-col justify-start items-start gap-1 mb-2">
+      {job.company.website ? (
+        <Link
+          aria-label={job.company.name}
+          href={job.company.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-base sm:text-lg"
+        >
+          {job.company.name}
+        </Link>
+      ) : (
+        <span className="text-base sm:text-lg">{job.company.name}</span>
+      )}
+      <p className="text-xs sm:text-base font-light dark:text-gray-300">
+        {job.position}, {job.startDate} - {job.endDate}
+      </p>
     </div>
   );
 }
