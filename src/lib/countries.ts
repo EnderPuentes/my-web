@@ -1,4 +1,18 @@
-const countries = [
+type Country = {
+  cca2: string;
+  currencies: {
+    [keyof: string]: {
+      name: string;
+      symbol: string;
+    };
+  };
+  languages: {
+    [keyof: string]: string;
+  };
+  flag: string;
+};
+
+const countries: Country[] = [
   {
     cca2: 'AW',
     currencies: { AWG: { name: 'Aruban florin', symbol: 'ƒ' } },
@@ -69,7 +83,7 @@ const countries = [
     languages: { eng: 'English', smo: 'Samoan' },
     flag: '🇦🇸',
   },
-  { cca2: 'AQ', currencies: [], languages: {}, flag: '🇦🇶' },
+  { cca2: 'AQ', currencies: {}, languages: {}, flag: '🇦🇶' },
   {
     cca2: 'TF',
     currencies: { EUR: { name: 'Euro', symbol: '€' } },
@@ -251,7 +265,7 @@ const countries = [
   },
   {
     cca2: 'BV',
-    currencies: [],
+    currencies: {},
     languages: { nor: 'Norwegian' },
     flag: '🇧🇻',
   },
@@ -535,7 +549,7 @@ const countries = [
   },
   {
     cca2: 'FM',
-    currencies: [],
+    currencies: {},
     languages: { eng: 'English' },
     flag: '🇫🇲',
   },
@@ -666,7 +680,7 @@ const countries = [
   },
   {
     cca2: 'HM',
-    currencies: [],
+    currencies: {},
     languages: { eng: 'English' },
     flag: '🇭🇲',
   },

@@ -1,5 +1,12 @@
 
 
+# [0.3.0](https://github.com/EnderPuentes/my-web/compare/0.2.0...0.3.0) (2024-09-11)
+
+
+### Features
+
+* add commitlint husky ([4a599df](https://github.com/EnderPuentes/my-web/commit/4a599df9c991549ba987cbb69ee23983756fe15c))
+
 # 0.2.0 (2024-09-05)
 
 
