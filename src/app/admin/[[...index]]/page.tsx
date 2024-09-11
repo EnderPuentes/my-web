@@ -1,6 +1,6 @@
 'use client';
 
-import config from '@/config/sanity.config';
+import config from '@/sanity.config';
 import { metadata, NextStudio } from 'next-sanity/studio';
 import Head from 'next/head';
 

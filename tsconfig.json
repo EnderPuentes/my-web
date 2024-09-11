@@ -19,6 +19,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@/sanity.config": ["./sanity.config.ts"],
       "@/tailwind.config": ["./tailwind.config.ts"]
     },
     "target": "ES2017"
