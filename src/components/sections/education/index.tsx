@@ -11,7 +11,7 @@ export default function Education({ data }: Props) {
           {data.title}
         </h2>
         <div className="flex flex-col gap-0 justify-start items-start w-full">
-          {data.degrees.map((degree, iDegree) => (
+          {data.degrees.map((degree) => (
             <>
               <div className="flex flex-col justify-start items-start gap-1 mb-2 border-b py-5 w-full !m-0">
                 {degree.school.website ? (
