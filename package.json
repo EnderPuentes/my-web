@@ -1,11 +1,10 @@
 {
   "name": "my-web",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
