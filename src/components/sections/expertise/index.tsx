@@ -4,10 +4,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { ExpertiseSchema } from '@/services/sanity/parser';
+import { ExpertiseSchema, JobSchema } from '@/services/sanity/parser';
 import Link from 'next/link';
 
-function JobResume({ job }: { job: ExpertiseSchema['jobs'][0] }) {
+function JobResume({ job }: { job: JobSchema }) {
   return (
     <div className="flex flex-col justify-start items-start gap-1 mb-2">
       {job.company.website ? (
@@ -34,7 +34,7 @@ function JobDetail({
   job,
   labels,
 }: {
-  job: ExpertiseSchema['jobs'][0];
+  job: JobSchema;
   labels: ExpertiseSchema['labels'];
 }) {
   return (

@@ -173,6 +173,21 @@ const identitySchema = z.object({
 
 export type IdentitySchema = z.infer<typeof identitySchema>;
 
+const jobSchema = z.object({
+  position: z.string(),
+  startDate: z.string(),
+  endDate: z.string(),
+  company: z.object({
+    name: z.string(),
+    description: z.string(),
+    website: z.string().url().optional(),
+  }),
+  responsabilities: z.array(z.string()),
+  technologies: z.string(),
+});
+
+export type JobSchema = z.infer<typeof jobSchema>;
+
 export const expertiseSchema = z.object({
   _key: z.string(),
   _type: z.literal('expertise'),
@@ -181,20 +196,7 @@ export const expertiseSchema = z.object({
     responsabilities: z.string(),
     technologies: z.string(),
   }),
-  jobs: z.array(
-    z.object({
-      position: z.string(),
-      startDate: z.string(),
-      endDate: z.string(),
-      company: z.object({
-        name: z.string(),
-        description: z.string(),
-        website: z.string().url().optional(),
-      }),
-      responsabilities: z.array(z.string()),
-      technologies: z.string(),
-    })
-  ),
+  jobs: z.array(jobSchema),
 });
 
 export type ExpertiseSchema = z.infer<typeof expertiseSchema>;
