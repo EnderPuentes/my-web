@@ -1,5 +1,17 @@
 
 
+# [0.6.0](https://github.com/EnderPuentes/my-web/compare/0.5.0...0.6.0) (2024-09-11)
+
+
+### Features
+
+* add degree component ([2b637e0](https://github.com/EnderPuentes/my-web/commit/2b637e03d7d5cf37512ecd47169e244ea0e60741))
+* add JobDetailProps ([0f41ed1](https://github.com/EnderPuentes/my-web/commit/0f41ed14d5fb68fbe6e8392fc86c21e1ded617c2))
+* add JobResumeProps ([943fb4d](https://github.com/EnderPuentes/my-web/commit/943fb4d164f3859d89ab2372e43e64cad1d057dc))
+* clean code for JobResume component ([31325a4](https://github.com/EnderPuentes/my-web/commit/31325a40e24f43df4a61ec6c5db9c4f120ebd7be))
+* define degree schema type ([91bf602](https://github.com/EnderPuentes/my-web/commit/91bf6024519c1cef6a5dbda03eb2be82a654305a))
+* define job  schema type ([eff0ab4](https://github.com/EnderPuentes/my-web/commit/eff0ab4a4f5f5d95664f0bf531da12c0fb4b5280))
+
 # [0.5.0](https://github.com/EnderPuentes/my-web/compare/0.4.1...0.5.0) (2024-09-11)
 
 

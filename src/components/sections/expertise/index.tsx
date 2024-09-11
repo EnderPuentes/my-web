@@ -4,43 +4,42 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { ExpertiseSchema } from '@/services/sanity/parser';
+import { ExpertiseSchema, JobSchema } from '@/services/sanity/parser';
 import Link from 'next/link';
 
-function JobResume({ job }: { job: ExpertiseSchema['jobs'][0] }) {
+type JobResumeProps = {
+  job: JobSchema;
+};
+
+function JobResume({ job }: JobResumeProps) {
   return (
-    <div className="flex justify-start items-start gap-5 sm:gap-7">
-      <div className="flex flex-col justify-start items-start gap-1">
-        <div className="flex flex-col justify-start items-start gap-1 mb-2">
-          {job.company.website ? (
-            <Link
-              aria-label={job.company.name}
-              href={job.company.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-base sm:text-lg"
-            >
-              {job.company.name}
-            </Link>
-          ) : (
-            <span className="text-base sm:text-lg">{job.company.name}</span>
-          )}
-          <p className="text-xs sm:text-base font-light dark:text-gray-300">
-            {job.position}, {job.startDate} - {job.endDate}
-          </p>
-        </div>
-      </div>
+    <div className="flex flex-col justify-start items-start gap-1 mb-2">
+      {job.company.website ? (
+        <Link
+          aria-label={job.company.name}
+          href={job.company.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-base sm:text-lg"
+        >
+          {job.company.name}
+        </Link>
+      ) : (
+        <span className="text-base sm:text-lg">{job.company.name}</span>
+      )}
+      <p className="text-xs sm:text-base font-light dark:text-gray-300">
+        {job.position}, {job.startDate} - {job.endDate}
+      </p>
     </div>
   );
 }
 
-function JobDetail({
-  job,
-  labels,
-}: {
-  job: ExpertiseSchema['jobs'][0];
+type JobDetailProps = {
+  job: JobSchema;
   labels: ExpertiseSchema['labels'];
-}) {
+};
+
+function JobDetail({ job, labels }: JobDetailProps) {
   return (
     <div className="flex flex-col justify-start items-start gap-5 mb-2 border-t pt-5">
       <p className="dark:text-gray-300 text-xs sm:text-base leading-5 sm:leading-7">
