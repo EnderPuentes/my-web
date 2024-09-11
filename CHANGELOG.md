@@ -1,5 +1,12 @@
 
 
+## [0.4.1](https://github.com/EnderPuentes/my-web/compare/0.4.0...0.4.1) (2024-09-11)
+
+
+### Bug Fixes
+
+* remove postbuild script deprecated ([d79a25c](https://github.com/EnderPuentes/my-web/commit/d79a25c62442f59dfeb01c326eb7febf81642b5a))
+
 # [0.4.0](https://github.com/EnderPuentes/my-web/compare/0.3.0...0.4.0) (2024-09-11)
 
 
