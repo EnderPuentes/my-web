@@ -1,5 +1,12 @@
 
 
+# [0.5.0](https://github.com/EnderPuentes/my-web/compare/0.4.1...0.5.0) (2024-09-11)
+
+
+### Features
+
+* refactor readme ([b99d294](https://github.com/EnderPuentes/my-web/commit/b99d2941af0e878ef196047fb3712096a49541ba))
+
 ## [0.4.1](https://github.com/EnderPuentes/my-web/compare/0.4.0...0.4.1) (2024-09-11)
 
 
