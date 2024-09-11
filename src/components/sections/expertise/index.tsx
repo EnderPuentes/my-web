@@ -7,7 +7,11 @@ import {
 import { ExpertiseSchema, JobSchema } from '@/services/sanity/parser';
 import Link from 'next/link';
 
-function JobResume({ job }: { job: JobSchema }) {
+type JobResumeProps = {
+  job: JobSchema;
+};
+
+function JobResume({ job }: JobResumeProps) {
   return (
     <div className="flex flex-col justify-start items-start gap-1 mb-2">
       {job.company.website ? (
