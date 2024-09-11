@@ -201,21 +201,23 @@ export const expertiseSchema = z.object({
 
 export type ExpertiseSchema = z.infer<typeof expertiseSchema>;
 
+const degreeSchema = z.object({
+  title: z.string(),
+  startDate: z.string(),
+  endDate: z.string(),
+  school: z.object({
+    name: z.string(),
+    website: z.string().url().optional(),
+  }),
+});
+
+export type DegreeSchema = z.infer<typeof degreeSchema>;
+
 export const educationSchema = z.object({
   _key: z.string(),
   _type: z.literal('education'),
   title: z.string(),
-  degrees: z.array(
-    z.object({
-      title: z.string(),
-      startDate: z.string(),
-      endDate: z.string(),
-      school: z.object({
-        name: z.string(),
-        website: z.string().url().optional(),
-      }),
-    })
-  ),
+  degrees: z.array(degreeSchema),
 });
 
 export type EducationSchema = z.infer<typeof educationSchema>;
