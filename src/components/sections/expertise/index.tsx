@@ -30,13 +30,12 @@ function JobResume({ job }: { job: JobSchema }) {
   );
 }
 
-function JobDetail({
-  job,
-  labels,
-}: {
+type JobDetailProps = {
   job: JobSchema;
   labels: ExpertiseSchema['labels'];
-}) {
+};
+
+function JobDetail({ job, labels }: JobDetailProps) {
   return (
     <div className="flex flex-col justify-start items-start gap-5 mb-2 border-t pt-5">
       <p className="dark:text-gray-300 text-xs sm:text-base leading-5 sm:leading-7">
