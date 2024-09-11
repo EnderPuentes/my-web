@@ -1,5 +1,14 @@
 
 
+# [0.4.0](https://github.com/EnderPuentes/my-web/compare/0.3.0...0.4.0) (2024-09-11)
+
+
+### Features
+
+* add next-sitemap package ([e73dd7c](https://github.com/EnderPuentes/my-web/commit/e73dd7cab374b49925dfea46486bced68effd4b3))
+* add robots config ([b6ad89a](https://github.com/EnderPuentes/my-web/commit/b6ad89a04e33d8138d5c8609781b7e298f83ee46))
+* add sitemap config ([f3702fc](https://github.com/EnderPuentes/my-web/commit/f3702fcbb103c93db4a6ff244c72f15163f8954c))
+
 # [0.3.0](https://github.com/EnderPuentes/my-web/compare/0.2.0...0.3.0) (2024-09-11)
 
 
