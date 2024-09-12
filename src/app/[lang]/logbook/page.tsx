@@ -1,7 +1,7 @@
-import Education from '@/components/sections/education';
-import Expertise from '@/components/sections/expertise';
-import Identity from '@/components/sections/identity';
-import Skills from '@/components/sections/skills';
+import Education from '@/components/sections/logbook/education';
+import Expertise from '@/components/sections/logbook/expertise';
+import Identity from '@/components/sections/logbook/identity';
+import Skills from '@/components/sections/logbook/skills';
 import { getLogbookPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 
