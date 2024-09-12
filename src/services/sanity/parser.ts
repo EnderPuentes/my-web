@@ -247,6 +247,8 @@ export const notFoundSchema = z.object({
   cta: z.string(),
 });
 
+export type NotFoundSchema = z.infer<typeof notFoundSchema>;
+
 // Layout
 
 export const layoutSchema = z.object({
