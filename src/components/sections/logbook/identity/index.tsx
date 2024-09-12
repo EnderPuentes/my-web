@@ -2,7 +2,7 @@ import { IdentitySchema } from '@/services/sanity/parser';
 
 type Props = { data: IdentitySchema };
 
-export default function Identity({ data }: Props) {
+export function Identity({ data }: Props) {
   return (
     <section className="bg-slate-100 bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark -mt-20 pt-20">
       <div className="container">

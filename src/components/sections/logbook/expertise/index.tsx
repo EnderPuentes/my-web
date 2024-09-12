@@ -72,7 +72,7 @@ type Props = {
   data: ExpertiseSchema;
 };
 
-export default function Expertise({ data }: Props) {
+export function Expertise({ data }: Props) {
   return (
     <section className="mt-10 sm:mt-20">
       <div className="container flex flex-col justify-start items-start gap-5 ">

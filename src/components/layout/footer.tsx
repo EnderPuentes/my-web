@@ -9,7 +9,7 @@ import {
 
 type Props = { data: FooterSchema | null | undefined };
 
-export default function Footer({ data }: Props) {
+export function Footer({ data }: Props) {
   const date = new Date();
   return (
     <footer className=" bg-slate-100 dark:bg-slate-950">

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 type Props = {};
 
-export default function Logo({}: Props) {
+export function Logo({}: Props) {
   const text = 'Endev';
 
   const [displayText, setDisplayText] = useState('');

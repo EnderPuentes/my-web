@@ -1,8 +1,8 @@
 import '@/app/globals.css';
-import CursorGradient from '@/components/layout/cursor';
-import Footer from '@/components/layout/footer';
-import Header from '@/components/layout/header';
-import ThemeProvider from '@/components/providers/theme';
+import { CursorGradient } from '@/components/layout/cursor';
+import { Footer } from '@/components/layout/footer';
+import { Header } from '@/components/layout/header';
+import { ThemeProvider } from '@/components/providers/theme';
 import { Toaster } from '@/components/ui/toaster';
 import { LayoutSchema } from '@/services/sanity/parser';
 import { getLayout } from '@/services/sanity/request';

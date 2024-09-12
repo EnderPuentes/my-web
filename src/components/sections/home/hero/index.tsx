@@ -22,7 +22,7 @@ function Command({ command }: { command: string }) {
 
 type Props = { data: HeroSchema; lang: 'en' | 'es' };
 
-export default function Hero({ data, lang }: Props) {
+export function Hero({ data, lang }: Props) {
   const [introMessage, setIntroMessage] = useState('');
   const [indexIntroMessage, setIndexIntroMessage] = useState(0);
 

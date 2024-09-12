@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 type Props = {};
 
-export default function ThemeToggler({}: Props) {
+export function ThemeToggler({}: Props) {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
