@@ -1,10 +1,8 @@
 import { IdentitySchema } from '@/services/sanity/parser';
-import Link from 'next/link';
-import { PiDownloadSimple } from 'react-icons/pi';
 
-type Props = { data: IdentitySchema; lang: 'en' | 'es' };
+type Props = { data: IdentitySchema };
 
-export function Identity({ data, lang }: Props) {
+export function IdentityPdf({ data }: Props) {
   return (
     <section className="bg-slate-100 bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark -mt-20 pt-20">
       <div className="container">
@@ -14,14 +12,6 @@ export function Identity({ data, lang }: Props) {
             {data.role}
           </h2>
         </div>
-        <Link
-          download
-          title="Download Logbook"
-          href={`/${lang}/logbook/download?pdf=true&lang=${lang}`}
-          className="text-4xl"
-        >
-          <PiDownloadSimple />
-        </Link>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { Education } from '@/components/sections/logbook/education';
 import { Expertise } from '@/components/sections/logbook/expertise';
-import { Identity } from '@/components/sections/logbook/identity';
+import { IdentityPdf } from '@/components/sections/logbook/identity/pdf';
 import { Skills } from '@/components/sections/logbook/skills';
 import { getLogbookPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
@@ -32,11 +32,10 @@ export default async function LogbookPDF({ params }: Props) {
   const data = await getLogbookPage(params.lang);
   return (
     <>
-      <h1>Version PDF</h1>
       {data?.sections.map((section) => {
         switch (section._type) {
           case 'identity':
-            return <Identity key={section._key} data={section} />;
+            return <IdentityPdf key={section._key} data={section} />;
           case 'expertise':
             return <Expertise key={section._key} data={section} />;
           case 'skills':
