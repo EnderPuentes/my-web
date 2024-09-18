@@ -1,5 +1,39 @@
 
 
+# [0.7.0](https://github.com/EnderPuentes/my-web/compare/0.6.0...0.7.0) (2024-09-18)
+
+
+### Bug Fixes
+
+* **pdf/logbook/download:** import puppeteer ([152d703](https://github.com/EnderPuentes/my-web/commit/152d703315ba4f52504a7504ea1d92caeca7bb01))
+* **pdf/logbook/download:** refactor logic for develop and production environment ([4b65a54](https://github.com/EnderPuentes/my-web/commit/4b65a540eb781fb1b440b37197ec180f3476b58a))
+
+
+### Features
+
+* add actions buttons ([32eba24](https://github.com/EnderPuentes/my-web/commit/32eba24e5f91b85eb62852b463e78b96f59a01ed))
+* add download and copy url button actions ([38dc75c](https://github.com/EnderPuentes/my-web/commit/38dc75caa27cea87e9405827cca298846a00b676))
+* add download base for logbook (pdf) ([764ab5d](https://github.com/EnderPuentes/my-web/commit/764ab5dcbea5d49e30b829af3cbb5502d130feb6))
+* add layout for [@pdf](https://github.com/pdf) parallel route ([bc092af](https://github.com/EnderPuentes/my-web/commit/bc092af5f1498669d6e9c887fb30f8295f737c62))
+* add logbook page base  version pdf ([a4007aa](https://github.com/EnderPuentes/my-web/commit/a4007aac1bfcadb8f142d8c1f68b6d47d3615ef6))
+* add notFound page for [@pdf](https://github.com/pdf) parallel route ([d7b6c90](https://github.com/EnderPuentes/my-web/commit/d7b6c9029bbe7cbffff81ddd7941ad2026a14236))
+* add NotFoundMessage component ([e4be5bf](https://github.com/EnderPuentes/my-web/commit/e4be5bf94b21e8a2ef62f5a9e7b6eda43d1ffec0))
+* add puppeter package ([f2d092e](https://github.com/EnderPuentes/my-web/commit/f2d092e44848ba24b89f8c3a543af5e231244d55))
+* add route download logbook ([7f162b4](https://github.com/EnderPuentes/my-web/commit/7f162b4418705eef226b897fe73cce3040843b87))
+* add site and pdf parallel routers in /[lang] route ([92c7070](https://github.com/EnderPuentes/my-web/commit/92c7070b55b9889daf0d352b518a725771a39ead))
+* **config:** add experimental config ([17fa007](https://github.com/EnderPuentes/my-web/commit/17fa007777a8d867fbc050c8f10c5deeea078c03))
+* **pdf/logbook:** add education component section ([f46ce87](https://github.com/EnderPuentes/my-web/commit/f46ce8778a40c75ac6ec9d6c3fbdd9047ce147d2))
+* **pdf/logbook:** add expertise component section ([83af0e6](https://github.com/EnderPuentes/my-web/commit/83af0e65885d8a3c60fba09c1cc64a15d23a66ee))
+* **pdf/logbook:** add margins ([babb6ac](https://github.com/EnderPuentes/my-web/commit/babb6acff157aebbdeb3df31ead6d56e29a22c7d))
+* **pdf/logbook:** add skills component section ([1b311b2](https://github.com/EnderPuentes/my-web/commit/1b311b2bb32ba5a5819013aacba65d225b7a4d80))
+* **pdf/logbook:** refactor component and add news fields to sanity ([3e5f961](https://github.com/EnderPuentes/my-web/commit/3e5f96187dbbc0dd86d0a90adc79d4171123feba))
+* **sanity:** add link component ([59e4ed8](https://github.com/EnderPuentes/my-web/commit/59e4ed85cd813b45762d09c528f7b3379628cb8f))
+
+
+### Reverts
+
+* Revert "chore(pdf/logbook/download): refactor logic test" ([f76bfc3](https://github.com/EnderPuentes/my-web/commit/f76bfc3db189e6bafebf5ebaf477a73a614eb42d))
+
 # [0.6.0](https://github.com/EnderPuentes/my-web/compare/0.5.0...0.6.0) (2024-09-11)
 
 
