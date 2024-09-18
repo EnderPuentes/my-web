@@ -14,6 +14,8 @@ export async function GET(
 
     let browser = null;
 
+    console.log('TESTTTTT', { ENV: process.env.NODE_ENV });
+
     if (process.env.NODE_ENV === 'production') {
       browser = await puppeteerCore.launch({
         args: chromium.args,
