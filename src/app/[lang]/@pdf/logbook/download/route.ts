@@ -5,6 +5,28 @@ import puppeteerCore from 'puppeteer-core';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
+async function getBrowser() {
+  if (process.env.NODE_ENV === 'production') {
+    const executablePath = await chromium.executablePath();
+
+    const browser = await puppeteerCore.launch({
+      executablePath,
+      args: chromium.args,
+      headless: chromium.headless,
+      defaultViewport: chromium.defaultViewport,
+    });
+
+    return browser;
+  }
+
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless: true,
+  });
+
+  return browser;
+}
+
 export async function GET(
   req: NextRequest,
   { params }: { params: { lang: 'en' | 'es' } }
@@ -12,26 +34,7 @@ export async function GET(
   try {
     const url = `${BASE_URL}/${params.lang}/logbook?pdf=true`;
 
-    let browser = null;
-
-    console.log('TESTTTTT', { ENV: process.env.NODE_ENV });
-
-    if (process.env.NODE_ENV === 'production') {
-      browser = await puppeteerCore.launch({
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(
-          '/usr/bin/chromium-browser'
-        ),
-        headless: chromium.headless,
-      });
-    } else {
-      browser = await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        headless: true,
-      });
-    }
-
+    const browser = await getBrowser();
     const page = await browser.newPage();
 
     await page.goto(url, { waitUntil: 'networkidle0' });
