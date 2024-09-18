@@ -28,6 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const revalidate = 3600;
+
 export default async function Home({ params }: Props) {
   const cookieStore = cookies();
 

@@ -25,6 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const revalidate = 86400;
+
 export default async function NotFound({ params }: Props) {
   const data = await getNotFoundPage(params.lang);
   return (

@@ -28,6 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const revalidate = 86400;
+
 export default async function LogbookPDF({ params }: Props) {
   const data = await getLogbookPage(params.lang);
 
