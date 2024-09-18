@@ -1,28 +1,45 @@
 import chromium from '@sparticuz/chromium';
 import { NextRequest, NextResponse } from 'next/server';
-import puppeteer from 'puppeteer';
-import puppeteerCore from 'puppeteer-core';
+import puppeteer, { Browser } from 'puppeteer';
+
+export const maxDuration = 30;
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 async function getBrowser() {
-  if (process.env.NODE_ENV === 'production') {
-    const executablePath = await chromium.executablePath();
+  let browser: Browser;
 
-    const browser = await puppeteerCore.launch({
-      executablePath,
-      args: chromium.args,
-      headless: chromium.headless,
-      defaultViewport: chromium.defaultViewport,
+  chromium.setHeadlessMode = true;
+  chromium.setGraphicsMode = false;
+
+  const chromeArgs = [
+    '--font-render-hinting=none',
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-gpu',
+    '--disable-dev-shm-usage',
+    '--disable-accelerated-2d-canvas',
+    '--disable-animations',
+    '--disable-background-timer-throttling',
+    '--disable-restore-session-state',
+    '--disable-web-security',
+    '--single-process',
+  ];
+
+  try {
+    browser = await puppeteer.launch({
+      ...(process.env.NODE_ENV !== 'production'
+        ? { channel: 'chrome' }
+        : {
+            args: chromeArgs,
+            executablePath: await chromium.executablePath(),
+            ignoreHTTPSErrors: true,
+            headless: true,
+          }),
     });
-
-    return browser;
+  } catch (error) {
+    throw new Error('Failed to start browser');
   }
-
-  const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    headless: true,
-  });
 
   return browser;
 }
@@ -37,17 +54,27 @@ export async function GET(
     const browser = await getBrowser();
     const page = await browser.newPage();
 
-    await page.goto(url, { waitUntil: 'networkidle0' });
     await page.emulateMediaType('screen');
+    const response = await page.goto(url, {
+      waitUntil: 'networkidle0',
+      timeout: 30000,
+    });
+
+    if (!response || !response.ok()) {
+      throw new Error('Failed to load the page for PDF generation');
+    }
 
     const pdfBuffer = await page.pdf({
+      scale: 0.6,
       format: 'A4',
       printBackground: true,
-      scale: 0.6,
       margin: { top: '0.5cm', right: '0.5cm', bottom: '0.5cm', left: '0.5cm' },
     });
 
-    await browser.close();
+    const pages = await browser.pages();
+    for (const openPage of pages) {
+      await openPage.close();
+    }
 
     return new NextResponse(pdfBuffer, {
       headers: {

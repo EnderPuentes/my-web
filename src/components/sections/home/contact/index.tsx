@@ -16,9 +16,9 @@ import { ContactSchema } from '@/services/sanity/parser';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useReCaptcha } from 'next-recaptcha-v3';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
-import { PiRocketLaunch } from 'react-icons/pi';
+import { PiRocketLaunch, PiSpinner } from 'react-icons/pi';
 import { z } from 'zod';
 import { sendContactForm } from './actions';
 
@@ -30,7 +30,7 @@ export function Contact({ data }: Props) {
   const router = useRouter();
   const { toast } = useToast();
   const { executeRecaptcha } = useReCaptcha();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const formSchema = z.object({
     name: z.string().min(1, {
@@ -61,26 +61,25 @@ export function Contact({ data }: Props) {
   });
 
   async function onSubmit(formData: FormSchema) {
-    setIsLoading(true);
-    try {
-      const token = await executeRecaptcha('form_submit');
-      await sendContactForm({ ...formData, token });
+    startTransition(async () => {
+      try {
+        const token = await executeRecaptcha('form_submit');
+        await sendContactForm({ ...formData, token });
 
-      toast({
-        title: data.status.success.title,
-        description: data.status.success.description,
-      });
+        toast({
+          title: data.status.success.title,
+          description: data.status.success.description,
+        });
 
-      form.reset();
-    } catch (error: any) {
-      toast({
-        variant: 'destructive',
-        title: data.status.error.title,
-        description: data.status.error.description || error.message,
-      });
-    } finally {
-      setIsLoading(false);
-    }
+        form.reset();
+      } catch (error: any) {
+        toast({
+          variant: 'destructive',
+          title: data.status.error.title,
+          description: data.status.error.description || error.message,
+        });
+      }
+    });
   }
 
   return (
@@ -170,11 +169,20 @@ export function Contact({ data }: Props) {
               <div className="flex justify-center items-center">
                 <Button
                   type="submit"
-                  disabled={isLoading}
+                  disabled={isPending}
                   className="text-xs sm:text-base flex justify-center items-center gap-2 rounded-full font-light py-6 dark:bg-slate-800 dark:text-white"
                 >
-                  <PiRocketLaunch className="text-xl" />
-                  {isLoading ? data.loading.on : data.loading.off}
+                  {isPending ? (
+                    <>
+                      <PiSpinner className="animate-spin" />
+                      {data.loading.on}
+                    </>
+                  ) : (
+                    <>
+                      <PiRocketLaunch className="text-xl" />
+                      {data.loading.off}
+                    </>
+                  )}
                 </Button>
               </div>
             </form>
