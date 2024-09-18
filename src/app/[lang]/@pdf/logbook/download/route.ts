@@ -15,15 +15,15 @@ export async function GET(request: Request) {
     await page.goto(url, { waitUntil: 'networkidle0' });
     await page.emulateMediaType('screen');
 
-    // Genera el PDF
     const pdfBuffer = await page.pdf({
       format: 'A4',
       printBackground: true,
+      scale: 0.6,
+      margin: { top: '0.5cm', right: '0.5cm', bottom: '0.5cm', left: '0.5cm' },
     });
 
     await browser.close();
 
-    // Retorna el PDF como una respuesta binaria
     return new NextResponse(pdfBuffer, {
       headers: {
         'Content-Type': 'application/pdf',
