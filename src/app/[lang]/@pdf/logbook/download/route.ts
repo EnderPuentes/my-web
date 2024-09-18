@@ -1,17 +1,36 @@
-import { NextResponse } from 'next/server';
-import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
+import { NextRequest, NextResponse } from 'next/server';
+import puppeteer from 'puppeteer';
+import puppeteerCore from 'puppeteer-core';
 
-export async function GET(request: Request) {
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { lang: 'en' | 'es' } }
+) {
   try {
-    const lang = new URL(request.url).searchParams.get('lang') ?? 'en';
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/logbook?pdf=true`;
+    const url = `${BASE_URL}/${params.lang}/logbook?pdf=true`;
+    const executablePath = await chromium.executablePath;
 
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    });
+    let browser = null;
+
+    if (process.env.NODE_ENV === 'production') {
+      browser = await puppeteerCore.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+      });
+    } else {
+      browser = await puppeteer.launch({
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        headless: true,
+      });
+    }
 
     const page = await browser.newPage();
+
     await page.goto(url, { waitUntil: 'networkidle0' });
     await page.emulateMediaType('screen');
 
@@ -27,7 +46,7 @@ export async function GET(request: Request) {
     return new NextResponse(pdfBuffer, {
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename=enderpuentes_${lang}.pdf`,
+        'Content-Disposition': `attachment; filename=enderpuentes_${params.lang}.pdf`,
       },
     });
   } catch (error) {

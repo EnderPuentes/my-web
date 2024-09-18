@@ -7,7 +7,7 @@ import { IdentitySchema } from '@/services/sanity/parser';
 type Props = { data: IdentitySchema; lang: 'en' | 'es' };
 
 export function Identity({ data, lang }: Props) {
-  const downloadUrl = `/${lang}/logbook/download?pdf=true&lang=${lang}`;
+  const downloadUrl = `/${lang}/logbook/download?pdf=true`;
   return (
     <section className="bg-slate-100 bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark -mt-20 pt-20">
       <div className="container">
