@@ -19,6 +19,7 @@ export async function GET(request: Request) {
       format: 'A4',
       printBackground: true,
       scale: 0.6,
+      margin: { top: '0.5cm', right: '0.5cm', bottom: '0.5cm', left: '0.5cm' },
     });
 
     await browser.close();
