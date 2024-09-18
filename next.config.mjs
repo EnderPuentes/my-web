@@ -4,6 +4,12 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     remotePatterns: [{ hostname: 'cdn.sanity.io' }],
   },
+  experimental: {
+    serverComponentsExternalPackages: [
+      'puppeteer-core',
+      '@sparticuz/chromium-min',
+    ],
+  },
 };
 
 export default nextConfig;
