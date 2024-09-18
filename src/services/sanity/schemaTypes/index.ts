@@ -2,6 +2,7 @@ import { type SchemaTypeDefinition } from 'sanity';
 // Componentes
 import { footerComponentType } from './components/footerType';
 import { headerComponentType } from './components/headerType';
+import { linkComponentType } from './components/linkType';
 import { metaComponentType } from './components/metaType';
 // Sections
 import { aboutSectionType } from './sections/aboutType';
@@ -21,8 +22,9 @@ import { layoutType } from './layout';
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     // Components
-    headerComponentType,
     footerComponentType,
+    headerComponentType,
+    linkComponentType,
     metaComponentType,
     // Sections
     aboutSectionType,
