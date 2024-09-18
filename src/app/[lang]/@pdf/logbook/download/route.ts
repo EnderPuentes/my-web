@@ -27,6 +27,9 @@ async function getBrowser() {
   return browser;
 }
 
+export const maxDuration = 30;
+export const dynamic = 'force-dynamic';
+
 export async function GET(
   req: NextRequest,
   { params }: { params: { lang: 'en' | 'es' } }
