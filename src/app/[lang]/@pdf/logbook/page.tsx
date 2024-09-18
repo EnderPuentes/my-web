@@ -1,7 +1,7 @@
-import { Education } from '@/components/sections/logbook/education';
-import { Expertise } from '@/components/sections/logbook/expertise';
+import { EducationPdf } from '@/components/sections/logbook/education/pdf';
+import { ExpertisePdf } from '@/components/sections/logbook/expertise/pdf';
 import { IdentityPdf } from '@/components/sections/logbook/identity/pdf';
-import { Skills } from '@/components/sections/logbook/skills';
+import { SkillsPdf } from '@/components/sections/logbook/skills/pdf';
 import { getLogbookPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 
@@ -30,20 +30,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LogbookPDF({ params }: Props) {
   const data = await getLogbookPage(params.lang);
+
+  const identity = data?.sections.find(
+    (section) => section._type === 'identity'
+  );
+
+  const skills = data?.sections.find((section) => section._type === 'skills');
+
+  const expertise = data?.sections.find(
+    (section) => section._type === 'expertise'
+  );
+
+  const education = data?.sections.find(
+    (section) => section._type === 'education'
+  );
+
   return (
     <>
-      {data?.sections.map((section) => {
-        switch (section._type) {
-          case 'identity':
-            return <IdentityPdf key={section._key} data={section} />;
-          case 'expertise':
-            return <Expertise key={section._key} data={section} />;
-          case 'skills':
-            return <Skills key={section._key} data={section} />;
-          case 'education':
-            return <Education key={section._key} data={section} />;
-        }
-      })}
+      {identity && <IdentityPdf data={identity} />}
+      <div className="container flex justify-center items-start gap-5">
+        <div className="w-[260px]">{skills && <SkillsPdf data={skills} />}</div>
+        <div className="flex-1">
+          {expertise && <ExpertisePdf data={expertise} />}
+          {education && <EducationPdf data={education} />}
+        </div>
+      </div>
     </>
   );
 }
