@@ -33,14 +33,12 @@ type Props = { data: EducationSchema };
 
 export function EducationPdf({ data }: Props) {
   return (
-    <div className="mt-10">
-      <div className="container flex flex-col justify-start items-start gap-2 ">
-        <h2 className="font-semibold text-xl mb-5">{data.title}</h2>
-        <div className="flex flex-col justify-start items-start gap-2 w-full">
-          {data.degrees.map((degree, iDegree) => (
-            <DegreePdf key={iDegree} degree={degree} />
-          ))}
-        </div>
+    <div className="mt-10 flex flex-col justify-start items-start gap-2 ">
+      <h2 className="font-semibold text-xl mb-5">{data.title}</h2>
+      <div className="flex flex-col justify-start items-start gap-2 w-full">
+        {data.degrees.map((degree, iDegree) => (
+          <DegreePdf key={iDegree} degree={degree} />
+        ))}
       </div>
     </div>
   );

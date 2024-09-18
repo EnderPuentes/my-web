@@ -49,10 +49,12 @@ export default async function LogbookPDF({ params }: Props) {
     <>
       {identity && <IdentityPdf data={identity} />}
       <div className="container flex justify-center items-start gap-5">
-        <div className="w-[260px]">{skills && <SkillsPdf data={skills} />}</div>
+        <div className="w-[260px]">
+          {skills && <SkillsPdf data={skills} />}
+          {education && <EducationPdf data={education} />}
+        </div>
         <div className="flex-1">
           {expertise && <ExpertisePdf data={expertise} />}
-          {education && <EducationPdf data={education} />}
         </div>
       </div>
     </>

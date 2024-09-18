@@ -16,15 +16,17 @@ type Props = { data: IdentitySchema };
 export function IdentityPdf({ data }: Props) {
   return (
     <div className="bg-slate-100 bg-galaxy-gradient-dark">
-      <div className="container flex justify-start items-start gap-10 py-5">
-        <div className="w-[260px] h-[260px] overflow-hidden rounded-full flex justify-center items-center">
-          <Image
-            src={urlFor(data.image).url()}
-            width={1080}
-            height={1080}
-            alt="Ender Puentes"
-            quality={1}
-          />
+      <div className="container flex justify-start items-center gap-5 py-5">
+        <div className="w-[260px] flex justify-center items-center">
+          <div className="w-[200px] h-[200px] overflow-hidden rounded-full flex justify-center items-center">
+            <Image
+              src={urlFor(data.image).url()}
+              width={1080}
+              height={1080}
+              alt="Ender Puentes"
+              quality={1}
+            />
+          </div>
         </div>
         <div className="flex-1 py-8">
           <h1 className="text-3xl font-bold mb-2 text-white">{data.name}</h1>

@@ -28,7 +28,7 @@ function JobPdf({ job, labels }: JobProps) {
           - {job.endDate}
         </p>
       </div>
-      <div className="flex flex-col justify-start items-start gap-5 mb-2">
+      <div className="flex flex-col justify-start items-start gap-2 mb-2">
         <p className="text-xs leading-5">
           <strong className="text-md">{labels.responsabilities}: </strong>{' '}
         </p>
@@ -54,14 +54,12 @@ type Props = {
 
 export function ExpertisePdf({ data }: Props) {
   return (
-    <div className="mt-10">
-      <div className="container flex flex-col justify-start items-start gap-2 ">
-        <h2 className="font-semibold text-xl mb-5">{data.title}</h2>
-        <div className="flex flex-col justify-start items-start gap-2 w-full">
-          {data.jobs.map((job, ji) => (
-            <JobPdf key={`job-${ji}`} job={job} labels={data.labels} />
-          ))}
-        </div>
+    <div className="mt-10 flex flex-col justify-start items-start gap-2 ">
+      <h2 className="font-semibold text-xl mb-5">{data.title}</h2>
+      <div className="flex flex-col justify-start items-start gap-2 w-full">
+        {data.jobs.map((job, ji) => (
+          <JobPdf key={`job-${ji}`} job={job} labels={data.labels} />
+        ))}
       </div>
     </div>
   );
