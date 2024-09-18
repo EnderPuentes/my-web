@@ -11,7 +11,6 @@ export async function GET(
 ) {
   try {
     const url = `${BASE_URL}/${params.lang}/logbook?pdf=true`;
-    const executablePath = await chromium.executablePath;
 
     let browser = null;
 
@@ -19,7 +18,9 @@ export async function GET(
       browser = await puppeteerCore.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
+        executablePath: await chromium.executablePath(
+          '/usr/bin/chromium-browser'
+        ),
         headless: chromium.headless,
       });
     } else {
