@@ -1,5 +1,14 @@
 
 
+# [0.8.0](https://github.com/EnderPuentes/my-web/compare/0.7.0...0.8.0) (2024-09-18)
+
+
+### Features
+
+* add revalidate page ([448e87e](https://github.com/EnderPuentes/my-web/commit/448e87e7c59e2331d909a8fed6e036482bbf7bbe))
+* **contact:** replace useState to useTransition hook for isLoading  form submit state ([526d305](https://github.com/EnderPuentes/my-web/commit/526d30554fdf34a003c6c755869f8b6d35dbf516))
+* remove puppeteer-core package ([85762db](https://github.com/EnderPuentes/my-web/commit/85762dbfa9b894bfacb0ba0907f44dca12b6166a))
+
 # [0.7.0](https://github.com/EnderPuentes/my-web/compare/0.6.0...0.7.0) (2024-09-18)
 
 
