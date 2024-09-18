@@ -8,6 +8,15 @@ export const identitySectionType = defineType({
   icon: PiIdentificationBadge,
   fields: [
     defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'name',
       title: 'Name',
       type: 'string',
@@ -26,14 +35,38 @@ export const identitySectionType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'actions',
-      title: 'Actions',
+      name: 'contact',
+      title: 'Contact',
       type: 'object',
       fields: [
         defineField({
-          name: 'share',
-          title: 'Share',
-          type: 'string',
+          name: 'website',
+          title: 'Website',
+          type: 'link',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'email',
+          title: 'Email',
+          type: 'link',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'linkedin',
+          title: 'Linkedin',
+          type: 'link',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'github',
+          title: 'Github',
+          type: 'link',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'telegram',
+          title: 'Telegram',
+          type: 'link',
           validation: (Rule) => Rule.required(),
         }),
       ],
