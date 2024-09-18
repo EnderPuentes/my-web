@@ -1,10 +1,13 @@
+import {
+  CopyUrlButton,
+  DownloadUrlButton,
+} from '@/components/common/action-button';
 import { IdentitySchema } from '@/services/sanity/parser';
-import Link from 'next/link';
-import { PiDownloadSimple } from 'react-icons/pi';
 
 type Props = { data: IdentitySchema; lang: 'en' | 'es' };
 
 export function Identity({ data, lang }: Props) {
+  const downloadUrl = `/${lang}/logbook/download?pdf=true&lang=${lang}`;
   return (
     <section className="bg-slate-100 bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark -mt-20 pt-20">
       <div className="container">
@@ -13,15 +16,11 @@ export function Identity({ data, lang }: Props) {
           <h2 className="text-sm sm:text-lg mb-2 dark:text-gray-200">
             {data.role}
           </h2>
+          <div className="flex justify-start items-center gap-3">
+            <CopyUrlButton />
+            <DownloadUrlButton url={downloadUrl} />
+          </div>
         </div>
-        <Link
-          download
-          title="Download Logbook"
-          href={`/${lang}/logbook/download?pdf=true&lang=${lang}`}
-          className="text-4xl"
-        >
-          <PiDownloadSimple />
-        </Link>
       </div>
     </section>
   );
