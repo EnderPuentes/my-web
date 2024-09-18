@@ -1,6 +1,6 @@
-import About from '@/components/sections/about';
-import Contact from '@/components/sections/contact';
-import Hero from '@/components/sections/hero';
+import { About } from '@/components/sections/home/about';
+import { Contact } from '@/components/sections/home/contact';
+import { Hero } from '@/components/sections/home/hero';
 import { getHomePage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';

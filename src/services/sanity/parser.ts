@@ -45,6 +45,8 @@ export const metaSchema = z.object({
   keywords: z.string().array().optional(),
 });
 
+export type MetaSchema = z.infer<typeof metaSchema>;
+
 export const headerSchema = z.object({
   navbar: z.object({
     items: z
@@ -70,6 +72,13 @@ export const footerSchema = z.object({
 });
 
 export type FooterSchema = z.infer<typeof footerSchema>;
+
+export const linkSchema = z.object({
+  label: z.string(),
+  href: z.string(),
+});
+
+export type LinkSchema = z.infer<typeof linkSchema>;
 
 // Sections
 
@@ -142,20 +151,22 @@ export const contactSchema = z.object({
 
 export type ContactSchema = z.infer<typeof contactSchema>;
 
+export const skillsCategorySchema = z.object({
+  title: z.string().max(120),
+  technologies: z.array(
+    z.object({
+      title: z.string().max(120),
+    })
+  ),
+});
+
+export type SkillsCategorySchema = z.infer<typeof skillsCategorySchema>;
+
 export const skillsSchema = z.object({
   _key: z.string(),
   _type: z.literal('skills'),
   title: z.string().max(120),
-  categories: z.array(
-    z.object({
-      title: z.string().max(120),
-      technologies: z.array(
-        z.object({
-          title: z.string().max(120),
-        })
-      ),
-    })
-  ),
+  categories: z.array(skillsCategorySchema),
 });
 
 export type SkillsSchema = z.infer<typeof skillsSchema>;
@@ -163,11 +174,16 @@ export type SkillsSchema = z.infer<typeof skillsSchema>;
 const identitySchema = z.object({
   _key: z.string(),
   _type: z.literal('identity'),
+  image: imageSchema,
   name: z.string(),
   role: z.string(),
   location: z.string(),
-  actions: z.object({
-    share: z.string(),
+  contact: z.object({
+    email: linkSchema,
+    website: linkSchema,
+    linkedin: linkSchema,
+    github: linkSchema,
+    telegram: linkSchema,
   }),
 });
 
@@ -246,6 +262,8 @@ export const notFoundSchema = z.object({
   description: z.string(),
   cta: z.string(),
 });
+
+export type NotFoundSchema = z.infer<typeof notFoundSchema>;
 
 // Layout
 

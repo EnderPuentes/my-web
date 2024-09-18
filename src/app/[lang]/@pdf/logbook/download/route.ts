@@ -1,0 +1,62 @@
+import chromium from '@sparticuz/chromium';
+import { NextRequest, NextResponse } from 'next/server';
+import puppeteer from 'puppeteer';
+import puppeteerCore from 'puppeteer-core';
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+async function getBrowser() {
+  if (process.env.NODE_ENV === 'production') {
+    const executablePath = await chromium.executablePath();
+
+    const browser = await puppeteerCore.launch({
+      executablePath,
+      args: chromium.args,
+      headless: chromium.headless,
+      defaultViewport: chromium.defaultViewport,
+    });
+
+    return browser;
+  }
+
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless: true,
+  });
+
+  return browser;
+}
+
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { lang: 'en' | 'es' } }
+) {
+  try {
+    const url = `${BASE_URL}/${params.lang}/logbook?pdf=true`;
+
+    const browser = await getBrowser();
+    const page = await browser.newPage();
+
+    await page.goto(url, { waitUntil: 'networkidle0' });
+    await page.emulateMediaType('screen');
+
+    const pdfBuffer = await page.pdf({
+      format: 'A4',
+      printBackground: true,
+      scale: 0.6,
+      margin: { top: '0.5cm', right: '0.5cm', bottom: '0.5cm', left: '0.5cm' },
+    });
+
+    await browser.close();
+
+    return new NextResponse(pdfBuffer, {
+      headers: {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `attachment; filename=enderpuentes_${params.lang}.pdf`,
+      },
+    });
+  } catch (error) {
+    console.error('Error generando PDF:', error);
+    return new NextResponse('Error generando PDF', { status: 500 });
+  }
+}

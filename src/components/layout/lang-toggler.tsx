@@ -7,7 +7,7 @@ type Props = {
   lang: string;
 };
 
-export default function LangToggler({ lang }: Props) {
+export function LangToggler({ lang }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 

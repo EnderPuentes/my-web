@@ -3,7 +3,7 @@ import { SkillsSchema } from '@/services/sanity/parser';
 
 type Props = { data: SkillsSchema };
 
-export default function Skills({ data }: Props) {
+export function Skills({ data }: Props) {
   return (
     <section className="my-16 sm:my-28">
       <div className="container flex flex-col justify-start items-start gap-5">

@@ -30,7 +30,7 @@ function Degree({ degree }: DegreeProps) {
 
 type Props = { data: EducationSchema };
 
-export default function Education({ data }: Props) {
+export function Education({ data }: Props) {
   return (
     <section className="mt-10 sm:mt-20">
       <div className="container flex flex-col justify-start items-start gap-5 ">

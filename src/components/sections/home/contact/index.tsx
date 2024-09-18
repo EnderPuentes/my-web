@@ -26,7 +26,7 @@ type Props = {
   data: ContactSchema;
 };
 
-export default function Contact({ data }: Props) {
+export function Contact({ data }: Props) {
   const router = useRouter();
   const { toast } = useToast();
   const { executeRecaptcha } = useReCaptcha();
