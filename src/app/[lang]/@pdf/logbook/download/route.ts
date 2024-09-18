@@ -1,19 +1,16 @@
-import chromium from '@sparticuz/chromium';
+import chromium from 'chrome-aws-lambda';
 import { NextRequest, NextResponse } from 'next/server';
 import puppeteer from 'puppeteer';
-import puppeteerCore from 'puppeteer-core';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 async function getBrowser() {
   if (process.env.NODE_ENV === 'production') {
-    const executablePath = await chromium.executablePath();
-
-    const browser = await puppeteerCore.launch({
-      executablePath,
-      args: chromium.args,
-      headless: chromium.headless,
+    const browser = await chromium.puppeteer.launch({
+      args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
       defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: true,
     });
 
     return browser;
