@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [{ hostname: 'cdn.sanity.io' }],
   },
   experimental: {
-    serverComponentsExternalPackages: ['puppeteer-core', '@sparticuz/chromium'],
+    serverComponentsExternalPackages: ['@sparticuz/chromium'],
   },
 };
 
