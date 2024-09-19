@@ -1,5 +1,23 @@
 
 
+# [0.9.0](https://github.com/EnderPuentes/my-web/compare/0.8.0...0.9.0) (2024-09-19)
+
+
+### Bug Fixes
+
+* **contact:** remove width transition of fixed button ([a688ae7](https://github.com/EnderPuentes/my-web/commit/a688ae798dcc6d7bf51b29c3ebc30a12ee6a39f8))
+
+
+### Features
+
+* **components/action-button:** change dowloader property to target _blank for button download ([7928672](https://github.com/EnderPuentes/my-web/commit/7928672d8141ce6feba1a71900dafa313d05f57b))
+* **components/entity:** change url and remove lang prop ([8844814](https://github.com/EnderPuentes/my-web/commit/8844814d1a496e9b20afd28a035f4265df6e5750))
+* **footer:** add sourceCode field ([c06cf76](https://github.com/EnderPuentes/my-web/commit/c06cf760c81c22c34d30860c2326d38c0f8c25e8))
+* **logbook:** remove prop lang deeprecated for identity component ([1d8023d](https://github.com/EnderPuentes/my-web/commit/1d8023df4a9fa54ef764d1c70809f776b9eddbdb))
+* **sanity/file:** add forUrl method for files sanity ([bfc6afd](https://github.com/EnderPuentes/my-web/commit/bfc6afd2ff5308bc121ed4bad9035d6ae2860a0c))
+* **sanity/identity:** add summary file field ([d29e4e7](https://github.com/EnderPuentes/my-web/commit/d29e4e750a2d5cff6220190bd766942103b35495))
+* **sanity/parser:** add fileSchema and refactor imageSchema ([c0c33c6](https://github.com/EnderPuentes/my-web/commit/c0c33c681d1f6e888e1d5c957032dfdb3feca6d8))
+
 # [0.8.0](https://github.com/EnderPuentes/my-web/compare/0.7.0...0.8.0) (2024-09-18)
 
 
