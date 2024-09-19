@@ -60,10 +60,17 @@ export function Footer({ data }: Props) {
           )}
         </div>
       </div>
-      <div className="container p-2 flex justify-center items-center">
+      <div className="container flex flex-col justify-center items-center gap-4 p-2">
         <p className="text-xs">
           {data?.copyright} {date.getFullYear()}
         </p>
+        <Link
+          href={data?.sourceCode.href ?? ''}
+          aria-label={data?.sourceCode.label}
+          className="text-xs flex justify-center gap-4 items-center underline"
+        >
+          {data?.sourceCode.label}{' '}
+        </Link>
       </div>
     </footer>
   );

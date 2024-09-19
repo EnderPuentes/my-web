@@ -17,6 +17,15 @@ export const identitySectionType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'summary',
+      title: 'Summary',
+      type: 'file',
+      options: {
+        accept: 'application/pdf',
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'name',
       title: 'Name',
       type: 'string',

@@ -85,13 +85,13 @@ export function Contact({ data }: Props) {
   return (
     <section id="contact" className="my-16 sm:my-28">
       <Button
-        className="group fixed right-5 bottom-5 flex items-center justify-center h-14 w-14 rounded-full transform transition-all duration-500 hover:w-[170px] dark:bg-slate-800  dark:text-white"
+        className="group fixed right-5 bottom-5 flex items-center justify-center h-14 w-14 rounded-full transform transition-all duration-500 sm:hover:w-[170px] dark:bg-slate-800  dark:text-white overflow-hidden"
         onClick={() => router.push('#contact')}
       >
         <span>
           <PiRocketLaunch className="text-2xl" />
         </span>
-        <span className="whitespace-nowrap transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 max-w-0 group-hover:max-w-full group-hover:ml-3">
+        <span className="whitespace-nowrap transition-all duration-500 ease-in-out opacity-0 max-w-0 sm:group-hover:opacity-100 sm:group-hover:max-w-full sm:group-hover:ml-3">
           {data.title}
         </span>
       </Button>

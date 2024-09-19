@@ -37,9 +37,7 @@ export default async function Logbook({ params }: Props) {
       {data?.sections.map((section) => {
         switch (section._type) {
           case 'identity':
-            return (
-              <Identity key={section._key} data={section} lang={params.lang} />
-            );
+            return <Identity key={section._key} data={section} />;
           case 'expertise':
             return <Expertise key={section._key} data={section} />;
           case 'skills':
