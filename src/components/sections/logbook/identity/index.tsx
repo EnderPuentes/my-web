@@ -2,12 +2,12 @@ import {
   CopyUrlButton,
   DownloadUrlButton,
 } from '@/components/common/action-button';
+import { urlFor } from '@/services/sanity/lib/file';
 import { IdentitySchema } from '@/services/sanity/parser';
 
-type Props = { data: IdentitySchema; lang: 'en' | 'es' };
+type Props = { data: IdentitySchema };
 
-export function Identity({ data, lang }: Props) {
-  const downloadUrl = `/${lang}/logbook/download?pdf=true`;
+export function Identity({ data }: Props) {
   return (
     <section className="bg-slate-100 bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark -mt-20 pt-20">
       <div className="container">
@@ -18,7 +18,7 @@ export function Identity({ data, lang }: Props) {
           </h2>
           <div className="flex justify-start items-center gap-3">
             <CopyUrlButton />
-            <DownloadUrlButton url={downloadUrl} />
+            <DownloadUrlButton url={urlFor(data.summary)} />
           </div>
         </div>
       </div>
