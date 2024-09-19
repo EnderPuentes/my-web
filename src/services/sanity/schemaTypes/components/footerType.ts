@@ -44,5 +44,11 @@ export const footerComponentType = defineType({
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'sourceCode',
+      title: 'Source code',
+      type: 'link',
+      validation: (Rule) => Rule.required(),
+    },
   ],
 });

@@ -40,6 +40,11 @@ export type FileSchema = z.infer<typeof fileSchema>;
 
 // Components
 
+export const linkSchema = z.object({
+  label: z.string(),
+  href: z.string(),
+});
+
 export const metaSchema = z.object({
   title: z.string(),
   description: z.string(),
@@ -70,14 +75,10 @@ export const footerSchema = z.object({
     x: z.string().optional(),
   }),
   copyright: z.string(),
+  sourceCode: linkSchema,
 });
 
 export type FooterSchema = z.infer<typeof footerSchema>;
-
-export const linkSchema = z.object({
-  label: z.string(),
-  href: z.string(),
-});
 
 export type LinkSchema = z.infer<typeof linkSchema>;
 
