@@ -106,6 +106,22 @@ export const aboutSchema = z.object({
 
 export type AboutSchema = z.infer<typeof aboutSchema>;
 
+export const featuredArticlesSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('featuredArticles'),
+  title: z.string(),
+  items: z
+    .object({
+      _key: z.string(),
+      _type: z.literal('reference'),
+      title: z.string(),
+      slug: z.string(),
+    })
+    .array(),
+});
+
+export type FeaturedArticlesSchema = z.infer<typeof featuredArticlesSchema>;
+
 export const contactSchema = z.object({
   _key: z.string(),
   _type: z.literal('contact'),
@@ -246,7 +262,7 @@ export type EducationSchema = z.infer<typeof educationSchema>;
 export const homeSchema = z.object({
   meta: metaSchema,
   sections: z
-    .union([heroSchema, aboutSchema, contactSchema])
+    .union([heroSchema, aboutSchema, featuredArticlesSchema, contactSchema])
     .and(z.object({ _key: z.string() }))
     .array(),
 });
