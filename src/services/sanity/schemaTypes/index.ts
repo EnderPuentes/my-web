@@ -9,6 +9,7 @@ import { aboutSectionType } from './sections/aboutType';
 import { contactSectionType } from './sections/contactType';
 import { educationSectiontype } from './sections/educationType';
 import { expertiseSectiontype } from './sections/expertiseType';
+import { featuredArticlesSectionType } from './sections/featuredArticlesType';
 import { heroSectionType } from './sections/heroType';
 import { identitySectionType } from './sections/identityType';
 import { skillsSectionType } from './sections/skillsType';
@@ -32,6 +33,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactSectionType,
     educationSectiontype,
     expertiseSectiontype,
+    featuredArticlesSectionType,
     heroSectionType,
     identitySectionType,
     skillsSectionType,
