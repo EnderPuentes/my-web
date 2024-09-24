@@ -8,7 +8,21 @@ export const getLayoutQuery = groq`
 
 export const getHomeQuery = groq`
     *[_type == "home" && language == $lang][0]{
-        ...
+        ...,
+        sections[]{
+            ...,
+            _type == 'featuredArticles' => {
+                ...,
+                title,
+                items[]{
+                    ...,
+                    ...@-> {
+                        title,
+                        'slug': slug.current
+                    }
+                }
+            }
+        }
     }
 `;
 
