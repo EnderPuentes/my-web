@@ -13,6 +13,7 @@ import { heroSectionType } from './sections/heroType';
 import { identitySectionType } from './sections/identityType';
 import { skillsSectionType } from './sections/skillsType';
 // Pages
+import { articlePageType } from './pages/articleType';
 import { homePageType } from './pages/homeType';
 import { logbookPageType } from './pages/logbookType';
 import { notFoundPageType } from './pages/notFoundType';
@@ -35,6 +36,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     identitySectionType,
     skillsSectionType,
     // Pages
+    articlePageType,
     homePageType,
     logbookPageType,
     notFoundPageType,
