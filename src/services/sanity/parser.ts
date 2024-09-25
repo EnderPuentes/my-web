@@ -38,6 +38,77 @@ export const fileSchema = z.object({
 
 export type FileSchema = z.infer<typeof fileSchema>;
 
+const blockSchema = z.object({
+  _key: z.string(),
+  _type: z.string(),
+  style: z.string(),
+  level: z.number().optional(),
+  listItem: z.string().optional(),
+  children: z
+    .object({
+      _key: z.string(),
+      _type: z.string(),
+      marks: z.unknown().array(),
+      text: z.string(),
+    })
+    .array(),
+  markDefs: z.unknown().array(),
+});
+
+const blockImageSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('image'),
+  asset: z.object({
+    _ref: z.string(),
+    _type: z.literal('reference'),
+  }),
+  url: z.string(),
+  alt: z.string(),
+});
+
+const blockFileSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('file'),
+  asset: z.object({
+    _ref: z.string(),
+    _type: z.literal('reference'),
+  }),
+  url: z.string(),
+  alt: z.string(),
+});
+
+const blockYoutubeSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('youtube'),
+  title: z.string(),
+  url: z.string(),
+});
+
+const blockCodeSchema = z.object({
+  _key: z.string(),
+  _type: z.string(),
+  code: z.string(),
+  filename: z.string(),
+  language: z.string(),
+});
+
+export const multiContentSchema = z.object({
+  _type: z.literal('multi-content'),
+  darkMode: z.boolean().optional(),
+  nroColumns: z.enum(['1', '2', '3']).optional(),
+  content: z
+    .union([
+      blockSchema,
+      blockImageSchema,
+      blockFileSchema,
+      blockYoutubeSchema,
+      blockCodeSchema,
+    ])
+    .array(),
+});
+
+export type MultiContentSchema = z.infer<typeof multiContentSchema>;
+
 // Components
 
 export const linkSchema = z.object({
