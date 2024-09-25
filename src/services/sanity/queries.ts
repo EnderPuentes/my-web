@@ -18,6 +18,8 @@ export const getHomeQuery = groq`
                     ...,
                     ...@-> {
                         title,
+                        summary,
+                        'updateAt': _updatedAt,
                         'slug': slug.current
                     }
                 }
