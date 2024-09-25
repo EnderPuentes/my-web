@@ -1,4 +1,6 @@
 import { type SchemaTypeDefinition } from 'sanity';
+// Common
+import { youtubeVideoType } from './common/youtubeVideoType';
 // Componentes
 import { footerComponentType } from './components/footerType';
 import { headerComponentType } from './components/headerType';
@@ -23,6 +25,8 @@ import { layoutType } from './layout';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    // Common
+    youtubeVideoType,
     // Components
     footerComponentType,
     headerComponentType,
