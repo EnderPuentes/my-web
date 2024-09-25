@@ -106,18 +106,24 @@ export const aboutSchema = z.object({
 
 export type AboutSchema = z.infer<typeof aboutSchema>;
 
+export const featuredArticleItemSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('reference'),
+  slug: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  updateAt: z.string(),
+});
+
+export type FeaturedArticlesItemSchema = z.infer<
+  typeof featuredArticleItemSchema
+>;
+
 export const featuredArticlesSchema = z.object({
   _key: z.string(),
   _type: z.literal('featuredArticles'),
   title: z.string(),
-  items: z
-    .object({
-      _key: z.string(),
-      _type: z.literal('reference'),
-      title: z.string(),
-      slug: z.string(),
-    })
-    .array(),
+  items: featuredArticleItemSchema.array(),
 });
 
 export type FeaturedArticlesSchema = z.infer<typeof featuredArticlesSchema>;
