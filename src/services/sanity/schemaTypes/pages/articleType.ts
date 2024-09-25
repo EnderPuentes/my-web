@@ -39,6 +39,12 @@ export const articlePageType = defineType({
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'multiContent',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {
