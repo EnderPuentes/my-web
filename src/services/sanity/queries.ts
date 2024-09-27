@@ -34,6 +34,13 @@ export const getLogbookQuery = groq`
     }
 `;
 
+export const getBlogArticleQuery = groq`
+    *[_type == "article" && language == $lang && slug.current == $slug][0]{
+        ...,
+        'updateAt': _updatedAt
+    }
+`;
+
 export const getNotFoundQuery = groq`
     *[_type == "notFound" && language == $lang][0]{
         ...
