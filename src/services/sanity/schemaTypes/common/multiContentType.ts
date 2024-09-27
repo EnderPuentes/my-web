@@ -74,10 +74,6 @@ export const multiContentType = defineType({
           options: { hotspot: true },
         },
         {
-          type: 'file',
-          title: 'Video',
-        },
-        {
           type: 'youtubeVideo',
         },
       ],

@@ -66,20 +66,9 @@ const blockImageSchema = z.object({
   alt: z.string(),
 });
 
-const blockFileSchema = z.object({
-  _key: z.string(),
-  _type: z.literal('file'),
-  asset: z.object({
-    _ref: z.string(),
-    _type: z.literal('reference'),
-  }),
-  url: z.string(),
-  alt: z.string(),
-});
-
 const blockYoutubeSchema = z.object({
   _key: z.string(),
-  _type: z.literal('youtube'),
+  _type: z.literal('youtubeVideo'),
   title: z.string(),
   url: z.string(),
 });
@@ -93,17 +82,9 @@ const blockCodeSchema = z.object({
 });
 
 export const multiContentSchema = z.object({
-  _type: z.literal('multi-content'),
-  darkMode: z.boolean().optional(),
-  nroColumns: z.enum(['1', '2', '3']).optional(),
+  _type: z.literal('multiContent'),
   content: z
-    .union([
-      blockSchema,
-      blockImageSchema,
-      blockFileSchema,
-      blockYoutubeSchema,
-      blockCodeSchema,
-    ])
+    .union([blockSchema, blockImageSchema, blockYoutubeSchema, blockCodeSchema])
     .array(),
 });
 
@@ -350,6 +331,14 @@ export const logbookSchema = z.object({
     .union([identitySchema, expertiseSchema, skillsSchema, educationSchema])
     .and(z.object({ _key: z.string() }))
     .array(),
+});
+
+export const blogArticleSchema = z.object({
+  meta: metaSchema,
+  title: z.string(),
+  updateAt: z.string(),
+  summary: z.string(),
+  content: multiContentSchema,
 });
 
 export const notFoundSchema = z.object({
