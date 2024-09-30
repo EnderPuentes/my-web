@@ -45,6 +45,12 @@ export const articlePageType = defineType({
       type: 'multiContent',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'estimatedReadingTime',
+      title: 'Estimated Reading Time',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {
