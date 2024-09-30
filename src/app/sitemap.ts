@@ -32,6 +32,8 @@ const items: Item[] = [
   },
 ];
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogArticles = await getBlogArticlesForSitemap();
 
