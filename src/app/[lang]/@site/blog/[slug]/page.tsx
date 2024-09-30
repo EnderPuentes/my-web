@@ -12,6 +12,8 @@ type Props = {
   };
 };
 
+export const revalidate = 3600;
+
 export default async function BlogArticle({ params }: Props) {
   const data = await getBlogArticlePage(params.lang, params.slug);
 
