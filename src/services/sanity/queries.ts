@@ -19,9 +19,11 @@ export const getHomeQuery = groq`
                     ...@-> {
                         title,
                         summary,
-                        estimatedReadingTime,
                         'updateAt': _updatedAt,
                         'slug': slug.current,
+                        estimatedReadingTime{
+                            ...
+                        }
                     }
                 }
             }
