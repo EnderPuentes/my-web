@@ -1,9 +1,9 @@
 import { getClient } from './lib/client';
 // Parsers
 import {
+  LangSchema,
   blogArticleSchema,
   homeSchema,
-  LangSchema,
   layoutSchema,
   logbookSchema,
   notFoundSchema,

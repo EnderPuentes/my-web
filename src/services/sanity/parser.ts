@@ -319,7 +319,7 @@ export type EducationSchema = z.infer<typeof educationSchema>;
 
 // Pages
 
-const homeSchema = z.object({
+export const homeSchema = z.object({
   meta: metaSchema,
   sections: z
     .union([heroSchema, aboutSchema, featuredArticlesSchema, contactSchema])
@@ -327,7 +327,7 @@ const homeSchema = z.object({
     .array(),
 });
 
-const logbookSchema = z.object({
+export const logbookSchema = z.object({
   meta: metaSchema,
   sections: z
     .union([identitySchema, expertiseSchema, skillsSchema, educationSchema])
@@ -335,7 +335,7 @@ const logbookSchema = z.object({
     .array(),
 });
 
-const blogArticleSchema = z.object({
+export const blogArticleSchema = z.object({
   meta: metaSchema,
   title: z.string(),
   updateAt: z.string(),
@@ -344,7 +344,7 @@ const blogArticleSchema = z.object({
   estimatedReadingTime: z.string(),
 });
 
-const notFoundSchema = z.object({
+export const notFoundSchema = z.object({
   meta: metaSchema,
   title: z.string(),
   description: z.string(),
@@ -355,7 +355,7 @@ export type NotFoundSchema = z.infer<typeof notFoundSchema>;
 
 // Layout
 
-const layoutSchema = z.object({
+export const layoutSchema = z.object({
   meta: metaSchema,
   header: headerSchema,
   footer: footerSchema,
