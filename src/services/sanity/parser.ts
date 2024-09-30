@@ -40,8 +40,8 @@ export type FileSchema = z.infer<typeof fileSchema>;
 
 const blockSchema = z.object({
   _key: z.string(),
-  _type: z.string(),
-  style: z.string(),
+  _type: z.literal('block'),
+  style: z.string().optional(),
   level: z.number().optional(),
   listItem: z.string().optional(),
   children: z
@@ -51,8 +51,9 @@ const blockSchema = z.object({
       marks: z.unknown().array(),
       text: z.string(),
     })
-    .array(),
-  markDefs: z.unknown().array(),
+    .array()
+    .optional(),
+  markDefs: z.unknown().array().optional(),
 });
 
 const blockImageSchema = z.object({
@@ -75,10 +76,10 @@ const blockYoutubeSchema = z.object({
 
 const blockCodeSchema = z.object({
   _key: z.string(),
-  _type: z.string(),
+  _type: z.literal('code'),
   code: z.string(),
-  filename: z.string(),
-  language: z.string(),
+  filename: z.string().optional(),
+  language: z.string().optional(),
 });
 
 export const multiContentSchema = z.object({
@@ -164,6 +165,7 @@ export const featuredArticleItemSchema = z.object({
   slug: z.string(),
   title: z.string(),
   summary: z.string(),
+  estimatedReadingTime: z.string(),
   updateAt: z.string(),
 });
 
@@ -339,6 +341,7 @@ export const blogArticleSchema = z.object({
   updateAt: z.string(),
   summary: z.string(),
   content: multiContentSchema,
+  estimatedReadingTime: z.string(),
 });
 
 export const notFoundSchema = z.object({
