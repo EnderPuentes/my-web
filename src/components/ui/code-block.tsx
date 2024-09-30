@@ -23,8 +23,12 @@ type Props = {
 
 export function CodeBlock({ code, language }: Props) {
   return (
-    <div className="text-xs sm:text-base mb-5">
-      <Refractor language={language} value={code} />
+    <div className="mb-5">
+      <Refractor
+        language={language}
+        value={code}
+        className="text-xs sm:text-sm"
+      />
     </div>
   );
 }
