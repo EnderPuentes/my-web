@@ -2,6 +2,7 @@ import { getClient } from './lib/client';
 // Parsers
 import {
   LangSchema,
+  blogArticleForSitemapSchema,
   blogArticleSchema,
   homeSchema,
   layoutSchema,
@@ -11,6 +12,7 @@ import {
 // Queries
 import {
   getBlogArticleQuery,
+  getBlogArticlesForSitemapQuery,
   getHomeQuery,
   getLayoutQuery,
   getLogbookQuery,
@@ -51,6 +53,15 @@ export async function getBlogArticlePage(
     .nullish()
     .promise()
     .parse(client.fetch(getBlogArticleQuery, { lang, slug }));
+}
+
+export async function getBlogArticlesForSitemap(preview?: boolean) {
+  const client = getClient(preview, true);
+  return await blogArticleForSitemapSchema
+    .array()
+    .nullish()
+    .promise()
+    .parse(client.fetch(getBlogArticlesForSitemapQuery));
 }
 
 export async function getNotFoundPage(lang: LangSchema, preview?: boolean) {
