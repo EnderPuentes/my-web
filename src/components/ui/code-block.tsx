@@ -7,7 +7,7 @@ import python from 'refractor/lang/python';
 import tsx from 'refractor/lang/tsx';
 import typescript from 'refractor/lang/typescript';
 
-import 'prism-themes/themes/prism-nord.css';
+import 'prism-themes/themes/prism-dracula.css';
 
 registerLanguage(bash);
 registerLanguage(js);
