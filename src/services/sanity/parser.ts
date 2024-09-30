@@ -2,11 +2,11 @@ import { z } from 'zod';
 
 // Common
 
-export const langSchema = z.enum(['en', 'es']);
+const langSchema = z.enum(['en', 'es']);
 
 export type LangSchema = z.infer<typeof langSchema>;
 
-export const imageSchema = z.object({
+const imageSchema = z.object({
   _type: z.literal('image'),
   asset: z.object({
     _ref: z.string(),
@@ -32,7 +32,7 @@ export const imageSchema = z.object({
     .optional(),
 });
 
-export const fileSchema = z.object({
+const fileSchema = z.object({
   _type: z.literal('file'),
   asset: z.object({
     _ref: z.string(),
@@ -86,7 +86,7 @@ const blockCodeSchema = z.object({
   language: z.string().optional(),
 });
 
-export const multiContentSchema = z.object({
+const multiContentSchema = z.object({
   _type: z.literal('multiContent'),
   content: z
     .union([blockSchema, blockImageSchema, blockYoutubeSchema, blockCodeSchema])
@@ -97,20 +97,18 @@ export type MultiContentSchema = z.infer<typeof multiContentSchema>;
 
 // Components
 
-export const linkSchema = z.object({
+const linkSchema = z.object({
   label: z.string(),
   href: z.string(),
 });
 
-export const metaSchema = z.object({
+const metaSchema = z.object({
   title: z.string(),
   description: z.string(),
   keywords: z.string().array().optional(),
 });
 
-export type MetaSchema = z.infer<typeof metaSchema>;
-
-export const headerSchema = z.object({
+const headerSchema = z.object({
   navbar: z.object({
     items: z
       .object({
@@ -123,7 +121,7 @@ export const headerSchema = z.object({
 
 export type HeaderSchema = z.infer<typeof headerSchema>;
 
-export const footerSchema = z.object({
+const footerSchema = z.object({
   socialMedia: z.object({
     title: z.string(),
     linkedin: z.string().optional(),
@@ -137,11 +135,9 @@ export const footerSchema = z.object({
 
 export type FooterSchema = z.infer<typeof footerSchema>;
 
-export type LinkSchema = z.infer<typeof linkSchema>;
-
 // Sections
 
-export const heroSchema = z.object({
+const heroSchema = z.object({
   _key: z.string(),
   _type: z.literal('hero'),
   intro: z.string(),
@@ -153,7 +149,7 @@ export const heroSchema = z.object({
 
 export type HeroSchema = z.infer<typeof heroSchema>;
 
-export const aboutSchema = z.object({
+const aboutSchema = z.object({
   _key: z.string(),
   _type: z.literal('about'),
   title: z.string(),
@@ -163,7 +159,7 @@ export const aboutSchema = z.object({
 
 export type AboutSchema = z.infer<typeof aboutSchema>;
 
-export const featuredArticleItemSchema = z.object({
+const featuredArticleItemSchema = z.object({
   _key: z.string(),
   _type: z.literal('reference'),
   slug: z.string(),
@@ -177,7 +173,7 @@ export type FeaturedArticlesItemSchema = z.infer<
   typeof featuredArticleItemSchema
 >;
 
-export const featuredArticlesSchema = z.object({
+const featuredArticlesSchema = z.object({
   _key: z.string(),
   _type: z.literal('featuredArticles'),
   title: z.string(),
@@ -186,7 +182,7 @@ export const featuredArticlesSchema = z.object({
 
 export type FeaturedArticlesSchema = z.infer<typeof featuredArticlesSchema>;
 
-export const contactSchema = z.object({
+const contactSchema = z.object({
   _key: z.string(),
   _type: z.literal('contact'),
   title: z.string().max(120),
@@ -233,7 +229,7 @@ export const contactSchema = z.object({
 
 export type ContactSchema = z.infer<typeof contactSchema>;
 
-export const skillsCategorySchema = z.object({
+const skillsCategorySchema = z.object({
   title: z.string().max(120),
   technologies: z.array(
     z.object({
@@ -244,7 +240,7 @@ export const skillsCategorySchema = z.object({
 
 export type SkillsCategorySchema = z.infer<typeof skillsCategorySchema>;
 
-export const skillsSchema = z.object({
+const skillsSchema = z.object({
   _key: z.string(),
   _type: z.literal('skills'),
   title: z.string().max(120),
@@ -287,7 +283,7 @@ const jobSchema = z.object({
 
 export type JobSchema = z.infer<typeof jobSchema>;
 
-export const expertiseSchema = z.object({
+const expertiseSchema = z.object({
   _key: z.string(),
   _type: z.literal('expertise'),
   title: z.string(),
@@ -312,7 +308,7 @@ const degreeSchema = z.object({
 
 export type DegreeSchema = z.infer<typeof degreeSchema>;
 
-export const educationSchema = z.object({
+const educationSchema = z.object({
   _key: z.string(),
   _type: z.literal('education'),
   title: z.string(),
@@ -323,7 +319,7 @@ export type EducationSchema = z.infer<typeof educationSchema>;
 
 // Pages
 
-export const homeSchema = z.object({
+const homeSchema = z.object({
   meta: metaSchema,
   sections: z
     .union([heroSchema, aboutSchema, featuredArticlesSchema, contactSchema])
@@ -331,7 +327,7 @@ export const homeSchema = z.object({
     .array(),
 });
 
-export const logbookSchema = z.object({
+const logbookSchema = z.object({
   meta: metaSchema,
   sections: z
     .union([identitySchema, expertiseSchema, skillsSchema, educationSchema])
@@ -339,7 +335,7 @@ export const logbookSchema = z.object({
     .array(),
 });
 
-export const blogArticleSchema = z.object({
+const blogArticleSchema = z.object({
   meta: metaSchema,
   title: z.string(),
   updateAt: z.string(),
@@ -348,7 +344,7 @@ export const blogArticleSchema = z.object({
   estimatedReadingTime: z.string(),
 });
 
-export const notFoundSchema = z.object({
+const notFoundSchema = z.object({
   meta: metaSchema,
   title: z.string(),
   description: z.string(),
@@ -359,7 +355,7 @@ export type NotFoundSchema = z.infer<typeof notFoundSchema>;
 
 // Layout
 
-export const layoutSchema = z.object({
+const layoutSchema = z.object({
   meta: metaSchema,
   header: headerSchema,
   footer: footerSchema,
