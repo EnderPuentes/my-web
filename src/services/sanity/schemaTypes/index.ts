@@ -1,4 +1,7 @@
 import { type SchemaTypeDefinition } from 'sanity';
+// Common
+import { multiContentType } from './common/multiContentType';
+import { youtubeVideoType } from './common/youtubeVideoType';
 // Componentes
 import { footerComponentType } from './components/footerType';
 import { headerComponentType } from './components/headerType';
@@ -9,10 +12,12 @@ import { aboutSectionType } from './sections/aboutType';
 import { contactSectionType } from './sections/contactType';
 import { educationSectiontype } from './sections/educationType';
 import { expertiseSectiontype } from './sections/expertiseType';
+import { featuredArticlesSectionType } from './sections/featuredArticlesType';
 import { heroSectionType } from './sections/heroType';
 import { identitySectionType } from './sections/identityType';
 import { skillsSectionType } from './sections/skillsType';
 // Pages
+import { articlePageType } from './pages/articleType';
 import { homePageType } from './pages/homeType';
 import { logbookPageType } from './pages/logbookType';
 import { notFoundPageType } from './pages/notFoundType';
@@ -21,6 +26,9 @@ import { layoutType } from './layout';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    // Common
+    multiContentType,
+    youtubeVideoType,
     // Components
     footerComponentType,
     headerComponentType,
@@ -31,10 +39,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactSectionType,
     educationSectiontype,
     expertiseSectiontype,
+    featuredArticlesSectionType,
     heroSectionType,
     identitySectionType,
     skillsSectionType,
     // Pages
+    articlePageType,
     homePageType,
     logbookPageType,
     notFoundPageType,

@@ -4,9 +4,9 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `/app/services/sanity/[[...tool]]/page.tsx` route
  */
 
+import { codeInput } from '@sanity/code-input';
 import { documentInternationalization } from '@sanity/document-internationalization';
 import { visionTool } from '@sanity/vision';
-
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 
@@ -35,7 +35,8 @@ export default defineConfig({
         { id: 'en', title: 'English' },
         { id: 'es', title: 'Spanish' },
       ],
-      schemaTypes: ['home', 'logbook', 'notFound', 'layout'],
+      schemaTypes: ['article', 'home', 'logbook', 'notFound', 'layout'],
     }),
+    codeInput(),
   ],
 });

@@ -4,7 +4,7 @@ import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { ThemeProvider } from '@/components/providers/theme';
 import { Toaster } from '@/components/ui/toaster';
-import { LayoutSchema } from '@/services/sanity/parser';
+import { LangSchema, LayoutSchema } from '@/services/sanity/parser';
 import { getLayout } from '@/services/sanity/request';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Metadata, Viewport } from 'next';
@@ -15,7 +15,7 @@ const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 type Props = {
   children: React.ReactNode;
-  params: { lang: 'en' | 'es' };
+  params: { lang: LangSchema };
 };
 
 export const viewport: Viewport = {

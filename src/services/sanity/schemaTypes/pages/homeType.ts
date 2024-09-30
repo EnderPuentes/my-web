@@ -32,6 +32,11 @@ export const homePageType = defineType({
           type: 'about',
         }),
         defineField({
+          name: 'featuredArticles',
+          title: 'Featured Articles',
+          type: 'featuredArticles',
+        }),
+        defineField({
           name: 'contact',
           title: 'Contact',
           type: 'contact',

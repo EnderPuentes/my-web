@@ -84,6 +84,10 @@ const config = {
         'galaxy-gradient-light':
           'linear-gradient(145deg, #f0f0f0, #b0c5d6, #d1b0d3)',
       },
+      fontSize: {
+        '2xs': ['0.8125rem', '1.25rem'],
+        '3xs': ['0.5rem', '0.75rem'],
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

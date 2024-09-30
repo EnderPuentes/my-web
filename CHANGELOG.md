@@ -1,5 +1,71 @@
 
 
+# [0.10.0](https://github.com/EnderPuentes/my-web/compare/0.9.0...0.10.0) (2024-09-30)
+
+
+### Bug Fixes
+
+* resolve styles app ([31bbe08](https://github.com/EnderPuentes/my-web/commit/31bbe08a57013e90aaa39199341cb23abe1a6ee2))
+* **sanity/schema:** refactor blockSchema ([95f16a7](https://github.com/EnderPuentes/my-web/commit/95f16a71ca19773c094ac9f351ab420c7490fdc6))
+
+
+### Features
+
+* add and implement LangSchema ([88e6e89](https://github.com/EnderPuentes/my-web/commit/88e6e8927ac13755f24a493b80a88a15aea2fae2))
+* add articleType schema ([a5801da](https://github.com/EnderPuentes/my-web/commit/a5801daa897f3fec33a113b240c8445dc1bf0612))
+* add custom query for featuredArticles of home page section ([d28ec00](https://github.com/EnderPuentes/my-web/commit/d28ec00a86d0e4c69a8c5806056e4a2115040ba1))
+* add knip package ([a2003fe](https://github.com/EnderPuentes/my-web/commit/a2003fedec9a280b360502dcc65411bc6babf299))
+* add react-code-block dependency ([f3d3f41](https://github.com/EnderPuentes/my-web/commit/f3d3f41bdbb890f9d49f680facd4d41964ad1447))
+* **blog/article:** add headArticle component ([58da22c](https://github.com/EnderPuentes/my-web/commit/58da22c0df0703e17d14895516bbff2dd1397a77))
+* **blog/article:** add page ([fd51a34](https://github.com/EnderPuentes/my-web/commit/fd51a3495ac19002c40e2c974c6c2f3e116b9e0d))
+* **blog/article:** add revalidate ([0a579f9](https://github.com/EnderPuentes/my-web/commit/0a579f9b5491dd191cf912ee82526ade2df3be9b))
+* **code-block:** change font size ([afbe2ad](https://github.com/EnderPuentes/my-web/commit/afbe2adb54c5b3f302dd10cbd523c67fa3c0d012))
+* **code-block:** change theme ([81e5995](https://github.com/EnderPuentes/my-web/commit/81e59954e421d08340b69d255d7ac6ffdaaf10f1))
+* **code-block:** refactor props ([e98e472](https://github.com/EnderPuentes/my-web/commit/e98e4723630f11850de19054e682fe15d22e6bc0))
+* **component/ArticleHead:** add estimatedReadingTime prop ([ea51d0a](https://github.com/EnderPuentes/my-web/commit/ea51d0a28fb264bd4bea723a34b1fa7f2953b0b1))
+* **components/ui/action-button:** add CopyTextButton component ([ff417c9](https://github.com/EnderPuentes/my-web/commit/ff417c9558cdaccf9417f8c1d92e8f053339ccf0))
+* **components/ui/code-block:** add copy text code component ([5262d40](https://github.com/EnderPuentes/my-web/commit/5262d405d146ffaa885eac20e588cab044c603f3))
+* **HeadArticle:** add h1 styles ([b8b7659](https://github.com/EnderPuentes/my-web/commit/b8b7659f02116d1ca1ab0ae6f4b31e4bf1c3e232))
+* **multi-content:** adjust list styles ([2bec3d1](https://github.com/EnderPuentes/my-web/commit/2bec3d16871597e3e7c0f780591758e93ee94c33))
+* **multiContentType:** add Bash languaje option and change default language ([ab5085c](https://github.com/EnderPuentes/my-web/commit/ab5085cc0ebb64c3fd602ebdc62dd287831ddb65))
+* **mutilcontent:** replace react-code-block for react-refractor in code-block component ([6662543](https://github.com/EnderPuentes/my-web/commit/6662543491da2a309d0c5939f16b7c39a96dc8b7))
+* **packages:** add portable-text ([f52be7c](https://github.com/EnderPuentes/my-web/commit/f52be7c3ef7fefb6afeb56d99f02357583c5e950))
+* **pages/home:** add component featuredArticles to home page ([9529468](https://github.com/EnderPuentes/my-web/commit/9529468921d01bd215ecfe675678b10dc16d12cb))
+* **sanity/config:** add articleSchema to internationalization plugin config ([ddfe82b](https://github.com/EnderPuentes/my-web/commit/ddfe82b92cd9cf3f98154a181ebd51d3f2f937eb))
+* **sanity/dashboard:** add articles section ([9d54a96](https://github.com/EnderPuentes/my-web/commit/9d54a961155ed63ab19fcc2e446a0624f204c5fe))
+* **sanity/parser:** add blogArticleForSitemapSchema ([2ad370b](https://github.com/EnderPuentes/my-web/commit/2ad370b40540d21f3c5d32d54d1f1d87698195b2))
+* **sanity/parser:** add featuredArticlesSchema for HomePageSchema section ([094d338](https://github.com/EnderPuentes/my-web/commit/094d338dd817b85744cbad573b1274b89b66580a))
+* **sanity/parser:** add multiContentSchema ([ebdfbc2](https://github.com/EnderPuentes/my-web/commit/ebdfbc205e5086a8c912a88a4c92be7a6f2090a7))
+* **sanity/parser:** refactor estimatedReadingTime field ([eb2759b](https://github.com/EnderPuentes/my-web/commit/eb2759bc0856881bc8263ed4001295a2a47e0a13))
+* **sanity/plugins:** add code-input plugin ([2b2fcc2](https://github.com/EnderPuentes/my-web/commit/2b2fcc22928422df39ca1341358305d6033edcd0))
+* **sanity/queries/getHome:** add summary and updateAt to item de featuredArticles section ([04e17d8](https://github.com/EnderPuentes/my-web/commit/04e17d87cfb9fbc8d17cd8900bc05b44946d49d1))
+* **sanity/queries/getHomeQuery:** refactor estimatedReadingTime field ([3966264](https://github.com/EnderPuentes/my-web/commit/3966264931198ffc168f1096cd437aa3fba918ce))
+* **sanity/queries:** add getBlogArticleQuery function query ([9cd3c5c](https://github.com/EnderPuentes/my-web/commit/9cd3c5cf504a7a4b396794a494702408986780cc))
+* **sanity/queries:** add getBlogArticlesForSitemapQuery query ([19eb32d](https://github.com/EnderPuentes/my-web/commit/19eb32df5ac16bc92a7d374de83368dc6832874a))
+* **sanity/request:** add getBlogArticlePage method ([2a3eeda](https://github.com/EnderPuentes/my-web/commit/2a3eedaa9527d8b459baabf6fa0a5c4b8f706507))
+* **sanity/request:** add getBlogArticlesForSitemap method ([1b21857](https://github.com/EnderPuentes/my-web/commit/1b218575d264cb232c380e2a5555a1870a7b7ad9))
+* **sanity/schema/articleType:** add content field ([101e726](https://github.com/EnderPuentes/my-web/commit/101e7268a572e9fa1ebca4d81362073e33e3f367))
+* **sanity/schema/common:** add youtubeType schema ([a194563](https://github.com/EnderPuentes/my-web/commit/a194563b21d1031f4a84753cd5b9d6940bfb2233))
+* **sanity/schema/common:** dd multiContent schema ([f3b22ad](https://github.com/EnderPuentes/my-web/commit/f3b22ade5f29d5e124d6d482f92ad1c4636830dd))
+* **sanity/schemas/articleType:** add summary field ([483a513](https://github.com/EnderPuentes/my-web/commit/483a51360da0c07f3425077146bcdde62aae2422))
+* **sanity/schemas/articleType:** refactor estimatedReadingTime field ([c7673ef](https://github.com/EnderPuentes/my-web/commit/c7673ef75d5326dce12356d15262dc84e73bcb71))
+* **sanity/schemas:** add featuredArticleItem schema ([94f2a98](https://github.com/EnderPuentes/my-web/commit/94f2a98b72e51ca549808aafd1c96c0c37e69c46))
+* **sanity:** add estimatedReadingTime field ([c31a0af](https://github.com/EnderPuentes/my-web/commit/c31a0af65892ea975ded87137f48c6be886325cf))
+* **sanity:** add featuredArticleSection to Home Schema sections ([e0262d7](https://github.com/EnderPuentes/my-web/commit/e0262d7663d8eee8fcdf7759fe3f45a7cfbee331))
+* **sanity:** add featuredArticlesSection schema ([1932124](https://github.com/EnderPuentes/my-web/commit/193212406e8e47e6922fb6f26c75ceebddcec460))
+* **sanity:** add import of multiContent schema ([0d4b306](https://github.com/EnderPuentes/my-web/commit/0d4b3062c85f9ad323f115dcd8f0a70aa8dcac92))
+* **sanity:** import articleSectionSchema ([09620c0](https://github.com/EnderPuentes/my-web/commit/09620c0af6329a7a310b9964581d347032986d46))
+* **sanity:** import featuredArticles ([fa4c8b5](https://github.com/EnderPuentes/my-web/commit/fa4c8b5d51ccf4967fda4445451e4adcfe9bad1c))
+* **sanity:** import youtubeVideo schema ([7bdd1ef](https://github.com/EnderPuentes/my-web/commit/7bdd1ef29e18fb1b037cea55757eb5dc20621c84))
+* **schema/multiContentType:** remove option file (video) ([7c7c6bb](https://github.com/EnderPuentes/my-web/commit/7c7c6bb4b46428a335de30cdf5bb209dab3fa608))
+* **section/featuredArticles:** add item article component ([1a06994](https://github.com/EnderPuentes/my-web/commit/1a06994d36eabb430005dd1720c7b54982d610f0))
+* **sitemap:** add articles blog pages ([8e4dbe7](https://github.com/EnderPuentes/my-web/commit/8e4dbe76cb0cfe35d650cf1c289237bfc060c5d4))
+* **sitemap:** add revalidate ([c045eb7](https://github.com/EnderPuentes/my-web/commit/c045eb7505c8f74609ada8ad984ebd5b43eee133))
+* **tailwing/theme:** add 2xs and 3xs size for font-size ([1d8a8b5](https://github.com/EnderPuentes/my-web/commit/1d8a8b57b57dd97a324e58a33a40ff957deeeb99))
+* **ui:** add code block component (only client) ([55c0491](https://github.com/EnderPuentes/my-web/commit/55c04915e916801c0a74c8c40e492390ae7fb1b3))
+* **ui:** add multicontent component ([242356b](https://github.com/EnderPuentes/my-web/commit/242356b654fbaa947abe24e17be75c69f3f51ddf))
+* **utils:** add formatDateByLang method ([987ae2a](https://github.com/EnderPuentes/my-web/commit/987ae2a0e2ae96036a6b7b369b6a07535f14c55f))
+
 # [0.9.0](https://github.com/EnderPuentes/my-web/compare/0.8.0...0.9.0) (2024-09-19)
 
 

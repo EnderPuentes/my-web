@@ -1,5 +1,5 @@
 import '@/app/globals.css';
-import { LayoutSchema } from '@/services/sanity/parser';
+import { LangSchema, LayoutSchema } from '@/services/sanity/parser';
 import { getLayout } from '@/services/sanity/request';
 import { Metadata, Viewport } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
@@ -8,7 +8,7 @@ const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 type Props = {
   children: React.ReactNode;
-  params: { lang: 'en' | 'es' };
+  params: { lang: LangSchema };
 };
 
 export const viewport: Viewport = {

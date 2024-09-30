@@ -83,7 +83,7 @@ export function Contact({ data }: Props) {
   }
 
   return (
-    <section id="contact" className="my-16 sm:my-28">
+    <section id="contact" className="mb-16 sm:mb-28">
       <Button
         className="group fixed right-5 bottom-5 flex items-center justify-center h-14 w-14 rounded-full transform transition-all duration-500 sm:hover:w-[170px] dark:bg-slate-800  dark:text-white overflow-hidden"
         onClick={() => router.push('#contact')}

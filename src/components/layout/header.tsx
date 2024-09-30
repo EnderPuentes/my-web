@@ -1,10 +1,10 @@
 import { Logo } from '@/components/layout/logo';
 import { ThemeToggler } from '@/components/layout/theme-toggler';
-import { HeaderSchema } from '@/services/sanity/parser';
+import { HeaderSchema, LangSchema } from '@/services/sanity/parser';
 import Link from 'next/link';
 import { LangToggler } from './lang-toggler';
 
-type Props = { data: HeaderSchema | null | undefined; lang: 'en' | 'es' };
+type Props = { data: HeaderSchema | null | undefined; lang: LangSchema };
 
 export function Header({ data, lang }: Props) {
   return (

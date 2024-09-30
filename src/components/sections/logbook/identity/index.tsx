@@ -1,7 +1,7 @@
 import {
   CopyUrlButton,
   DownloadUrlButton,
-} from '@/components/common/action-button';
+} from '@/components/ui/action-button';
 import { urlFor } from '@/services/sanity/lib/file';
 import { IdentitySchema } from '@/services/sanity/parser';
 

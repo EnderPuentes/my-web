@@ -1,6 +1,9 @@
 import { getClient } from './lib/client';
 // Parsers
 import {
+  LangSchema,
+  blogArticleForSitemapSchema,
+  blogArticleSchema,
   homeSchema,
   layoutSchema,
   logbookSchema,
@@ -8,13 +11,15 @@ import {
 } from './parser';
 // Queries
 import {
+  getBlogArticleQuery,
+  getBlogArticlesForSitemapQuery,
   getHomeQuery,
   getLayoutQuery,
   getLogbookQuery,
   getNotFoundQuery,
 } from './queries';
 
-export async function getLayout(lang: 'en' | 'es', preview?: boolean) {
+export async function getLayout(lang: LangSchema, preview?: boolean) {
   const client = getClient(preview, true);
   return await layoutSchema
     .nullish()
@@ -22,7 +27,7 @@ export async function getLayout(lang: 'en' | 'es', preview?: boolean) {
     .parse(client.fetch(getLayoutQuery, { lang }));
 }
 
-export async function getHomePage(lang: 'en' | 'es', preview?: boolean) {
+export async function getHomePage(lang: LangSchema, preview?: boolean) {
   const client = getClient(preview, true);
   return await homeSchema
     .nullish()
@@ -30,7 +35,7 @@ export async function getHomePage(lang: 'en' | 'es', preview?: boolean) {
     .parse(client.fetch(getHomeQuery, { lang }));
 }
 
-export async function getLogbookPage(lang: 'en' | 'es', preview?: boolean) {
+export async function getLogbookPage(lang: LangSchema, preview?: boolean) {
   const client = getClient(preview, true);
   return await logbookSchema
     .nullish()
@@ -38,7 +43,28 @@ export async function getLogbookPage(lang: 'en' | 'es', preview?: boolean) {
     .parse(client.fetch(getLogbookQuery, { lang }));
 }
 
-export async function getNotFoundPage(lang: 'en' | 'es', preview?: boolean) {
+export async function getBlogArticlePage(
+  lang: LangSchema,
+  slug: string,
+  preview?: boolean
+) {
+  const client = getClient(preview, true);
+  return await blogArticleSchema
+    .nullish()
+    .promise()
+    .parse(client.fetch(getBlogArticleQuery, { lang, slug }));
+}
+
+export async function getBlogArticlesForSitemap(preview?: boolean) {
+  const client = getClient(preview, true);
+  return await blogArticleForSitemapSchema
+    .array()
+    .nullish()
+    .promise()
+    .parse(client.fetch(getBlogArticlesForSitemapQuery));
+}
+
+export async function getNotFoundPage(lang: LangSchema, preview?: boolean) {
   const client = getClient(preview, true);
   return await notFoundSchema
     .nullish()

@@ -1,3 +1,4 @@
+import { LangSchema } from '@/services/sanity/parser';
 import chromium from '@sparticuz/chromium';
 import { NextRequest, NextResponse } from 'next/server';
 import puppeteer, { Browser } from 'puppeteer';
@@ -46,7 +47,7 @@ async function getBrowser() {
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { lang: 'en' | 'es' } }
+  { params }: { params: { lang: LangSchema } }
 ) {
   try {
     const url = `${BASE_URL}/${params.lang}/logbook?pdf=true`;

@@ -2,7 +2,11 @@ import { z } from 'zod';
 
 // Common
 
-export const imageSchema = z.object({
+const langSchema = z.enum(['en', 'es']);
+
+export type LangSchema = z.infer<typeof langSchema>;
+
+const imageSchema = z.object({
   _type: z.literal('image'),
   asset: z.object({
     _ref: z.string(),
@@ -28,7 +32,7 @@ export const imageSchema = z.object({
     .optional(),
 });
 
-export const fileSchema = z.object({
+const fileSchema = z.object({
   _type: z.literal('file'),
   asset: z.object({
     _ref: z.string(),
@@ -38,22 +42,73 @@ export const fileSchema = z.object({
 
 export type FileSchema = z.infer<typeof fileSchema>;
 
+const blockSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('block'),
+  style: z.string().optional(),
+  level: z.number().optional(),
+  listItem: z.string().optional(),
+  children: z
+    .object({
+      _key: z.string(),
+      _type: z.string(),
+      marks: z.unknown().array(),
+      text: z.string(),
+    })
+    .array()
+    .optional(),
+  markDefs: z.unknown().array().optional(),
+});
+
+const blockImageSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('image'),
+  asset: z.object({
+    _ref: z.string(),
+    _type: z.literal('reference'),
+  }),
+  url: z.string(),
+  alt: z.string(),
+});
+
+const blockYoutubeSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('youtubeVideo'),
+  title: z.string(),
+  url: z.string(),
+});
+
+const blockCodeSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('code'),
+  code: z.string(),
+  filename: z.string().optional(),
+  language: z.string().optional(),
+});
+
+const multiContentSchema = z.object({
+  _type: z.literal('multiContent'),
+  content: z
+    .union([blockSchema, blockImageSchema, blockYoutubeSchema, blockCodeSchema])
+    .array(),
+});
+
+export type MultiContentSchema = z.infer<typeof multiContentSchema>;
+
 // Components
 
-export const linkSchema = z.object({
+const linkSchema = z.object({
   label: z.string(),
   href: z.string(),
 });
 
-export const metaSchema = z.object({
+const metaSchema = z.object({
   title: z.string(),
   description: z.string(),
   keywords: z.string().array().optional(),
 });
 
-export type MetaSchema = z.infer<typeof metaSchema>;
-
-export const headerSchema = z.object({
+const headerSchema = z.object({
   navbar: z.object({
     items: z
       .object({
@@ -66,7 +121,7 @@ export const headerSchema = z.object({
 
 export type HeaderSchema = z.infer<typeof headerSchema>;
 
-export const footerSchema = z.object({
+const footerSchema = z.object({
   socialMedia: z.object({
     title: z.string(),
     linkedin: z.string().optional(),
@@ -80,11 +135,9 @@ export const footerSchema = z.object({
 
 export type FooterSchema = z.infer<typeof footerSchema>;
 
-export type LinkSchema = z.infer<typeof linkSchema>;
-
 // Sections
 
-export const heroSchema = z.object({
+const heroSchema = z.object({
   _key: z.string(),
   _type: z.literal('hero'),
   intro: z.string(),
@@ -96,7 +149,7 @@ export const heroSchema = z.object({
 
 export type HeroSchema = z.infer<typeof heroSchema>;
 
-export const aboutSchema = z.object({
+const aboutSchema = z.object({
   _key: z.string(),
   _type: z.literal('about'),
   title: z.string(),
@@ -106,7 +159,33 @@ export const aboutSchema = z.object({
 
 export type AboutSchema = z.infer<typeof aboutSchema>;
 
-export const contactSchema = z.object({
+const featuredArticleItemSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('reference'),
+  slug: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  estimatedReadingTime: z.object({
+    label: z.string(),
+    value: z.string(),
+  }),
+  updateAt: z.string(),
+});
+
+export type FeaturedArticlesItemSchema = z.infer<
+  typeof featuredArticleItemSchema
+>;
+
+const featuredArticlesSchema = z.object({
+  _key: z.string(),
+  _type: z.literal('featuredArticles'),
+  title: z.string(),
+  items: featuredArticleItemSchema.array(),
+});
+
+export type FeaturedArticlesSchema = z.infer<typeof featuredArticlesSchema>;
+
+const contactSchema = z.object({
   _key: z.string(),
   _type: z.literal('contact'),
   title: z.string().max(120),
@@ -153,7 +232,7 @@ export const contactSchema = z.object({
 
 export type ContactSchema = z.infer<typeof contactSchema>;
 
-export const skillsCategorySchema = z.object({
+const skillsCategorySchema = z.object({
   title: z.string().max(120),
   technologies: z.array(
     z.object({
@@ -164,7 +243,7 @@ export const skillsCategorySchema = z.object({
 
 export type SkillsCategorySchema = z.infer<typeof skillsCategorySchema>;
 
-export const skillsSchema = z.object({
+const skillsSchema = z.object({
   _key: z.string(),
   _type: z.literal('skills'),
   title: z.string().max(120),
@@ -207,7 +286,7 @@ const jobSchema = z.object({
 
 export type JobSchema = z.infer<typeof jobSchema>;
 
-export const expertiseSchema = z.object({
+const expertiseSchema = z.object({
   _key: z.string(),
   _type: z.literal('expertise'),
   title: z.string(),
@@ -232,7 +311,7 @@ const degreeSchema = z.object({
 
 export type DegreeSchema = z.infer<typeof degreeSchema>;
 
-export const educationSchema = z.object({
+const educationSchema = z.object({
   _key: z.string(),
   _type: z.literal('education'),
   title: z.string(),
@@ -246,7 +325,7 @@ export type EducationSchema = z.infer<typeof educationSchema>;
 export const homeSchema = z.object({
   meta: metaSchema,
   sections: z
-    .union([heroSchema, aboutSchema, contactSchema])
+    .union([heroSchema, aboutSchema, featuredArticlesSchema, contactSchema])
     .and(z.object({ _key: z.string() }))
     .array(),
 });
@@ -257,6 +336,23 @@ export const logbookSchema = z.object({
     .union([identitySchema, expertiseSchema, skillsSchema, educationSchema])
     .and(z.object({ _key: z.string() }))
     .array(),
+});
+
+export const blogArticleSchema = z.object({
+  meta: metaSchema,
+  title: z.string(),
+  updateAt: z.string(),
+  summary: z.string(),
+  content: multiContentSchema,
+  estimatedReadingTime: z.object({
+    label: z.string(),
+    value: z.string(),
+  }),
+});
+
+export const blogArticleForSitemapSchema = z.object({
+  lang: langSchema,
+  slug: z.string(),
 });
 
 export const notFoundSchema = z.object({

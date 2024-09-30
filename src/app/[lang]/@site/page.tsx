@@ -1,13 +1,15 @@
 import { About } from '@/components/sections/home/about';
 import { Contact } from '@/components/sections/home/contact';
+import { FeaturedArticles } from '@/components/sections/home/featuredArticles';
 import { Hero } from '@/components/sections/home/hero';
+import { LangSchema } from '@/services/sanity/parser';
 import { getHomePage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 import { cookies } from 'next/headers';
 
 type Props = {
   params: {
-    lang: 'en' | 'es';
+    lang: LangSchema;
   };
 };
 
@@ -57,6 +59,15 @@ export default async function Home({ params }: Props) {
             );
           case 'about': {
             return <About key={section._key} data={section} />;
+          }
+          case 'featuredArticles': {
+            return (
+              <FeaturedArticles
+                key={section._key}
+                data={section}
+                lang={params.lang}
+              />
+            );
           }
           case 'contact': {
             return <Contact key={section._key} data={section} />;

@@ -1,7 +1,8 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { useState, useTransition } from 'react';
-import { PiCheck, PiDownloadSimple, PiLink, PiSpinner } from 'react-icons/pi';
+import { PiCheck, PiCopy, PiDownloadSimple, PiSpinner } from 'react-icons/pi';
 import { Button } from '../ui/button';
 
 export function CopyUrlButton() {
@@ -24,7 +25,38 @@ export function CopyUrlButton() {
       onClick={handleCopy}
       title="Copy Url"
     >
-      {copied ? <PiCheck /> : <PiLink />}
+      {copied ? <PiCheck /> : <PiCopy />}
+    </Button>
+  );
+}
+
+export function CopyTextButton({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000);
+    } catch (err) {
+      console.error('Error:', err);
+    }
+  }
+
+  return (
+    <Button
+      variant="ghost"
+      className={cn('text-md sm:text-2xl px-2 text-gray-200', className)}
+      onClick={handleCopy}
+      title="Copy Text"
+    >
+      {copied ? <PiCheck /> : <PiCopy />}
     </Button>
   );
 }
