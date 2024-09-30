@@ -8,6 +8,7 @@ import tsx from 'refractor/lang/tsx';
 import typescript from 'refractor/lang/typescript';
 
 import 'prism-themes/themes/prism-dracula.css';
+import { CopyTextButton } from './action-button';
 
 registerLanguage(bash);
 registerLanguage(js);
@@ -23,7 +24,11 @@ type Props = {
 
 export function CodeBlock({ code, language }: Props) {
   return (
-    <div className="mb-5">
+    <div className="mb-5 relative">
+      <CopyTextButton
+        text={code}
+        className="sm:text-xl absolute top-2 right-2"
+      />
       <Refractor
         language={language}
         value={code}
