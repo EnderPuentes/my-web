@@ -2,12 +2,13 @@ import { EducationPdf } from '@/components/sections/logbook/education/pdf';
 import { ExpertisePdf } from '@/components/sections/logbook/expertise/pdf';
 import { IdentityPdf } from '@/components/sections/logbook/identity/pdf';
 import { SkillsPdf } from '@/components/sections/logbook/skills/pdf';
+import { LangSchema } from '@/services/sanity/parser';
 import { getLogbookPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 
 type Props = {
   params: {
-    lang: 'en' | 'es';
+    lang: LangSchema;
   };
 };
 

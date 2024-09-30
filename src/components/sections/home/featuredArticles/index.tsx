@@ -3,10 +3,11 @@ import { formatDateByLang } from '@/lib/utils';
 import {
   FeaturedArticlesItemSchema,
   FeaturedArticlesSchema,
+  LangSchema,
 } from '@/services/sanity/parser';
 import Link from 'next/link';
 
-type ItemProps = { data: FeaturedArticlesItemSchema; lang: 'en' | 'es' };
+type ItemProps = { data: FeaturedArticlesItemSchema; lang: LangSchema };
 
 function FeaturedArticlesItem({ data, lang }: ItemProps) {
   return (
@@ -28,7 +29,7 @@ function FeaturedArticlesItem({ data, lang }: ItemProps) {
   );
 }
 
-type Props = { data: FeaturedArticlesSchema; lang: 'en' | 'es' };
+type Props = { data: FeaturedArticlesSchema; lang: LangSchema };
 
 export function FeaturedArticles({ data, lang }: Props) {
   return (

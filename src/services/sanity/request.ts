@@ -3,6 +3,7 @@ import { getClient } from './lib/client';
 import {
   blogArticleSchema,
   homeSchema,
+  LangSchema,
   layoutSchema,
   logbookSchema,
   notFoundSchema,
@@ -16,7 +17,7 @@ import {
   getNotFoundQuery,
 } from './queries';
 
-export async function getLayout(lang: 'en' | 'es', preview?: boolean) {
+export async function getLayout(lang: LangSchema, preview?: boolean) {
   const client = getClient(preview, true);
   return await layoutSchema
     .nullish()
@@ -24,7 +25,7 @@ export async function getLayout(lang: 'en' | 'es', preview?: boolean) {
     .parse(client.fetch(getLayoutQuery, { lang }));
 }
 
-export async function getHomePage(lang: 'en' | 'es', preview?: boolean) {
+export async function getHomePage(lang: LangSchema, preview?: boolean) {
   const client = getClient(preview, true);
   return await homeSchema
     .nullish()
@@ -32,7 +33,7 @@ export async function getHomePage(lang: 'en' | 'es', preview?: boolean) {
     .parse(client.fetch(getHomeQuery, { lang }));
 }
 
-export async function getLogbookPage(lang: 'en' | 'es', preview?: boolean) {
+export async function getLogbookPage(lang: LangSchema, preview?: boolean) {
   const client = getClient(preview, true);
   return await logbookSchema
     .nullish()
@@ -41,7 +42,7 @@ export async function getLogbookPage(lang: 'en' | 'es', preview?: boolean) {
 }
 
 export async function getBlogArticlePage(
-  lang: 'en' | 'es',
+  lang: LangSchema,
   slug: string,
   preview?: boolean
 ) {
@@ -52,7 +53,7 @@ export async function getBlogArticlePage(
     .parse(client.fetch(getBlogArticleQuery, { lang, slug }));
 }
 
-export async function getNotFoundPage(lang: 'en' | 'es', preview?: boolean) {
+export async function getNotFoundPage(lang: LangSchema, preview?: boolean) {
   const client = getClient(preview, true);
   return await notFoundSchema
     .nullish()

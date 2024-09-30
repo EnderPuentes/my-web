@@ -1,6 +1,6 @@
 'use client';
 
-import { HeroSchema } from '@/services/sanity/parser';
+import { HeroSchema, LangSchema } from '@/services/sanity/parser';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
@@ -20,7 +20,7 @@ function Command({ command }: { command: string }) {
   );
 }
 
-type Props = { data: HeroSchema; lang: 'en' | 'es' };
+type Props = { data: HeroSchema; lang: LangSchema };
 
 export function Hero({ data, lang }: Props) {
   const [introMessage, setIntroMessage] = useState('');

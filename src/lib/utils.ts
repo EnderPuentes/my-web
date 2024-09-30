@@ -1,3 +1,4 @@
+import { LangSchema } from '@/services/sanity/parser';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -5,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDateByLang(date: string, lang: 'en' | 'es') {
+export function formatDateByLang(date: string, lang: LangSchema) {
   // Check if the language is Spanish (Latin America)
   if (lang === 'es') {
     return new Intl.DateTimeFormat('es-ES', {

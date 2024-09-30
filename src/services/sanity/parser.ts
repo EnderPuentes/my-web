@@ -2,6 +2,10 @@ import { z } from 'zod';
 
 // Common
 
+export const langSchema = z.enum(['en', 'es']);
+
+export type LangSchema = z.infer<typeof langSchema>;
+
 export const imageSchema = z.object({
   _type: z.literal('image'),
   asset: z.object({

@@ -1,5 +1,6 @@
 'use client';
 
+import { LangSchema } from '@/services/sanity/parser';
 import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 
@@ -11,7 +12,7 @@ export function LangToggler({ lang }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
-  function setLang(newLang: 'en' | 'es') {
+  function setLang(newLang: LangSchema) {
     router.push(pathname.replace(`/${lang}`, `/${newLang}`));
   }
 

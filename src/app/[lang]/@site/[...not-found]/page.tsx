@@ -1,10 +1,11 @@
 import { NotFoundMessage } from '@/components/sections/notFound/message';
+import { LangSchema } from '@/services/sanity/parser';
 import { getNotFoundPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
 
 type Props = {
   params: {
-    lang: 'en' | 'es';
+    lang: LangSchema;
   };
 };
 

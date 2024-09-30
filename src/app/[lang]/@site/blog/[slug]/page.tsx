@@ -1,12 +1,13 @@
 import { ArticleHead } from '@/components/sections/article/head';
 import { MultiContent } from '@/components/ui/multi-content';
 import { formatDateByLang } from '@/lib/utils';
+import { LangSchema } from '@/services/sanity/parser';
 import { getBlogArticlePage } from '@/services/sanity/request';
 import { notFound } from 'next/navigation';
 
 type Props = {
   params: {
-    lang: 'en' | 'es';
+    lang: LangSchema;
     slug: string;
   };
 };
