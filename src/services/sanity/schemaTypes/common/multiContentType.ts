@@ -58,13 +58,14 @@ export const multiContentType = defineType({
         {
           type: 'code',
           options: {
-            language: 'typescript',
+            language: 'javascript',
             languageAlternatives: [
               { title: 'TypeScript', value: 'typescript' },
               { title: 'JavaScript', value: 'javascript' },
               { title: 'HTML', value: 'html' },
               { title: 'CSS', value: 'css' },
               { title: 'Python', value: 'python' },
+              { title: 'Bash', value: 'bash' },
             ],
             withFilename: true,
           },
