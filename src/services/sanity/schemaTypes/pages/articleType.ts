@@ -48,8 +48,21 @@ export const articlePageType = defineType({
     defineField({
       name: 'estimatedReadingTime',
       title: 'Estimated Reading Time',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'label',
+          title: 'Label',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'value',
+          title: 'Value',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
     }),
   ],
   preview: {
