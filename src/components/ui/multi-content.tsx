@@ -7,7 +7,7 @@ import { CodeBlock } from './code-block';
 const Text: PortableTextComponents = {
   block: {
     h1: ({ children }) => (
-      <h3 className="font-semibold text-2xl xl:text-[40px] xl:leading-[110%] my-10">
+      <h3 className="font-semibold text-md sm:text-2xl my-5 sm:my-10">
         {children}
       </h3>
     ),
@@ -105,11 +105,7 @@ const Text: PortableTextComponents = {
     code: ({ value }) => {
       return (
         <div className="py-5">
-          <CodeBlock
-            text={value.code}
-            language={value.language}
-            showLineNumbers={value.showLineNumbers}
-          />
+          <CodeBlock text={value.code} language={value.language} />
         </div>
       );
     },
