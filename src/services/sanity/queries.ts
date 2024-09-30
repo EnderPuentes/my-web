@@ -42,6 +42,13 @@ export const getBlogArticleQuery = groq`
     }
 `;
 
+export const getBlogArticlesForSitemapQuery = groq`
+    *[_type == "article"]{
+        'lang': language,
+        'slug': slug.current,
+    }
+`;
+
 export const getNotFoundQuery = groq`
     *[_type == "notFound" && language == $lang][0]{
         ...
