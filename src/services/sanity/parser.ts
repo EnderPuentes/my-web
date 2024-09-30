@@ -344,6 +344,11 @@ export const blogArticleSchema = z.object({
   estimatedReadingTime: z.string(),
 });
 
+export const blogArticleForSitemapSchema = z.object({
+  lang: langSchema,
+  slug: z.string(),
+});
+
 export const notFoundSchema = z.object({
   meta: metaSchema,
   title: z.string(),
