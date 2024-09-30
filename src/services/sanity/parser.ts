@@ -165,7 +165,10 @@ const featuredArticleItemSchema = z.object({
   slug: z.string(),
   title: z.string(),
   summary: z.string(),
-  estimatedReadingTime: z.string(),
+  estimatedReadingTime: z.object({
+    label: z.string(),
+    value: z.string(),
+  }),
   updateAt: z.string(),
 });
 
@@ -341,7 +344,10 @@ export const blogArticleSchema = z.object({
   updateAt: z.string(),
   summary: z.string(),
   content: multiContentSchema,
-  estimatedReadingTime: z.string(),
+  estimatedReadingTime: z.object({
+    label: z.string(),
+    value: z.string(),
+  }),
 });
 
 export const blogArticleForSitemapSchema = z.object({
