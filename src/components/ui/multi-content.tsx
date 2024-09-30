@@ -42,21 +42,13 @@ const Text: PortableTextComponents = {
   list: {
     bullet: ({ value, children }) => {
       return (
-        <ul
-          className={`list-disc list-inside my-3 xl:text-md text-base flex flex-col items-start justify-start gap-5 ${
-            value.level > 0 ? 'pl-2 lg:pl-5' : ''
-          }`}
-        >
+        <ul className="list-disc list-inside text-xs sm:text-base leading-6 sm:leading-7 dark:text-gray-300 pl-0 flex flex-col justify-start items-start gap-5 mb-5">
           {children}
         </ul>
       );
     },
     number: ({ value, children }) => (
-      <ol
-        className={`list-decimal list-inside my-3 xl:text-md text-base flex flex-col items-start justify-start gap-5 ${
-          value.level > 0 ? 'pl-2 lg:pl-5' : ''
-        }`}
-      >
+      <ol className="list-decimal list-inside text-xs sm:text-base leading-6 sm:leading-7 dark:text-gray-300 pl-0 flex flex-col justify-start items-start gap-5 mb-5">
         {children}
       </ol>
     ),
@@ -103,11 +95,7 @@ const Text: PortableTextComponents = {
       );
     },
     code: ({ value }) => {
-      return (
-        <div className="py-5">
-          <CodeBlock text={value.code} language={value.language} />
-        </div>
-      );
+      return <CodeBlock code={value.code} language={value.language} />;
     },
   },
 };
