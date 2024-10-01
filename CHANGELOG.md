@@ -1,5 +1,22 @@
 
 
+# [0.13.0](https://github.com/EnderPuentes/my-web/compare/0.12.0...0.13.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **components/sections/about:** grid cols mobile ([f24e22d](https://github.com/EnderPuentes/my-web/commit/f24e22ddbdae4e0b296c28a235c02e97cdf45d8e))
+* **components/sections/about:** replace flexbox for grid ([5edbfbe](https://github.com/EnderPuentes/my-web/commit/5edbfbe0b7b5e20e2eddc2d64f65689d93842aca))
+
+
+### Features
+
+* **components/sections/about:** change margin bottom ([6f6c83a](https://github.com/EnderPuentes/my-web/commit/6f6c83affb548116f0d0b181ae836143b425eb9e))
+* **components/sections/ArticleHead:** refactor detail article and add CopyUrlComponent ([8a8b72b](https://github.com/EnderPuentes/my-web/commit/8a8b72bdeee88576698db26cbc5cddaf900eb43d))
+* **components/sections/FeacturedArticlesItem:** change gap ([e75f488](https://github.com/EnderPuentes/my-web/commit/e75f48899ae25d4c8a0aa7e7489e99ec6e32529c))
+* **components/ui/CopyUrlButton:** add className prop ([c3dea6b](https://github.com/EnderPuentes/my-web/commit/c3dea6b8cc9225fedc6921ba108ee198f962596a))
+* **multicontent:** change strong color dark mode ([528d2f1](https://github.com/EnderPuentes/my-web/commit/528d2f10f317f2cfc8d0a62ebaa6afc5cfe4ace5))
+
 # [0.12.0](https://github.com/EnderPuentes/my-web/compare/0.11.0...0.12.0) (2024-10-01)
 
 
