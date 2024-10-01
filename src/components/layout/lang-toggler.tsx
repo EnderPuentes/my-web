@@ -1,19 +1,31 @@
 'use client';
 
 import { LangSchema } from '@/services/sanity/parser';
+import { getBlogArticleSlugTranslate } from '@/services/sanity/request';
 import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 
 type Props = {
-  lang: string;
+  lang: LangSchema;
 };
 
 export function LangToggler({ lang }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
-  function setLang(newLang: LangSchema) {
-    router.push(pathname.replace(`/${lang}`, `/${newLang}`));
+  async function setLang(newLang: LangSchema) {
+    if (pathname.includes('/blog/')) {
+      const slugTranslate = await getBlogArticleSlugTranslate(
+        lang,
+        newLang,
+        pathname.replace(`/${lang}/blog/`, '')
+      );
+      if (slugTranslate) {
+        router.push(`/${newLang}/blog/${slugTranslate}`);
+      }
+    } else {
+      router.push(pathname.replace(`/${lang}`, `/${newLang}`));
+    }
   }
 
   return (
