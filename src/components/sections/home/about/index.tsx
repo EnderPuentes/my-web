@@ -11,7 +11,7 @@ export async function About({ data }: Props) {
         <h2 className="font-semibold text-lg sm:text-2xl sm:mb-5">
           {data.title}
         </h2>
-        <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-10">
+        <div className="w-full grid grid-cols-2 items-center gap-10">
           <p
             className="text-xs sm:text-base leading-6 sm:leading-7 dark:text-gray-300"
             dangerouslySetInnerHTML={{
