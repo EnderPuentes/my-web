@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { ThemeProvider } from '@/components/providers/theme';
 import { Toaster } from '@/components/ui/toaster';
+import { shareMetadata } from '@/lib/metadata';
 import { LangSchema, LayoutSchema } from '@/services/sanity/parser';
 import { getLayout } from '@/services/sanity/request';
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -22,31 +23,24 @@ export const viewport: Viewport = {
   themeColor: '#8A2BE2',
 };
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data: LayoutSchema | null | undefined = await getLayout(
     params.lang ?? 'en'
   );
 
   return {
-    applicationName: 'Endev',
+    ...shareMetadata,
     title: data?.meta.title,
     description: data?.meta.description,
     openGraph: {
+      ...shareMetadata.openGraph,
       title: data?.meta.title,
       description: data?.meta.description,
-      type: 'website',
-      url: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? ''),
-      siteName: 'Endev',
-      images: [
-        {
-          url: '/static/favicon.webp',
-        },
-      ],
+      url: new URL(`${BASE_URL}/${params.lang}`),
     },
-    icons: {
-      icon: '/favicon.ico',
-      shortcut: '/favicon.ico',
-    },
+    metadataBase: new URL(`${BASE_URL}/${params.lang}`),
     keywords: data?.meta.keywords?.join(', ') || '',
   };
 }

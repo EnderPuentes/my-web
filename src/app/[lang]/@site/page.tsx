@@ -2,6 +2,7 @@ import { About } from '@/components/sections/home/about';
 import { Contact } from '@/components/sections/home/contact';
 import { FeaturedArticles } from '@/components/sections/home/featuredArticles';
 import { Hero } from '@/components/sections/home/hero';
+import { shareMetadata } from '@/lib/metadata';
 import { LangSchema } from '@/services/sanity/parser';
 import { getHomePage } from '@/services/sanity/request';
 import { Metadata } from 'next';
@@ -19,11 +20,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getHomePage(params.lang);
 
   return {
+    ...shareMetadata,
     title: data?.meta.title,
     description: data?.meta.description,
     openGraph: {
+      ...shareMetadata.openGraph,
       title: data?.meta.title,
       description: data?.meta.description,
+      url: new URL(`${BASE_URL}/${params.lang}`),
     },
     metadataBase: new URL(`${BASE_URL}/${params.lang}`),
     keywords: data?.meta.keywords?.join(', ') || '',
