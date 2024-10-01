@@ -1,5 +1,16 @@
 
 
+# [0.11.0](https://github.com/EnderPuentes/my-web/compare/0.10.0...0.11.0) (2024-10-01)
+
+
+### Features
+
+* **component/LangToggler:** add translate slug managment for blog urls ([070187d](https://github.com/EnderPuentes/my-web/commit/070187d0997f50e94dabb523597c2e94acc390a1))
+* **sanity/parser:** rename  blogArticleForSitemapSchema to blogArticleUrlSchema schema ([df8b31f](https://github.com/EnderPuentes/my-web/commit/df8b31fa84cbf77590e805c00b2c1cfaa549e990))
+* **sanity/queries:** add getBlogArticleTranslateSlugsQuery method ([b7b9e2c](https://github.com/EnderPuentes/my-web/commit/b7b9e2c526e021c584caee6fb3b0b784830c63b6))
+* **sanity/request:** add getBlogArticleSlugTranslate method ([789528e](https://github.com/EnderPuentes/my-web/commit/789528e7f9f538edf32c7d84294896d358d4e0bc))
+* **sanity/schemas/multiContentType:** add jsx and tsx options for languajes of code field ([0bb336f](https://github.com/EnderPuentes/my-web/commit/0bb336fbc92c75dad7c44d5cebfc7a735b4b8d83))
+
 # [0.10.0](https://github.com/EnderPuentes/my-web/compare/0.9.0...0.10.0) (2024-09-30)
 
 

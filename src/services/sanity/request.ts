@@ -1,10 +1,11 @@
+import { z } from 'zod';
 import { getClient } from './lib/client';
 // Parsers
 import {
-  LangSchema,
-  blogArticleForSitemapSchema,
   blogArticleSchema,
+  blogArticleUrlSchema,
   homeSchema,
+  LangSchema,
   layoutSchema,
   logbookSchema,
   notFoundSchema,
@@ -13,6 +14,7 @@ import {
 import {
   getBlogArticleQuery,
   getBlogArticlesForSitemapQuery,
+  getBlogArticleTranslateSlugsQuery,
   getHomeQuery,
   getLayoutQuery,
   getLogbookQuery,
@@ -57,11 +59,32 @@ export async function getBlogArticlePage(
 
 export async function getBlogArticlesForSitemap(preview?: boolean) {
   const client = getClient(preview, true);
-  return await blogArticleForSitemapSchema
+  return await blogArticleUrlSchema
     .array()
     .nullish()
     .promise()
     .parse(client.fetch(getBlogArticlesForSitemapQuery));
+}
+
+export async function getBlogArticleSlugTranslate(
+  lang: LangSchema,
+  newLang: LangSchema,
+  slug: string,
+  preview?: boolean
+) {
+  const client = getClient(preview, true);
+
+  const response = await z
+    .object({
+      translations: blogArticleUrlSchema.array(),
+    })
+    .nullish()
+    .promise()
+    .parse(client.fetch(getBlogArticleTranslateSlugsQuery, { lang, slug }));
+
+  return response?.translations?.find(
+    (translation) => translation.lang == newLang
+  )?.slug;
 }
 
 export async function getNotFoundPage(lang: LangSchema, preview?: boolean) {
