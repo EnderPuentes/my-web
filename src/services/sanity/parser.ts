@@ -350,7 +350,7 @@ export const blogArticleSchema = z.object({
   }),
 });
 
-export const blogArticleForSitemapSchema = z.object({
+export const blogArticleUrlSchema = z.object({
   lang: langSchema,
   slug: z.string(),
 });
