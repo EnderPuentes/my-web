@@ -5,7 +5,7 @@ import { useState, useTransition } from 'react';
 import { PiCheck, PiCopy, PiDownloadSimple, PiSpinner } from 'react-icons/pi';
 import { Button } from '../ui/button';
 
-export function CopyUrlButton() {
+export function CopyUrlButton({ className } : { className?: string }) {
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
@@ -21,7 +21,7 @@ export function CopyUrlButton() {
   return (
     <Button
       variant="link"
-      className="text-md sm:text-2xl p-0"
+      className={cn('text-md sm:text-2xl p-0', className)}
       onClick={handleCopy}
       title="Copy Url"
     >

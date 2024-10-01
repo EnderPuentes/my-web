@@ -16,7 +16,7 @@ function FeaturedArticlesItem({ data, lang }: ItemProps) {
         <CardHeader>
           <CardTitle className="text-lg font-semibold">{data.title}</CardTitle>
         </CardHeader>
-        <CardContent className="flex flex-col items-end justify-start w-full gap-3">
+        <CardContent className="flex flex-col items-end justify-start w-full gap-2 sm:gap-5">
           <p className="text-xs sm:text-base leading-6 sm:leading-7 dark:text-gray-300 w-full">
             {data.summary}
           </p>
@@ -33,7 +33,7 @@ type Props = { data: FeaturedArticlesSchema; lang: LangSchema };
 
 export function FeaturedArticles({ data, lang }: Props) {
   return (
-    <section className="mb-20">
+    <section className="mb-10 sm:mb-20">
       <div className="container flex flex-col justify-start items-start gap-5">
         <h2 className="font-semibold text-lg sm:text-2xl sm:mb-5">
           {data.title}
