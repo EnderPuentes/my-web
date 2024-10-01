@@ -62,6 +62,8 @@ export const multiContentType = defineType({
             languageAlternatives: [
               { title: 'TypeScript', value: 'typescript' },
               { title: 'JavaScript', value: 'javascript' },
+              { title: 'JSX', value: 'jsx' },
+              { title: 'TSX', value: 'tsx' },
               { title: 'HTML', value: 'html' },
               { title: 'CSS', value: 'css' },
               { title: 'Python', value: 'python' },
