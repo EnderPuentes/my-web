@@ -2,6 +2,7 @@ import { Education } from '@/components/sections/logbook/education';
 import { Expertise } from '@/components/sections/logbook/expertise';
 import { Identity } from '@/components/sections/logbook/identity';
 import { Skills } from '@/components/sections/logbook/skills';
+import { shareMetadata } from '@/lib/metadata';
 import { LangSchema } from '@/services/sanity/parser';
 import { getLogbookPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
@@ -18,11 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getLogbookPage(params.lang);
 
   return {
+    ...shareMetadata,
     title: data?.meta.title,
     description: data?.meta.description,
     openGraph: {
+      ...shareMetadata.openGraph,
       title: data?.meta.title,
       description: data?.meta.description,
+      url: new URL(`${BASE_URL}/${params.lang}/logbook`),
     },
     metadataBase: new URL(`${BASE_URL}/${params.lang}/logbook`),
     keywords: data?.meta.keywords?.join(', ') || '',

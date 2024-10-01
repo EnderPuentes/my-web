@@ -1,4 +1,5 @@
 import { NotFoundMessage } from '@/components/sections/notFound/message';
+import { shareMetadata } from '@/lib/metadata';
 import { LangSchema } from '@/services/sanity/parser';
 import { getNotFoundPage } from '@/services/sanity/request';
 import { Metadata } from 'next';
@@ -15,13 +16,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getNotFoundPage(params.lang);
 
   return {
+    ...shareMetadata,
     title: data?.meta.title,
     description: data?.meta.description,
     openGraph: {
+      ...shareMetadata.openGraph,
       title: data?.meta.title,
       description: data?.meta.description,
+      url: new URL(`${BASE_URL}/${params.lang}/404`),
     },
-    metadataBase: new URL(`${BASE_URL}/${params.lang}/logbook`),
+    metadataBase: new URL(`${BASE_URL}/${params.lang}/404`),
     keywords: data?.meta.keywords?.join(', ') || '',
   };
 }

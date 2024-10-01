@@ -1,5 +1,13 @@
 
 
+# [0.12.0](https://github.com/EnderPuentes/my-web/compare/0.11.0...0.12.0) (2024-10-01)
+
+
+### Features
+
+* **lib:** add shareMetadata ([b7c887e](https://github.com/EnderPuentes/my-web/commit/b7c887e814e1316b67ad9f05f8a3dfd12a4c853c))
+* **metadata:** refactor metadata global ([bcffb7b](https://github.com/EnderPuentes/my-web/commit/bcffb7bc87b4c3e27917d1a277c3828df133f557))
+
 # [0.11.0](https://github.com/EnderPuentes/my-web/compare/0.10.0...0.11.0) (2024-10-01)
 
 
