@@ -20,7 +20,7 @@ const Text: PortableTextComponents = {
 
   marks: {
     strong: ({ children }) => (
-      <strong className="font-semibold">{children}</strong>
+      <strong className="font-semibold dark:text-white">{children}</strong>
     ),
     em: ({ children }) => (
       <em className="italic text-gray-400 dark:text-white">{children}</em>
