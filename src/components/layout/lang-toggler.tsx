@@ -15,13 +15,18 @@ export function LangToggler({ lang }: Props) {
 
   async function setLang(newLang: LangSchema) {
     if (pathname.includes('/blog/')) {
+      const slug = pathname.replace(`/${lang}/blog/`, '');
+
       const slugTranslate = await getBlogArticleSlugTranslate(
         lang,
         newLang,
-        pathname.replace(`/${lang}/blog/`, '')
+        slug
       );
+
       if (slugTranslate) {
         router.push(`/${newLang}/blog/${slugTranslate}`);
+      } else {
+        router.push(`/${newLang}/blog/${slug}`);
       }
     } else {
       router.push(pathname.replace(`/${lang}`, `/${newLang}`));
