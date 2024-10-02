@@ -12,6 +12,8 @@ type Props = {
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
+export const revalidate = 86400;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await getNotFoundPage(params.lang);
 
@@ -30,13 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export const revalidate = 86400;
-
 export default async function NotFound({ params }: Props) {
   const data = await getNotFoundPage(params.lang);
-  return (
-    <section className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center text-center -mt-20 bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark">
-      <NotFoundMessage data={data} />
-    </section>
-  );
+  return <NotFoundMessage data={data} lang={params.lang} className="-mt-20" />;
 }
