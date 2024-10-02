@@ -1,5 +1,20 @@
 
 
+# [0.14.0](https://github.com/EnderPuentes/my-web/compare/0.13.0...0.14.0) (2024-10-02)
+
+
+### Bug Fixes
+
+* **lang-toggler:** resolve change languaje for 404 in blog ([3c1643f](https://github.com/EnderPuentes/my-web/commit/3c1643f3155bff6942bdcf76733fa46e93426cf9))
+
+
+### Features
+
+* **[...not-found]:** refactor notfound pages for [@site](https://github.com/site) and [@pdf](https://github.com/pdf) parallel routes ([3976540](https://github.com/EnderPuentes/my-web/commit/39765407ba365a58411a8594981daa9edc814ace))
+* **middleware:** replace use cokkies variables to header variables and add lang variable ([95559fe](https://github.com/EnderPuentes/my-web/commit/95559fe52b5f291943e94bd4a9c9dcfc2576d5aa))
+* **notFound:** add not-found component to [@site](https://github.com/site) and [@pdf](https://github.com/pdf) parallel routes and refactor not found message component ([8510ba3](https://github.com/EnderPuentes/my-web/commit/8510ba3eb00689568a19cb8d7cd9495f1fcd2663))
+* **pages/home:** replace get variables of cookies to headers ([adcd049](https://github.com/EnderPuentes/my-web/commit/adcd049745589147913c976b4c5d27b6cfd952a9))
+
 # [0.13.0](https://github.com/EnderPuentes/my-web/compare/0.12.0...0.13.0) (2024-10-01)
 
 
