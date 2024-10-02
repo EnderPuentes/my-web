@@ -2,11 +2,12 @@ import { About } from '@/components/sections/home/about';
 import { Contact } from '@/components/sections/home/contact';
 import { FeaturedArticles } from '@/components/sections/home/featuredArticles';
 import { Hero } from '@/components/sections/home/hero';
+import countries from '@/lib/countries';
 import { shareMetadata } from '@/lib/metadata';
 import { LangSchema } from '@/services/sanity/parser';
 import { getHomePage } from '@/services/sanity/request';
 import { Metadata } from 'next';
-import { cookies } from 'next/headers';
+import { headers } from 'next/headers';
 
 type Props = {
   params: {
@@ -37,10 +38,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const revalidate = 3600;
 
 export default async function Home({ params }: Props) {
-  const cookieStore = cookies();
+  const headersList = headers();
 
-  const city = cookieStore.get('city')?.value ?? 'Buenos Aires';
-  const flag = cookieStore.get('flag')?.value ?? '🇦🇷';
+  const city = headersList.get('x-city') ?? 'Buenos Aires';
+  const country = headersList.get('x-country') ?? 'AR';
+  const flag = countries.find((x) => x.cca2 === country)?.flag ?? '🇦🇷';
 
   const data = await getHomePage(params.lang);
 
