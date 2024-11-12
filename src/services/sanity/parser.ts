@@ -169,7 +169,7 @@ const featuredArticleItemSchema = z.object({
     label: z.string(),
     value: z.string(),
   }),
-  updateAt: z.string(),
+  createdAt: z.string(),
 });
 
 export type FeaturedArticlesItemSchema = z.infer<
@@ -341,7 +341,7 @@ export const logbookSchema = z.object({
 export const blogArticleSchema = z.object({
   meta: metaSchema,
   title: z.string(),
-  updateAt: z.string(),
+  createdAt: z.string(),
   summary: z.string(),
   content: multiContentSchema,
   estimatedReadingTime: z.object({

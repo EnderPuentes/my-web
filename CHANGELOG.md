@@ -1,5 +1,13 @@
 
 
+# [0.16.0](https://github.com/EnderPuentes/my-web/compare/0.15.0...0.16.0) (2024-11-12)
+
+
+### Features
+
+* **featuredArticle:** add estimated reading time ([fe5a4d1](https://github.com/EnderPuentes/my-web/commit/fe5a4d194ce1d23329ad3d2dce8b6879a1a57b2a))
+* **featuredArticle:** styles mobile ([b66de3b](https://github.com/EnderPuentes/my-web/commit/b66de3be536b2450c7f18885b56d0754fef53a01))
+
 # [0.15.0](https://github.com/EnderPuentes/my-web/compare/0.14.0...0.15.0) (2024-11-12)
 
 

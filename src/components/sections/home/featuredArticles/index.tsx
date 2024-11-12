@@ -6,6 +6,7 @@ import {
   LangSchema,
 } from '@/services/sanity/parser';
 import Link from 'next/link';
+import { PiClockBold } from 'react-icons/pi';
 
 type ItemProps = { data: FeaturedArticlesItemSchema; lang: LangSchema };
 
@@ -20,9 +21,15 @@ function FeaturedArticlesItem({ data, lang }: ItemProps) {
           <p className="text-xs sm:text-base leading-6 sm:leading-7 dark:text-gray-300 w-full">
             {data.summary}
           </p>
-          <span className="text-2xs">
-            {formatDateByLang(data.updateAt, lang)}
-          </span>
+          <div className="flex justify-between w-full mt-4 sm:mt-0">
+            <span className="text-xs flex items-center gap-2">
+              <PiClockBold className="text-lg" />
+              {data.estimatedReadingTime.value}
+            </span>
+            <span className="text-xs">
+              {formatDateByLang(data.createdAt, lang)}
+            </span>
+          </div>
         </CardContent>
       </Card>
     </Link>
