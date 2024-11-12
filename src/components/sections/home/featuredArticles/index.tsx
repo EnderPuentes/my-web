@@ -21,12 +21,12 @@ function FeaturedArticlesItem({ data, lang }: ItemProps) {
           <p className="text-xs sm:text-base leading-6 sm:leading-7 dark:text-gray-300 w-full">
             {data.summary}
           </p>
-          <div className="flex justify-between w-full">
-            <span className="text-2xs flex items-center gap-2">
+          <div className="flex justify-between w-full mt-4 sm:mt-0">
+            <span className="text-xs flex items-center gap-2">
               <PiClockBold className="text-lg" />
               {data.estimatedReadingTime.value}
             </span>
-            <span className="text-2xs">
+            <span className="text-xs">
               {formatDateByLang(data.createdAt, lang)}
             </span>
           </div>
