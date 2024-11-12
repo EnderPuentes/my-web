@@ -47,7 +47,7 @@ export default async function BlogArticle({ params }: Props) {
     <>
       <ArticleHead
         title={data.title}
-        publishAt={formatDateByLang(data.updateAt, params.lang)}
+        publishAt={formatDateByLang(data.createdAt, params.lang)}
         estimatedReadingTime={data.estimatedReadingTime}
       />
       <MultiContent data={data.content} />

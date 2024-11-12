@@ -19,7 +19,7 @@ export const getHomeQuery = groq`
                     ...@-> {
                         title,
                         summary,
-                        'updateAt': _updatedAt,
+                        'createdAt': _createdAt,
                         'slug': slug.current,
                         estimatedReadingTime{
                             ...
@@ -40,7 +40,7 @@ export const getLogbookQuery = groq`
 export const getBlogArticleQuery = groq`
     *[_type == "article" && language == $lang && slug.current == $slug][0]{
         ...,
-        'updateAt': _updatedAt
+        'createdAt': _createdAt
     }
 `;
 

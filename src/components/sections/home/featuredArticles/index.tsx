@@ -21,7 +21,7 @@ function FeaturedArticlesItem({ data, lang }: ItemProps) {
             {data.summary}
           </p>
           <span className="text-2xs">
-            {formatDateByLang(data.updateAt, lang)}
+            {formatDateByLang(data.createdAt, lang)}
           </span>
         </CardContent>
       </Card>
