@@ -17,12 +17,16 @@ export const multiContentType = defineType({
           type: 'block',
           styles: [
             {
-              title: 'Paragraph',
+              title: 'p',
               value: 'normal',
             },
             {
-              title: 'Title',
-              value: 'h1',
+              title: 'h2',
+              value: 'h2',
+            },
+            {
+              title: 'h3',
+              value: 'h3',
             },
           ],
           lists: [

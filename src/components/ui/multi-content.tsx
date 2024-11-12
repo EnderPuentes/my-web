@@ -6,8 +6,13 @@ import { CodeBlock } from './code-block';
 
 const Text: PortableTextComponents = {
   block: {
-    h1: ({ children }) => (
-      <h3 className="font-semibold text-md sm:text-2xl my-5 sm:my-10">
+    h2: ({ children }) => (
+      <h2 className="font-semibold text-md sm:text-2xl my-5 sm:my-10">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="font-semibold text-sm sm:text-xl my-5 sm:my-10">
         {children}
       </h3>
     ),
