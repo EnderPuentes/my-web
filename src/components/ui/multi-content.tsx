@@ -12,7 +12,7 @@ const Text: PortableTextComponents = {
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="font-semibold text-sm sm:text-xl my-5 sm:my-10">
+      <h3 className="font-semibold text-sm sm:text-xl my-3 sm:my-6">
         {children}
       </h3>
     ),
