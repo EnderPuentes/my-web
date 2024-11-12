@@ -69,11 +69,12 @@ export const articlePageType = defineType({
     select: {
       title: 'meta.title',
       slug: 'slug',
+      lang: 'language',
     },
-    prepare({ title, slug }) {
+    prepare({ title, slug, lang }) {
       return {
         title: title || 'Article',
-        subtitle: `/[lang]/blog/${slug.current}`,
+        subtitle: `/${lang}/blog/${slug.current}`,
       };
     },
   },

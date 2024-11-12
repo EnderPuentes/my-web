@@ -1,5 +1,13 @@
 
 
+# [0.15.0](https://github.com/EnderPuentes/my-web/compare/0.14.0...0.15.0) (2024-11-12)
+
+
+### Features
+
+* **multicontent:** replace h1 for h2 and add h3 styles ([3edc4aa](https://github.com/EnderPuentes/my-web/commit/3edc4aa44f0d5948743be2ffc30c4cf41428d37e))
+* **sanity/schemas/article:** add lang to url path preview ([a838ac3](https://github.com/EnderPuentes/my-web/commit/a838ac3e9b1a4a57bd9dbca57d09afddbafaa32e))
+
 # [0.14.0](https://github.com/EnderPuentes/my-web/compare/0.13.0...0.14.0) (2024-10-02)
 
 
