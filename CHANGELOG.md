@@ -1,5 +1,12 @@
 
 
+# [0.17.0](https://github.com/EnderPuentes/my-web/compare/0.16.0...0.17.0) (2024-11-23)
+
+
+### Features
+
+* **logbook/expertise:** add logo company jobs ([7c268d6](https://github.com/EnderPuentes/my-web/commit/7c268d66a923ba7a552c6d3d52315eda17d3fe1f))
+
 # [0.16.0](https://github.com/EnderPuentes/my-web/compare/0.15.0...0.16.0) (2024-11-12)
 
 

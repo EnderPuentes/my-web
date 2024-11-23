@@ -4,7 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { urlFor } from '@/services/sanity/lib/image';
 import { ExpertiseSchema, JobSchema } from '@/services/sanity/parser';
+import Image from 'next/image';
 import Link from 'next/link';
 
 type JobResumeProps = {
@@ -13,23 +15,28 @@ type JobResumeProps = {
 
 function JobResume({ job }: JobResumeProps) {
   return (
-    <div className="flex flex-col justify-start items-start gap-1 mb-2">
-      {job.company.website ? (
-        <Link
-          aria-label={job.company.name}
-          href={job.company.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-base sm:text-lg"
-        >
-          {job.company.name}
-        </Link>
-      ) : (
-        <span className="text-base sm:text-lg">{job.company.name}</span>
-      )}
-      <p className="text-xs sm:text-base font-light dark:text-gray-300">
-        {job.position}, {job.startDate} - {job.endDate}
-      </p>
+    <div className='flex justify-start items-center gap-5'>
+      <div className='w-[40px] h-[40px] sm:w-[40px] sm:h-[40px] flex justify-center items-center bg-slate-100 dark:bg-white rounded-full'>
+        <Image src={urlFor(job.company.image).url()} alt={job.company.name} height={25} width={25} quality={100} />
+      </div>
+      <div className="flex flex-col justify-start items-start gap-1 mb-2">
+        {job.company.website ? (
+          <Link
+            aria-label={job.company.name}
+            href={job.company.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-base sm:text-lg hover:underline"
+          >
+            {job.company.name}
+          </Link>
+        ) : (
+          <span className="text-base sm:text-lg">{job.company.name}</span>
+        )}
+        <p className="text-xs sm:text-base text-left font-light leading-5 dark:text-gray-300">
+          {job.position}, <br className='sm:hidden' /> {job.startDate} - {job.endDate}
+        </p>
+      </div>
     </div>
   );
 }

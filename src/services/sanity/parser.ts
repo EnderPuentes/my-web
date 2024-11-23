@@ -279,6 +279,7 @@ const jobSchema = z.object({
     name: z.string(),
     description: z.string(),
     website: z.string().url().optional(),
+    image: imageSchema,
   }),
   responsabilities: z.array(z.string()),
   technologies: z.string(),
