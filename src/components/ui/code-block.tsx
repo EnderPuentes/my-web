@@ -7,7 +7,7 @@ import python from 'refractor/lang/python';
 import tsx from 'refractor/lang/tsx';
 import typescript from 'refractor/lang/typescript';
 
-import 'prism-themes/themes/prism-dracula.css';
+import 'prism-themes/themes/prism-one-dark.css';
 import { CopyTextButton } from './action-button';
 
 registerLanguage(bash);
