@@ -21,7 +21,7 @@ export function CursorGradient() {
     <div
       className="hidden dark:sm:block fixed top-0 left-0 w-full h-full pointer-events-none"
       style={{
-        background: `radial-gradient(600px at ${position.x}px ${position.y}px, rgba(26, 1, 77, 0.15), transparent 80%)`,
+        background: `radial-gradient(600px at ${position.x}px ${position.y}px, rgba(2, 250, 250, 0.10), transparent 80%)`,
       }}
     />
   );
