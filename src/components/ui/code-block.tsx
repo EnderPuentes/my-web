@@ -24,7 +24,7 @@ type Props = {
 
 export function CodeBlock({ code, language }: Props) {
   return (
-    <div className="mb-5 relative">
+    <div className="mb-5 relative ">
       <CopyTextButton
         text={code}
         className="sm:text-xl absolute top-2 right-2"
@@ -32,7 +32,7 @@ export function CodeBlock({ code, language }: Props) {
       <Refractor
         language={language}
         value={code}
-        className="text-xs sm:text-sm"
+        className="text-xs sm:text-sm !bg-slate-900 !rounded-lg refractor"
       />
     </div>
   );
