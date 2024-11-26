@@ -1,4 +1,5 @@
-import { CopyUrlButton } from "@/components/ui/action-button";
+import { CopyUrlButton } from '@/components/ui/action-button';
+import { PiClockBold } from 'react-icons/pi';
 
 type Props = {
   title: string;
@@ -19,11 +20,15 @@ export function ArticleHead({ title, publishAt, estimatedReadingTime }: Props) {
         <div className="flex justify-start items-center gap-4">
           <span className="text-2xs">{publishAt}</span>
           <span className="h-5 border-l" />
-          <span className="text-2xs">
-            {`${estimatedReadingTime.label}: ${estimatedReadingTime.value}`}
+          <span className="text-xs flex items-center gap-2">
+            <PiClockBold
+              className="text-lg"
+              title={estimatedReadingTime.label}
+            />
+            {estimatedReadingTime.value}
           </span>
           <span className="h-5 border-l" />
-          <CopyUrlButton className="sm:text-xl"/>
+          <CopyUrlButton className="sm:text-xl" />
         </div>
         <span className="border-b w-full block mt-5" />
       </div>

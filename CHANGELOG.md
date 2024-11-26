@@ -1,5 +1,7 @@
 
 
+## [0.17.1](https://github.com/EnderPuentes/my-web/compare/0.17.0...0.17.1) (2024-11-26)
+
 # [0.17.0](https://github.com/EnderPuentes/my-web/compare/0.16.0...0.17.0) (2024-11-23)
 
 
