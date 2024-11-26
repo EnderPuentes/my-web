@@ -92,8 +92,8 @@ export function Hero({ data, lang }: Props) {
   return (
     <div className="flex justify-center items-center bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark -mt-20 pt-28 pb-5">
       <div className="container">
-        <div className="bg-gray-800 dark:bg-black rounded-lg shadow-lg overflow-hidden w-full">
-          <div className="bg-gray-600 dark:bg-gray-800 text-gray-300 p-3 flex items-center space-x-2 w-full">
+        <div className="bg-gray-800 dark:bg-slate-950 rounded-xl shadow-lg overflow-hidden w-full">
+          <div className="bg-gray-600 dark:bg-slate-950 border border-slate-800 p-3 flex items-center space-x-2 w-full">
             <span className="block w-3 h-3 rounded-full bg-red-500"></span>
             <span className="block w-3 h-3 rounded-full bg-yellow-500"></span>
             <span className="block w-3 h-3 rounded-full bg-green-500"></span>
@@ -101,7 +101,7 @@ export function Hero({ data, lang }: Props) {
           <div
             ref={containerRef}
             onClick={handleClickContainer}
-            className="px-3 py-6 sm:px-6 h-[340px] md:h-[480px] overflow-auto scroll-smooth focus:scroll-auto"
+            className="px-3 py-6 sm:px-6 h-[340px] md:h-[480px] overflow-auto scroll-smooth focus:scroll-auto border border-slate-800"
           >
             {onIntro ? (
               <pre className="font-mono whitespace-pre-wrap text-xs sm:text-base leading-5 sm:leading-7 flex justify-start items-start gap-1">
