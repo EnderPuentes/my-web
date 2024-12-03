@@ -1,5 +1,12 @@
 
 
+## [0.18.3](https://github.com/EnderPuentes/my-web/compare/0.18.2...0.18.3) (2024-12-03)
+
+
+### Bug Fixes
+
+* **sanity/queries:** add created order desc for getBlogArticlesQuery function ([c8617de](https://github.com/EnderPuentes/my-web/commit/c8617de6cdbde11cbe87572da3e75d2126b1534d))
+
 ## [0.18.2](https://github.com/EnderPuentes/my-web/compare/0.18.1...0.18.2) (2024-12-03)
 
 
