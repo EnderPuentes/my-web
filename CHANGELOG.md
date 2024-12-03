@@ -1,5 +1,12 @@
 
 
+## [0.18.2](https://github.com/EnderPuentes/my-web/compare/0.18.1...0.18.2) (2024-12-03)
+
+
+### Bug Fixes
+
+* **blog:** space  between articles ([141df30](https://github.com/EnderPuentes/my-web/commit/141df30e4d74e762755c39e1c71284d570dc0108))
+
 ## [0.18.1](https://github.com/EnderPuentes/my-web/compare/0.18.0...0.18.1) (2024-12-03)
 
 
