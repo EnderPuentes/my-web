@@ -31,7 +31,7 @@ export function Logo({}: Props) {
         </span>
         <span className="font-bold animate-blink">_</span>
       </h1>
-      <span className="text-3xs font-light">Software Developer</span>
+      <span className="block text-3xs font-light">Software Developer</span>
     </>
   );
 }
