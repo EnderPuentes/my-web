@@ -17,11 +17,11 @@ export function Menu({ icon, navbar, lang }: MenuProps) {
     <>
       <Sheet>
         <SheetTrigger> {icon}</SheetTrigger>
-        <SheetContent className="p-0">
+        <SheetContent className="p-0 flex flex-col">
           <div className="p-5 border-b ">
             <Logo />
           </div>
-          <div className="flex flex-col justify-between items-start h-[calc(100vh-80px)]">
+          <div className="flex flex-col justify-between items-start flex-1">
             <nav className="flex flex-col justify-between items-start gap-5 w-full py-10 px-5">
               {navbar?.items.map((it, i) => (
                 <Link
