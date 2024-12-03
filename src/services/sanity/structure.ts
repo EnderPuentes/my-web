@@ -38,6 +38,10 @@ export const structure: StructureResolver = (S) =>
                   S.document().schemaType('logbook').documentId('logbook')
                 ),
               S.listItem()
+                .title('Blog')
+                .icon(PiBook)
+                .child(S.document().schemaType('blog').documentId('blog')),
+              S.listItem()
                 .title('NotFound')
                 .icon(PiBook)
                 .child(

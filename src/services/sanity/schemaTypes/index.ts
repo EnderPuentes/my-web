@@ -18,6 +18,7 @@ import { identitySectionType } from './sections/identityType';
 import { skillsSectionType } from './sections/skillsType';
 // Pages
 import { articlePageType } from './pages/articleType';
+import { blogPageType } from './pages/blogType';
 import { homePageType } from './pages/homeType';
 import { logbookPageType } from './pages/logbookType';
 import { notFoundPageType } from './pages/notFoundType';
@@ -45,6 +46,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     skillsSectionType,
     // Pages
     articlePageType,
+    blogPageType,
     homePageType,
     logbookPageType,
     notFoundPageType,

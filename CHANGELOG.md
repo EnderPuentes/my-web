@@ -1,5 +1,16 @@
 
 
+# [0.18.0](https://github.com/EnderPuentes/my-web/compare/0.17.1...0.18.0) (2024-12-03)
+
+
+### Features
+
+* **components/layout/header:** implement menu component ([dd7c42c](https://github.com/EnderPuentes/my-web/commit/dd7c42cdba52a8eb929fcc2de44e70f6ac835905))
+* **components/layout:** add menu component ([5edbbf4](https://github.com/EnderPuentes/my-web/commit/5edbbf4db0fbf234e802bce60e5b4cf715f09118))
+* **components/ui:** add shadcn sheet component ([10310ad](https://github.com/EnderPuentes/my-web/commit/10310adab3369e98e515c6362201db559bbeedbf))
+* **pages:** add blog page ([a84c659](https://github.com/EnderPuentes/my-web/commit/a84c6599a3d73ab7969f66a17584f735daa13ac1))
+* **sanity:** add blog home schema ([6e7cbf5](https://github.com/EnderPuentes/my-web/commit/6e7cbf58fa4eff41f6aeaba2d4d4bd3bfab0679f))
+
 ## [0.17.1](https://github.com/EnderPuentes/my-web/compare/0.17.0...0.17.1) (2024-11-26)
 
 # [0.17.0](https://github.com/EnderPuentes/my-web/compare/0.16.0...0.17.0) (2024-11-23)

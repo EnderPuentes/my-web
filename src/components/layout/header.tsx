@@ -1,8 +1,8 @@
 import { Logo } from '@/components/layout/logo';
-import { ThemeToggler } from '@/components/layout/theme-toggler';
 import { HeaderSchema, LangSchema } from '@/services/sanity/parser';
 import Link from 'next/link';
-import { LangToggler } from './lang-toggler';
+import { PiListBold } from 'react-icons/pi';
+import { Menu } from './menu';
 
 type Props = { data: HeaderSchema | null | undefined; lang: LangSchema };
 
@@ -16,22 +16,15 @@ export function Header({ data, lang }: Props) {
         >
           <Logo />
         </Link>
+
         <div className="flex justify-between items-center gap-6">
-          {data?.navbar.items.map((it, i) => (
-            <Link
-              key={i}
-              aria-label={it.title}
-              className="text-base"
-              href={`/${lang}${it.path}`}
-              title={it.title}
-            >
-              {it.title}
-            </Link>
-          ))}
-          <div className="flex items-center gap-1">
-            <LangToggler lang={lang} />
-            <ThemeToggler />
-          </div>
+          {data && data.navbar ? (
+            <Menu
+              icon={<PiListBold className="text-3xl" />}
+              navbar={data.navbar}
+              lang={lang}
+            />
+          ) : null}
         </div>
       </div>
     </header>

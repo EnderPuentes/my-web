@@ -2,8 +2,10 @@ import { z } from 'zod';
 import { getClient } from './lib/client';
 // Parsers
 import {
+  articlesSchema,
   blogArticleSchema,
   blogArticleUrlSchema,
+  blogSchema,
   homeSchema,
   LangSchema,
   layoutSchema,
@@ -14,7 +16,9 @@ import {
 import {
   getBlogArticleQuery,
   getBlogArticlesForSitemapQuery,
+  getBlogArticlesQuery,
   getBlogArticleTranslateSlugsQuery,
+  getBlogQuery,
   getHomeQuery,
   getLayoutQuery,
   getLogbookQuery,
@@ -43,6 +47,22 @@ export async function getLogbookPage(lang: LangSchema, preview?: boolean) {
     .nullish()
     .promise()
     .parse(client.fetch(getLogbookQuery, { lang }));
+}
+
+export async function getBlogPage(lang: LangSchema, preview?: boolean) {
+  const client = getClient(preview, true);
+  return await blogSchema
+    .nullish()
+    .promise()
+    .parse(client.fetch(getBlogQuery, { lang }));
+}
+
+export async function getBlogArticles(lang: LangSchema, preview?: boolean) {
+  const client = getClient(preview, true);
+  return await articlesSchema
+    .nullish()
+    .promise()
+    .parse(client.fetch(getBlogArticlesQuery, { lang }));
 }
 
 export async function getBlogArticlePage(

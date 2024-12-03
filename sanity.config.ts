@@ -35,7 +35,7 @@ export default defineConfig({
         { id: 'en', title: 'English' },
         { id: 'es', title: 'Spanish' },
       ],
-      schemaTypes: ['article', 'home', 'logbook', 'notFound', 'layout'],
+      schemaTypes: ['article', 'blog', 'home', 'logbook', 'notFound', 'layout'],
     }),
     codeInput(),
   ],
