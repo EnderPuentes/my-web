@@ -159,9 +159,7 @@ const aboutSchema = z.object({
 
 export type AboutSchema = z.infer<typeof aboutSchema>;
 
-const featuredArticleItemSchema = z.object({
-  _key: z.string(),
-  _type: z.literal('reference'),
+const articleItemSchema = z.object({
   slug: z.string(),
   title: z.string(),
   summary: z.string(),
@@ -172,7 +170,16 @@ const featuredArticleItemSchema = z.object({
   createdAt: z.string(),
 });
 
-export type FeaturedArticlesItemSchema = z.infer<
+export type ArticleItemSchema = z.infer<typeof articleItemSchema>;
+
+export const articlesSchema = articleItemSchema.array();
+
+const featuredArticleItemSchema = articleItemSchema.extend({
+  _key: z.string(),
+  _type: z.literal('reference'),
+});
+
+export type FeaturedArticleItemSchema = z.infer<
   typeof featuredArticleItemSchema
 >;
 
@@ -337,6 +344,12 @@ export const logbookSchema = z.object({
     .union([identitySchema, expertiseSchema, skillsSchema, educationSchema])
     .and(z.object({ _key: z.string() }))
     .array(),
+});
+
+export const blogSchema = z.object({
+  meta: metaSchema,
+  title: z.string(),
+  description: z.string(),
 });
 
 export const blogArticleSchema = z.object({

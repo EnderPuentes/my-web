@@ -37,6 +37,25 @@ export const getLogbookQuery = groq`
     }
 `;
 
+export const getBlogQuery = groq`
+    *[_type == "blog" && language == $lang][0]{
+        ...
+    }
+`;
+
+export const getBlogArticlesQuery = groq`
+    *[_type == "article" && language == $lang]{
+        ...,
+        title,
+        summary,
+        'createdAt': _createdAt,
+        'slug': slug.current,
+        estimatedReadingTime{
+            ...
+        }
+    }
+`;
+
 export const getBlogArticleQuery = groq`
     *[_type == "article" && language == $lang && slug.current == $slug][0]{
         ...,
