@@ -44,7 +44,7 @@ export const getBlogQuery = groq`
 `;
 
 export const getBlogArticlesQuery = groq`
-    *[_type == "article" && language == $lang]{
+    *[_type == "article" && language == $lang] | order(_createdAt desc){
         ...,
         title,
         summary,
