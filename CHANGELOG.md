@@ -1,5 +1,12 @@
 
 
+## [0.18.1](https://github.com/EnderPuentes/my-web/compare/0.18.0...0.18.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* **components/menu:** resolve height ([946fb0c](https://github.com/EnderPuentes/my-web/commit/946fb0c28b2b2d753cdd18abe3ee1b9a82f84f37))
+
 # [0.18.0](https://github.com/EnderPuentes/my-web/compare/0.17.1...0.18.0) (2024-12-03)
 
 
