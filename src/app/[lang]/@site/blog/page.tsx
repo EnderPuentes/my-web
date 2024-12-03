@@ -51,7 +51,7 @@ export default async function Logbook({ params }: Props) {
         </div>
       </section>
       <section className="py-5 sm:py-10">
-        <div className="container">
+        <div className="container grid grid-cols-1 gap-5">
           {articles?.map((article) => (
             <ArticleItem key={article.slug} lang={params.lang} data={article} />
           ))}
