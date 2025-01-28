@@ -1,5 +1,17 @@
 
 
+# [0.19.0](https://github.com/EnderPuentes/my-web/compare/0.18.3...0.19.0) (2025-01-28)
+
+
+### Bug Fixes
+
+* **layout:** ensure strict boolean conversion for PDF rendering ([cdb7f80](https://github.com/EnderPuentes/my-web/commit/cdb7f80a870983aaabae7763ade6a2e939d4e0b6))
+
+
+### Features
+
+* **hero:** add new command for blog navigation ([e67b675](https://github.com/EnderPuentes/my-web/commit/e67b675fad6661d92bf401c3ee81252d01af1857))
+
 ## [0.18.3](https://github.com/EnderPuentes/my-web/compare/0.18.2...0.18.3) (2024-12-03)
 
 

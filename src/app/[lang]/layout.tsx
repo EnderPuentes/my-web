@@ -10,6 +10,6 @@ type Props = {
 
 export default function LangLayout({ site, pdf }: Readonly<Props>) {
   const searchParams = useSearchParams();
-  const isPdf = searchParams.get('pdf');
+  const isPdf = !!searchParams.get('pdf');
   return isPdf ? pdf : site;
 }
