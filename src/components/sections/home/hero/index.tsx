@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { HeroSchema, LangSchema } from '@/services/sanity/parser';
-import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { HeroSchema, LangSchema } from "@/services/sanity/parser";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 function Prompt() {
-  return <span className="text-green-500 block w-4 sm:w-6">{'~/ '}</span>;
+  return <span className="text-green-500 block w-4 sm:w-6">{"~/ "}</span>;
 }
 
 function Command({ command }: { command: string }) {
@@ -23,13 +23,13 @@ function Command({ command }: { command: string }) {
 type Props = { data: HeroSchema; lang: LangSchema };
 
 export function Hero({ data, lang }: Props) {
-  const [introMessage, setIntroMessage] = useState('');
+  const [introMessage, setIntroMessage] = useState("");
   const [indexIntroMessage, setIndexIntroMessage] = useState(0);
 
   const [onIntro, setOnIntro] = useState(true);
   const [onActions, setOnActions] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,26 +40,30 @@ export function Hero({ data, lang }: Props) {
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       setHistory((prev) => [...prev, input]);
 
       switch (input.trim().toLowerCase()) {
-        case '--logbook':
-        case '--bitacora':
-        case '--bitácora':
+        case "--logbook":
+        case "--bitacora":
+        case "--bitácora":
           router.push(`${lang}/logbook`);
           break;
-        case '--contact':
-        case '--contacto':
+        case "--contact":
+        case "--contacto":
           router.push(`${lang}/#contact`);
           break;
-        case '--clear':
-        case '--borrar':
+        case "--stellar-highlights":
+        case "--destellos-estelares":
+          router.push(`${lang}/blog`);
+          break;
+        case "--clear":
+        case "--borrar":
           setHistory([]);
           setOnIntro(false);
           break;
-        case '--help':
-        case '--ayuda':
+        case "--help":
+        case "--ayuda":
           setHistory((prev) => [...prev, data.commands.help]);
           break;
         default:
@@ -67,7 +71,7 @@ export function Hero({ data, lang }: Props) {
           break;
       }
 
-      setInput('');
+      setInput("");
     }
   }
 
