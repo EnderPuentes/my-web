@@ -1,5 +1,6 @@
 {
   "name": "my-web",
+  "description": "My personal website enderpuentes.com",
   "version": "0.18.3",
   "private": true,
   "scripts": {
