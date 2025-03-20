@@ -1,5 +1,12 @@
 
 
+# [0.20.0](https://github.com/EnderPuentes/my-web/compare/0.19.0...0.20.0) (2025-03-20)
+
+
+### Features
+
+* add signature ([dac44fe](https://github.com/EnderPuentes/my-web/commit/dac44fe61221569ddecda42b79ff732b6d632fcf))
+
 # [0.19.0](https://github.com/EnderPuentes/my-web/compare/0.18.3...0.19.0) (2025-01-28)
 
 
