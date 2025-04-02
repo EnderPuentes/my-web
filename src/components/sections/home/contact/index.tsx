@@ -18,7 +18,7 @@ import { useReCaptcha } from "next-recaptcha-v3";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
-import { PiPaperPlaneTilt, PiRocketLaunch, PiSpinner } from "react-icons/pi";
+import { PiPaperPlaneTilt, PiSpinner } from "react-icons/pi";
 import { z } from "zod";
 import { sendContactForm } from "./actions";
 
@@ -89,7 +89,7 @@ export function Contact({ data }: Props) {
         onClick={() => router.push("#contact")}
       >
         <span>
-          <PiRocketLaunch className="text-2xl" />
+          <PiPaperPlaneTilt className="text-2xl" />
         </span>
         <span className="whitespace-nowrap transition-all duration-500 ease-in-out opacity-0 max-w-0 sm:group-hover:opacity-100 sm:group-hover:max-w-full sm:group-hover:ml-3">
           {data.title}
