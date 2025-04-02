@@ -1,13 +1,15 @@
 import {
   CopyUrlButton,
   DownloadUrlButton,
-} from '@/components/ui/action-button';
-import { urlFor } from '@/services/sanity/lib/file';
-import { IdentitySchema } from '@/services/sanity/parser';
+} from "@/components/ui/action-button";
+import { urlFor } from "@/services/sanity/lib/file";
+import { IdentitySchema } from "@/services/sanity/parser";
 
 type Props = { data: IdentitySchema };
 
 export function Identity({ data }: Props) {
+  // TODO: redesign this section
+  return null;
   return (
     <section className="bg-slate-100 bg-galaxy-gradient-light dark:bg-galaxy-gradient-dark -mt-20 pt-20">
       <div className="container">

@@ -1,5 +1,5 @@
-import { Badge } from '@/components/ui/badge';
-import { SkillsCategorySchema, SkillsSchema } from '@/services/sanity/parser';
+import { Badge } from "@/components/ui/badge";
+import { SkillsCategorySchema, SkillsSchema } from "@/services/sanity/parser";
 
 type SkillCategoryProps = {
   data: SkillsCategorySchema;
@@ -13,7 +13,8 @@ function SkillCategory({ data }: SkillCategoryProps) {
         {data.technologies.map((technology, iTechnology) => (
           <Badge
             key={`tecnology-${iTechnology}`}
-            className="px-3 py-1 bg-gray-100 text-gray-900 rounded-full !text-3xs font-normal"
+            className="px-3 py-1 rounded-full !text-xs font-normal"
+            variant="outline"
           >
             {technology.title}
           </Badge>

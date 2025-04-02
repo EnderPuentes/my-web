@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -8,19 +8,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/use-toast';
-import { ContactSchema } from '@/services/sanity/parser';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useReCaptcha } from 'next-recaptcha-v3';
-import { useRouter } from 'next/navigation';
-import { useTransition } from 'react';
-import { useForm } from 'react-hook-form';
-import { PiRocketLaunch, PiSpinner } from 'react-icons/pi';
-import { z } from 'zod';
-import { sendContactForm } from './actions';
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
+import { ContactSchema } from "@/services/sanity/parser";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useReCaptcha } from "next-recaptcha-v3";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
+import { useForm } from "react-hook-form";
+import { PiPaperPlaneTilt, PiSpinner } from "react-icons/pi";
+import { z } from "zod";
+import { sendContactForm } from "./actions";
 
 type Props = {
   data: ContactSchema;
@@ -54,16 +54,16 @@ export function Contact({ data }: Props) {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
     },
   });
 
   async function onSubmit(formData: FormSchema) {
     startTransition(async () => {
       try {
-        const token = await executeRecaptcha('form_submit');
+        const token = await executeRecaptcha("form_submit");
         await sendContactForm({ ...formData, token });
 
         toast({
@@ -74,7 +74,7 @@ export function Contact({ data }: Props) {
         form.reset();
       } catch (error: any) {
         toast({
-          variant: 'destructive',
+          variant: "destructive",
           title: data.status.error.title,
           description: data.status.error.description || error.message,
         });
@@ -86,10 +86,10 @@ export function Contact({ data }: Props) {
     <section id="contact" className="mb-16 sm:mb-28">
       <Button
         className="group fixed right-5 bottom-5 flex items-center justify-center h-14 w-14 rounded-full transform transition-all duration-500 sm:hover:w-[170px] dark:bg-slate-800  dark:text-white overflow-hidden"
-        onClick={() => router.push('#contact')}
+        onClick={() => router.push("#contact")}
       >
         <span>
-          <PiRocketLaunch className="text-2xl" />
+          <PiPaperPlaneTilt className="text-2xl" />
         </span>
         <span className="whitespace-nowrap transition-all duration-500 ease-in-out opacity-0 max-w-0 sm:group-hover:opacity-100 sm:group-hover:max-w-full sm:group-hover:ml-3">
           {data.title}
@@ -179,7 +179,7 @@ export function Contact({ data }: Props) {
                     </>
                   ) : (
                     <>
-                      <PiRocketLaunch className="text-xl" />
+                      <PiPaperPlaneTilt className="text-xl" />
                       {data.loading.off}
                     </>
                   )}
