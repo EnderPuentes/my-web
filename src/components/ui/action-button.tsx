@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import { useState, useTransition } from 'react';
-import { PiCheck, PiCopy, PiDownloadSimple, PiSpinner } from 'react-icons/pi';
-import { Button } from '../ui/button';
+import { cn } from "@/lib/utils";
+import { useState, useTransition } from "react";
+import { PiCheck, PiCopy, PiDownloadSimple, PiSpinner } from "react-icons/pi";
+import { Button } from "../ui/button";
 
-export function CopyUrlButton({ className } : { className?: string }) {
+export function CopyUrlButton({ className }: { className?: string }) {
   const [copied, setCopied] = useState(false);
 
   async function handleCopy() {
@@ -14,14 +14,14 @@ export function CopyUrlButton({ className } : { className?: string }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1000);
     } catch (err) {
-      console.error('Error:', err);
+      console.error("Error:", err);
     }
   }
 
   return (
     <Button
-      variant="link"
-      className={cn('text-md sm:text-2xl p-0', className)}
+      variant="outline"
+      className={cn("text-md sm:text-2xl p-0", className)}
       onClick={handleCopy}
       title="Copy Url"
     >
@@ -45,14 +45,14 @@ export function CopyTextButton({
       setCopied(true);
       setTimeout(() => setCopied(false), 1000);
     } catch (err) {
-      console.error('Error:', err);
+      console.error("Error:", err);
     }
   }
 
   return (
     <Button
       variant="ghost"
-      className={cn('text-md sm:text-2xl px-2 text-gray-200', className)}
+      className={cn("text-md sm:text-2xl px-2 text-gray-200", className)}
       onClick={handleCopy}
       title="Copy Text"
     >
@@ -66,10 +66,10 @@ export function DownloadUrlButton({ url }: { url: string }) {
 
   async function handleDownload() {
     startTransition(async () => {
-      const a = document.createElement('a');
+      const a = document.createElement("a");
 
       a.href = url;
-      a.target = '_blank';
+      a.target = "_blank";
 
       document.body.appendChild(a);
       a.click();
