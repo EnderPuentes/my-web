@@ -1,5 +1,12 @@
 
 
+# [0.21.0](https://github.com/EnderPuentes/my-web/compare/0.20.1...0.21.0) (2025-04-02)
+
+
+### Features
+
+* **identity:** implement Identity component layout with buttons for URL actions ([5c728fa](https://github.com/EnderPuentes/my-web/commit/5c728fabc85a14df42c12200f64a3e7577149f8b))
+
 ## [0.20.1](https://github.com/EnderPuentes/my-web/compare/0.20.0...0.20.1) (2025-03-20)
 
 # [0.20.0](https://github.com/EnderPuentes/my-web/compare/0.19.0...0.20.0) (2025-03-20)

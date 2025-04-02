@@ -1,7 +1,7 @@
 {
   "name": "my-web",
   "description": "My personal website enderpuentes.com",
-  "version": "0.20.1",
+  "version": "0.21.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
