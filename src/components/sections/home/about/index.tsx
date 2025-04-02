@@ -1,13 +1,13 @@
-import { urlFor } from '@/services/sanity/lib/image';
-import { AboutSchema } from '@/services/sanity/parser';
-import Image from 'next/image';
+import { urlFor } from "@/services/sanity/lib/image";
+import { AboutSchema } from "@/services/sanity/parser";
+import Image from "next/image";
 
 type Props = { data: AboutSchema };
 
 export async function About({ data }: Props) {
   return (
     <section className="mb-10 sm:mb-20">
-      <div className="container flex flex-col justify-start items-start gap-5 px-5 mt-16 sm:mt-28">
+      <div className="container flex flex-col justify-start items-start gap-5 px-5 mt-5 sm:mt-16">
         <h2 className="font-semibold text-lg sm:text-2xl sm:mb-5">
           {data.title}
         </h2>
@@ -22,7 +22,7 @@ export async function About({ data }: Props) {
             src={urlFor(data.image).url()}
             width={500}
             height={500}
-            alt={'Ender Puentes'}
+            alt={"Ender Puentes"}
             className="rounded-xl"
           />
         </div>
