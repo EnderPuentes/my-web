@@ -1,5 +1,5 @@
-import { DegreeSchema, EducationSchema } from '@/services/sanity/parser';
-import Link from 'next/link';
+import { DegreeSchema, EducationSchema } from "@/services/sanity/parser";
+import Link from "next/link";
 
 type DegreeProps = {
   degree: DegreeSchema;
@@ -21,8 +21,8 @@ function DegreePdf({ degree }: DegreeProps) {
       ) : (
         <p className="text-md font-semibold">{degree.school.name}</p>
       )}
-      <p className="text-xs font-light">
-        <span className="font-semibold">{degree.title}</span>,{' '}
+      <p className="text-sm font-light">
+        <span className="font-semibold">{degree.title}</span>,{" "}
         {degree.startDate} - {degree.endDate}
       </p>
     </div>
